@@ -1,5 +1,6 @@
-/Dessin.class
 .classpath
 .project
 /bin
 .DS_Store
+.idea/
+*.iml
