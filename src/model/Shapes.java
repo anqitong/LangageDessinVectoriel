@@ -1,4 +1,4 @@
-package Abstraction;
+package model;
 
 public class Shapes {
 
