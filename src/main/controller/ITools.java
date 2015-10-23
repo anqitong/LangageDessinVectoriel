@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Model.Shapes;
+import model.Shapes;
 
 
 public interface ITools {
