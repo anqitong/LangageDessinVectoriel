@@ -1,4 +1,4 @@
-package View;
+package view;
 public class Drawing {
 
 	public static void main(String[] args) {
@@ -6,3 +6,5 @@ public class Drawing {
 	}
 	
 }
+
+
