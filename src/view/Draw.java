@@ -1,6 +1,6 @@
 package view;
 
-public class Drawing {
+public class Draw {
 
 	public static void main(String[] args) {
 		
