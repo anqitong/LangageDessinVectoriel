@@ -1,15 +1,16 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Line extends ShapesType {
+public class Polygone extends ShapesType {
 
 	@Override
 	public void setColor() {
-		// Do Nothing
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

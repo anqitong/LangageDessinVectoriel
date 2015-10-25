@@ -1,11 +1,11 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Polygone extends ShapesType {
+public class Ellipse extends ShapesType {
 
 	@Override
 	public void setColor() {

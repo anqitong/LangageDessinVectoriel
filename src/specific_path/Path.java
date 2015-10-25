@@ -1,4 +1,4 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 

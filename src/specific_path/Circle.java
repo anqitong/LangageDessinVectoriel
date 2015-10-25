@@ -1,18 +1,18 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Polyline extends ShapesType {
+public class Circle extends ShapesType {
 
 	@Override
 	public void setColor() {
-		// Do nothing
+		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getXML(Pencil pencil) {
 		// TODO Auto-generated method stub

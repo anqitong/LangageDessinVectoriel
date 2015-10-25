@@ -1,6 +1,6 @@
-package Controlleur;
+package controller;
 
-import Abstraction.Shapes;
+import model.Shapes;
 
 public interface ITools {
 

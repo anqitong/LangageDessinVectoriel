@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.awt.Color;
 
@@ -63,4 +63,5 @@ public abstract class ShapesType implements ShapesProperties {
 	public Color getColor(){
 		return (this.color!=null) ? this.color : null;
 	}
+
 }

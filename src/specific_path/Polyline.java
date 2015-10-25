@@ -1,18 +1,18 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Ellipse extends ShapesType {
+public class Polyline extends ShapesType {
 
 	@Override
 	public void setColor() {
-		// TODO Auto-generated method stub
+		// Do nothing
 
 	}
-
+	
 	@Override
 	public String getXML(Pencil pencil) {
 		// TODO Auto-generated method stub

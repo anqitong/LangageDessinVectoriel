@@ -1,18 +1,17 @@
-package SpecificPath;
+package specific_path;
 
 import java.awt.Color;
 
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Rectangle extends ShapesType {
+public class Line extends ShapesType {
 
 	@Override
 	public void setColor() {
-		// TODO Auto-generated method stub
-
+		// Do Nothing
 	}
-	
+
 	@Override
 	public String getXML(Pencil pencil) {
 		// TODO Auto-generated method stub
