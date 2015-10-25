@@ -48,7 +48,7 @@ public class Polygone extends ShapesType {
 		for(Point point:this.getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polygon points=\""+xml+"\" "+pencil.getXML()+" />";
+		return "<polygon points=\""+xml+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
 	}
 
 
