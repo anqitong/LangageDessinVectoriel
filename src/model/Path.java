@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * This is the type: "Chemin"
