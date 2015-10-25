@@ -5,16 +5,11 @@ import java.awt.Color;
 import Model.Pencil;
 import Model.ShapesType;
 
-public class Path implements ShapesType {
+public class Path extends ShapesType {
 
 	@Override
 	public void setColor() {
 		// Do nothing
-	}
-
-	@Override
-	public Color getColor() {
-		return null;
 	}
 
 	@Override
