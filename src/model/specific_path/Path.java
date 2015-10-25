@@ -1,16 +1,15 @@
-package specific_path;
+package model.specific_path;
 
 import java.awt.Color;
 
-import Model.Pencil;
-import Model.ShapesType;
+import model.Pencil;
+import model.ShapesType;
 
-public class Circle extends ShapesType {
+public class Path extends ShapesType {
 
 	@Override
 	public void setColor() {
-		// TODO Auto-generated method stub
-
+		// Do nothing
 	}
 
 	@Override
