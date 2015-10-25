@@ -2,13 +2,14 @@ package model;
 
 import java.awt.Color;
 
-import SpecificPath.Circle;
-import SpecificPath.Ellipse;
-import SpecificPath.Line;
-import SpecificPath.Path;
-import SpecificPath.Polygone;
-import SpecificPath.Polyline;
-import SpecificPath.Rectangle;
+import model.specific_path.Circle;
+import model.specific_path.Ellipse;
+import model.specific_path.Line;
+import model.specific_path.Polygone;
+import model.specific_path.Polyline;
+import model.specific_path.Rectangle;
+import model.specific_path.Path;
+
 
 public abstract class ShapesType implements ShapesProperties {
 	
