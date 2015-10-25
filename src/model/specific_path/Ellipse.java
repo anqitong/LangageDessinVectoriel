@@ -70,7 +70,7 @@ public class Ellipse extends ShapesType {
 	 ************************************/
 	@Override
 	public String getXML(Pencil pencil) {
-		return "<circle cx=\""+this.getCenter_x()+"\" cy=\""+this.getCenter_y()+"\" rx=\""+this.getRadius_x()+"\" ry=\""+this.getRadius_y()+"\" "+pencil.getXML()+" />";
+		return "<circle cx=\""+this.getCenter_x()+"\" cy=\""+this.getCenter_y()+"\" rx=\""+this.getRadius_x()+"\" ry=\""+this.getRadius_y()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
 	}
 
 }

@@ -10,7 +10,7 @@ public class Circle extends ShapesType {
 	 ************************************/	
 	private int center_x; // Where the center of the circle is (x axis)
 	private int center_y; // Where the center of the circle is (y axis)
-	private int radius;
+	private int radius; // The radius of the circle
 	
 	/************************************
 	 *	Constructors
@@ -60,7 +60,7 @@ public class Circle extends ShapesType {
 	 ************************************/
 	@Override
 	public String getXML(Pencil pencil) {
-		return "<circle cx=\""+this.getCenter_x()+"\" cy=\""+this.getCenter_y()+"\" r=\""+this.getRadius()+"\" "+pencil.getXML()+" />";
+		return "<circle cx=\""+this.getCenter_x()+"\" cy=\""+this.getCenter_y()+"\" r=\""+this.getRadius()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
 	}
 
 }

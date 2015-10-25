@@ -9,9 +9,9 @@ public class Line extends ShapesType {
 	 *	Attributes
 	 ************************************/	
 	private int x1; // Where is the first point of the line (x axis)
-	private int y1; // Where is the first point of the line (y axis)
+	private int y1; // Where is the first point of the line (y axis from the top)
 	private int x2; // Where is the last point of the line (x axis)
-	private int y2; // Where is the last point of the line (y axis)
+	private int y2; // Where is the last point of the line (y axis from the top)
 	
 	/************************************
 	 *	Constructors
