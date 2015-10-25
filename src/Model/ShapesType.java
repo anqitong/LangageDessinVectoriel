@@ -1,5 +1,4 @@
-package Abstraction;
-
+package model;
 /**
  * 
  * Figures taken from http://www.w3schools.com/svg/ for SVG files
