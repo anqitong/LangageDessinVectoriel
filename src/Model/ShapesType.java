@@ -12,5 +12,6 @@ Ellipse,
 Line,
 Polyline,
 Polygone,
-Path
+Path,
+Text
 }
