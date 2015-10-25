@@ -12,14 +12,14 @@ import SpecificPath.Rectangle;
 
 public abstract class ShapesType implements ShapesProperties {
 	
-	/**********************
-	 * 		Attributes
-	 **********************/
+	/************************************
+	 * 	Attributes
+	 ************************************/
 	private Color color;
 	
-	/**********************
-	 * 		Constructors
-	 **********************/
+	/************************************
+	 *	Constructors
+	 ************************************/
 	
 	/**
 	 * This static function works as a Fabric and create new sub-ShapesType with the right given name
@@ -56,9 +56,9 @@ public abstract class ShapesType implements ShapesProperties {
 		}
 	}
 	
-	/**********************
-	 * 		Methods
-	 **********************/
+	/************************************
+	 *	Methods
+	 ************************************/
 	
 	public Color getColor(){
 		return (this.color!=null) ? this.color : null;
