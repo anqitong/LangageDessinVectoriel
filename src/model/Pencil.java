@@ -31,5 +31,9 @@ public class Pencil {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	
+	public String getXML(){
+		return "stroke=\""+this.getColor()+"\" stroke-width=\""+this.getWidth()+"\"";
+	}
 
 }
