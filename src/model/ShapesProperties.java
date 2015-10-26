@@ -10,8 +10,14 @@ import java.awt.Color;
  */
 public interface ShapesProperties {
 
-	public void setColor();
+	public void setColor(Color color);
 	public Color getColor();
+	
+	/**
+	 * This function return the XML specific for each shapes (xml used inside svg tags)
+	 * @param pencil
+	 * @return String (XML)
+	 */
 	public String getXML(Pencil pencil);
 	
 	
