@@ -51,11 +51,12 @@ public class Drawing {
 	 *	Methods
 	 ************************************/
 	public String getXML(){
-		String xml="<svg height=\""+this.getHeight()+"\" width=\""+this.getWidth()+"\">";
+		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+		xml=xml+"<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\""+this.getHeight()+"\" width=\""+this.getWidth()+"\">";
 		for(Path shape: this.getShapes()){
 			xml = xml+"\n\t"+shape.getXML();
 		}
-		xml = xml + "</svg>";
+		xml = xml + "\n</svg>";
 		return xml;
 	}
 	

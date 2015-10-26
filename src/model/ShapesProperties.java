@@ -10,7 +10,7 @@ import java.awt.Color;
  */
 public interface ShapesProperties {
 
-	public void setColor(Color color);
+	public void setColor(ColorSVG color);
 	public Color getColor();
 	
 	/**

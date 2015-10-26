@@ -1,16 +1,14 @@
 package model;
 
-import java.awt.Color;
-
 /**
  * This is the type: "Crayon"
  */
 public class Pencil {
 
 	private int width;
-	private Color color;
+	private ColorSVG color;
 	
-	public Pencil(int width, Color color) {
+	public Pencil(int width, ColorSVG color) {
 		super();
 		this.width = width;
 		this.color = color;
@@ -24,11 +22,11 @@ public class Pencil {
 		this.width = width;
 	}
 
-	public Color getColor() {
+	public ColorSVG getColor() {
 		return color;
 	}
 
-	public void setColor(Color color) {
+	public void setColor(ColorSVG color) {
 		this.color = color;
 	}
 	
