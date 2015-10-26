@@ -7,5 +7,6 @@ public enum ShapesName {
 	Line,
 	Polyline,
 	Polygone,
-	Path
+	Path,
+	Text
 }

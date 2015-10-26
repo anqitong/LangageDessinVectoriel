@@ -64,5 +64,9 @@ public abstract class ShapesType implements ShapesProperties {
 	public Color getColor(){
 		return (this.color!=null) ? this.color : null;
 	}
+	
+	public void setColor(Color color){
+		this.color = color;
+	}
 
 }
