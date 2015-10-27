@@ -1,6 +1,6 @@
 package model.presentation;
 
-import model.ShapesName;
+import model.ShapesType;
 
 import java.util.List;
 
@@ -8,7 +8,25 @@ import java.util.List;
  * Created by Xiaxing SHI on 27/10/15.
  */
 public interface Presentation {
-    void addShapes(List<Shape> shapes);
+
+    /**
+     * Add shapes for the presentation (or image/painting). Concrete ShapeStates would be created according to these
+     * shapes.
+     * @param shapes shapes to add to the presentation
+     */
+    void addShapes(List<ShapesType> shapes);
+
+    /**
+     * To create real presentation like svg file and display it to user. Here is where to call
+     * <code>this.getShapeState(aShape)</code> to create concrete ShapeStates and render Shapes in list.
+     */
     void display();
-    ShapeState getShapeState(Shape shape);
+
+    /**
+     * This method is a tool to create concrete ShapeStates according to the type of shapes given. A typical implementation is to
+     * <code>switch (shape.getName())</code>
+     * @param shape the shape to render by ShapeState
+     * @return a concrete ShapeState object that can render shape
+     */
+    ShapeState getShapeState(ShapesType shape);
 }
