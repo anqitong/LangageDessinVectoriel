@@ -15,7 +15,7 @@ public class SVGFile implements SVGInterface{
 	
 	private static File file;
 	private static BufferedWriter out;
-	private static String filepath = "files\"%s.svg";
+	private static String filepath = "files\\%s.svg";
 
 	
 	public SVGFile(String filnename, String xmlcontent) {
@@ -49,7 +49,7 @@ public class SVGFile implements SVGInterface{
 	 */
 	@Override
 	public boolean writeSVGFile() {
-		file = new File(String.format(filnename, this.getXmlcontent()));
+		file = new File(String.format(filepath, this.getXmlcontent()));
 		if(file.exists()){
 			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
 			return false;
@@ -66,13 +66,6 @@ public class SVGFile implements SVGInterface{
 		}
 	}
 
-	@Override
-	public boolean addShapes(List<ShapesType> listShapes) {
-//		for(ShapesType shape:listShapes){
-//			shape.getXML(pencil)
-//		}
-		return false;
-	}
 
 	@Override
 	public boolean display() {

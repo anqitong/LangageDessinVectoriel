@@ -12,11 +12,6 @@ public interface SVGInterface {
 		 */
 		public boolean writeSVGFile();
 		
-		/*
-		 * add shapes from listShqpes to a svg file
-		 */
-		public boolean addShapes(List<ShapesType> listShapes);
-		
 		public boolean display();	
 		
 }
