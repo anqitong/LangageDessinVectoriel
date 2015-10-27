@@ -11,4 +11,5 @@ public interface SVGInterface {
 		public boolean addShapes(List<Shapes> listShapes);
 		
 		public boolean display();	
+		
 }
