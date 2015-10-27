@@ -1,14 +1,21 @@
 package controller;
 
 import java.util.List;
+
 import model.Shapes;
+import model.ShapesType;
 
 public interface SVGInterface {
 			
-		public boolean writeSVGFile(String content);
+		/*
+		 * save SVG file into files
+		 */
+		public boolean writeSVGFile();
 		
-		//add shapes to a svg file
-		public boolean addShapes(List<Shapes> listShapes);
+		/*
+		 * add shapes from listShqpes to a svg file
+		 */
+		public boolean addShapes(List<ShapesType> listShapes);
 		
 		public boolean display();	
 		

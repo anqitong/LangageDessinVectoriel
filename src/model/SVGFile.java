@@ -12,7 +12,12 @@ public class SVGFile implements SVGInterface{
 
 	private String filnename;
 	private String xmlcontent;
+	
+	private static File file;
+	private static BufferedWriter out;
+	private static String filepath = "files\"%s.svg";
 
+	
 	public SVGFile(String filnename, String xmlcontent) {
 		this.filnename = filnename;
 		this.xmlcontent = xmlcontent;
@@ -38,25 +43,34 @@ public class SVGFile implements SVGInterface{
 		this.xmlcontent = xmlcontent;
 	}
 
-	//write new content and save
+	
+	/*
+	 * save SVG file into files
+	 */
 	@Override
-	public boolean writeSVGFile(String content) {
-		File file = new File("files\""+this.getFilnename()+".svg");
-		BufferedWriter out;
-		try {
-			out = new BufferedWriter(new FileWriter(file));
-			out.write(content);
-			out.close();
-			return true;
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
-		return false;
+	public boolean writeSVGFile() {
+		file = new File(String.format(filnename, this.getXmlcontent()));
+		if(file.exists()){
+			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
+			return false;
+		}else{
+			try {
+				out = new BufferedWriter(new FileWriter(file));
+				out.write(this.getXmlcontent());
+				out.close();
+				return true;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			} 
+		}
 	}
 
 	@Override
-	public boolean addShapes(List<Shapes> listShapes) {
-		// TODO Auto-generated method stub
+	public boolean addShapes(List<ShapesType> listShapes) {
+//		for(ShapesType shape:listShapes){
+//			shape.getXML(pencil)
+//		}
 		return false;
 	}
 
