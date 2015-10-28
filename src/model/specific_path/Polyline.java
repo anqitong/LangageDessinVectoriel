@@ -3,7 +3,6 @@ package model.specific_path;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import model.Pencil;
 import model.Shape;
 
 public class Polyline extends Shape {

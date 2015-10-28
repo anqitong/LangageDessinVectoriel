@@ -1,7 +1,5 @@
 package view;
 
-import model.Pencil;
-
 /**
  * This is the type: "Chemin"
  */

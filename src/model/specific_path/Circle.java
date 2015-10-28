@@ -1,6 +1,5 @@
 package model.specific_path;
 
-import model.Pencil;
 import model.Shape;
 
 public class Circle extends Shape {

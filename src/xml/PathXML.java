@@ -1,9 +1,11 @@
 package xml;
 
 import view.PencilState;
+import view.ShapeState;
+import model.Shape;
 import model.specific_path.Path;
 
-public class PathXML extends ShapeXML {
+public class PathXML implements ShapeState {
 	
 	/************************************
 	 *	Attributes
@@ -32,12 +34,21 @@ public class PathXML extends ShapeXML {
 	/************************************
 	 *	Methods
 	 ************************************/
-	
-
 	@Override
 	public String getDrawing(PencilState pencil) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public void setShape(Shape shape) throws Exception {
+		if(shape instanceof Path){
+			this.path = (Path) shape;
+		}
+		else{
+			throw new Exception("The shape is not of the right type");
+		}
+		
 	}
 
 }

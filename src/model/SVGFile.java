@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import view.ShapeState;
 import controller.SVGInterface;
 
 public class SVGFile implements SVGInterface{

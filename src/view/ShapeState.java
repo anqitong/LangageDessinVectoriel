@@ -1,6 +1,5 @@
 package view;
 
-import model.Pencil;
 import model.Shape;
 
 /**
@@ -18,6 +17,6 @@ public interface ShapeState {
      * Set the shape to render
      * @param shape
      */
-    void setShape(Shape shape);
+    void setShape(Shape shape) throws Exception;
     
 }

@@ -3,9 +3,11 @@ package xml;
 import java.awt.Point;
 
 import view.PencilState;
+import view.ShapeState;
+import model.Shape;
 import model.specific_path.Polyline;
 
-public class PolylineXML extends ShapeXML {
+public class PolylineXML implements ShapeState {
 	
 	/************************************
 	 *	Attributes
@@ -43,5 +45,15 @@ public class PolylineXML extends ShapeXML {
 		return "<polyline points=\""+xml+"\" "+pencil.getDrawing()+" />";
 	}
 
+	@Override
+	public void setShape(Shape shape) throws Exception {
+		if(shape instanceof Polyline){
+			this.polyline = (Polyline) shape;
+		}
+		else{
+			throw new Exception("The shape is not of the right type");
+		}
+		
+	}
 
 }

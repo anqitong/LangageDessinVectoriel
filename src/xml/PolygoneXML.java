@@ -3,9 +3,11 @@ package xml;
 import java.awt.Point;
 
 import view.PencilState;
+import view.ShapeState;
+import model.Shape;
 import model.specific_path.Polygone;
 
-public class PolygoneXML extends ShapeXML {
+public class PolygoneXML implements ShapeState {
 
 	/************************************
 	 *	Attributes
@@ -40,6 +42,17 @@ public class PolygoneXML extends ShapeXML {
 			xml = xml+" "+point.x+","+point.y;
 		}
 		return "<polygon points=\""+xml+"\" fill=\""+this.getPolygone().getColor()+"\" "+pencil.getDrawing()+" />";
+	}
+	
+	@Override
+	public void setShape(Shape shape) throws Exception {
+		if(shape instanceof Polygone){
+			this.polygone = (Polygone) shape;
+		}
+		else{
+			throw new Exception("The shape is not of the right type");
+		}
+		
 	}
 
 

@@ -2,9 +2,10 @@ package xml;
 
 import view.PencilState;
 import view.ShapeState;
+import model.Shape;
 import model.specific_path.Circle;
 
-public class CircleXML extends ShapeXML {
+public class CircleXML implements ShapeState {
 	
 	/************************************
 	 *	Attributes
@@ -37,6 +38,17 @@ public class CircleXML extends ShapeXML {
 	@Override
 	public String getDrawing(PencilState pencil) {
 		return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+pencil.getDrawing()+" />";
+	}
+
+	@Override
+	public void setShape(Shape shape) throws Exception {
+		if(shape instanceof Circle){
+			this.circle = (Circle) shape;
+		}
+		else{
+			throw new Exception("The shape is not of the right type");
+		}
+		
 	}
 
 }
