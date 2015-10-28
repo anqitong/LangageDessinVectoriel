@@ -1,6 +1,6 @@
-package model.presentation;
+package view;
 
-import model.ShapesType;
+import model.Shape;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface Presentation {
      * shapes.
      * @param shapes shapes to add to the presentation
      */
-    void addShapes(List<ShapesType> shapes);
+    void addShapes(List<Shape> shapes);
 
     /**
      * To create real presentation like svg file and display it to user. Here is where to call
@@ -28,5 +28,5 @@ public interface Presentation {
      * @param shape the shape to render by ShapeState
      * @return a concrete ShapeState object that can render shape
      */
-    ShapeState getShapeState(ShapesType shape);
+    ShapeState getShapeState(Shape shape);
 }

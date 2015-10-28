@@ -1,9 +1,9 @@
 package model.specific_path;
 
 import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Line extends ShapesType {
+public class Line extends Shape {
 	
 	/************************************
 	 *	Attributes
@@ -68,9 +68,5 @@ public class Line extends ShapesType {
 	/************************************
 	 *	Methods
 	 ************************************/
-	@Override
-	public String getXML(Pencil pencil) {
-		return "<line x1=\""+this.getX1()+"\" y1=\""+this.getY1()+"\" x2=\""+this.getX2()+"\" y2=\""+this.getY2()+"\" "+pencil.getXML()+" />";
-	}
 
 }

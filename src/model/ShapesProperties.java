@@ -13,12 +13,5 @@ public interface ShapesProperties {
 	public void setColor(ColorSVG color);
 	public Color getColor();
 	
-	/**
-	 * This function return the XML specific for each shapes (xml used inside svg tags)
-	 * @param pencil
-	 * @return String (XML)
-	 */
-	public String getXML(Pencil pencil);
-	
 	
 }

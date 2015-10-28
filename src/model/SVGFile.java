@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+import view.ShapeState;
 import controller.SVGInterface;
 
 public class SVGFile implements SVGInterface{
@@ -41,7 +42,7 @@ public class SVGFile implements SVGInterface{
 	}
 
 	@Override
-	public boolean addShapes(List<Shapes> listShapes) {
+	public boolean addShapes(List<ShapeState> listShapes) {
 		// TODO Auto-generated method stub
 		return false;
 	}

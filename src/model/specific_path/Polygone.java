@@ -4,9 +4,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Polygone extends ShapesType {
+public class Polygone extends Shape {
 
 	/************************************
 	 *	Attributes
@@ -42,14 +42,6 @@ public class Polygone extends ShapesType {
 	/************************************
 	 *	Methods
 	 ************************************/
-	@Override
-	public String getXML(Pencil pencil) {
-		String xml = "";
-		for(Point point:this.getPoints()){
-			xml = xml+" "+point.x+","+point.y;
-		}
-		return "<polygon points=\""+xml+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
-	}
 
 
 }

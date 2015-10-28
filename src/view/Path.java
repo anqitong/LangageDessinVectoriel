@@ -1,4 +1,6 @@
-package model;
+package view;
+
+import model.Pencil;
 
 /**
  * This is the type: "Chemin"
@@ -8,13 +10,13 @@ public class Path {
 	/************************************
 	 *	Attributes
 	 ************************************/	
-	private Pencil style;
-	private ShapesType content;
+	private PencilState style;
+	private ShapeState content;
 	
 	/************************************
 	 *	Constructor
 	 ************************************/
-	public Path(Pencil style, ShapesType content) {
+	public Path(PencilState style, ShapeState content) {
 		super();
 		this.style = style;
 		this.content = content;
@@ -23,27 +25,27 @@ public class Path {
 	/************************************
 	 *	Getters and Setters
 	 ************************************/
-	public Pencil getStyle() {
+	public PencilState getStyle() {
 		return style;
 	}
 
-	public void setStyle(Pencil style) {
+	public void setStyle(PencilState style) {
 		this.style = style;
 	}
 
-	public ShapesType getContent() {
+	public ShapeState getContent() {
 		return content;
 	}
 
-	public void setContent(ShapesType content) {
+	public void setContent(ShapeState content) {
 		this.content = content;
 	}
 	
 	/************************************
 	 *	Methods
 	 ************************************/
-	public String getXML(){
-		return this.getContent().getXML(this.getStyle());
+	public Object getDrawing(){
+		return this.getContent().getDrawing(this.getStyle());
 	}
 	
 }

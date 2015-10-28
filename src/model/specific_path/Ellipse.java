@@ -1,9 +1,9 @@
 package model.specific_path;
 
 import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Ellipse extends ShapesType {
+public class Ellipse extends Shape {
 	
 	/************************************
 	 *	Attributes
@@ -68,9 +68,5 @@ public class Ellipse extends ShapesType {
 	/************************************
 	 *	Methods
 	 ************************************/
-	@Override
-	public String getXML(Pencil pencil) {
-		return "<circle cx=\""+this.getCenter_x()+"\" cy=\""+this.getCenter_y()+"\" rx=\""+this.getRadius_x()+"\" ry=\""+this.getRadius_y()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
-	}
 
 }
