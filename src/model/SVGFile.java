@@ -12,8 +12,12 @@ public class SVGFile implements SVGInterface{
 	private String filnename;
 	private String xmlcontent;
 	
-	private static File file;
+	public static File file;
 	private static BufferedWriter out;
+	
+	/*
+	 * the path to the folder where svg files should be saved
+	 */
 	private static String filepath = "files"+File.separator+"%s.svg";
 
 	
@@ -48,12 +52,20 @@ public class SVGFile implements SVGInterface{
 	 */
 	@Override
 	public boolean writeSVGFile() {
+		
+		/*
+		 * put the file name into the filepath
+		 * e.g. "files\filename.svg"
+		 */
 		file = new File(String.format(filepath, this.getFilnename()));
+		
+		//if the file exists, return false and a warning
 		if(file.exists()){
 			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
 			return false;
 		}else{
 			try {
+				//write the file and its content
 				out = new BufferedWriter(new FileWriter(file));
 				out.write(this.getXmlcontent()+"\n");
 				out.close();
