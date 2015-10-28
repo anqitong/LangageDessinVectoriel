@@ -1,7 +1,5 @@
 package model;
 
-import java.awt.Color;
-
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
@@ -16,7 +14,7 @@ public abstract class ShapesType implements ShapesProperties {
 	/************************************
 	 * 	Attributes
 	 ************************************/
-	private Color color;
+	private ColorSVG color;
 	
 	/************************************
 	 *	Constructors
@@ -61,11 +59,11 @@ public abstract class ShapesType implements ShapesProperties {
 	 *	Methods
 	 ************************************/
 	
-	public Color getColor(){
+	public ColorSVG getColor(){
 		return (this.color!=null) ? this.color : null;
 	}
 	
-	public void setColor(Color color){
+	public void setColor(ColorSVG color){
 		this.color = color;
 	}
 

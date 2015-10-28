@@ -70,6 +70,6 @@ public class Rectangle extends ShapesType {
 	 ************************************/
 	@Override
 	public String getXML(Pencil pencil) {
-		return "<rectangle x=\""+this.getX()+"\" width=\""+this.getWidth()+"\" height=\""+this.getHeight()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
+		return "<rect x=\""+this.getX()+"\" y=\""+this.getY()+"\" width=\""+this.getWidth()+"\" height=\""+this.getHeight()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
 	}
 }
