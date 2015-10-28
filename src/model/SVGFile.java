@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 import controller.SVGInterface;
 
@@ -15,7 +14,7 @@ public class SVGFile implements SVGInterface{
 	
 	private static File file;
 	private static BufferedWriter out;
-	private static String filepath = "files\\%s.svg";
+	private static String filepath = "files"+File.separator+"%s.svg";
 
 	
 	public SVGFile(String filnename, String xmlcontent) {
@@ -49,14 +48,14 @@ public class SVGFile implements SVGInterface{
 	 */
 	@Override
 	public boolean writeSVGFile() {
-		file = new File(String.format(filepath, this.getXmlcontent()));
+		file = new File(String.format(filepath, this.getFilnename()));
 		if(file.exists()){
 			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
 			return false;
 		}else{
 			try {
 				out = new BufferedWriter(new FileWriter(file));
-				out.write(this.getXmlcontent());
+				out.write(this.getXmlcontent()+"\n");
 				out.close();
 				return true;
 			} catch (IOException e) {
