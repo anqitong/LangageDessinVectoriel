@@ -1,15 +1,27 @@
 package model;
 
-import java.util.List;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import view.ShapeState;
 import controller.SVGInterface;
 
 public class SVGFile implements SVGInterface{
-	
+
 	private String filnename;
 	private String xmlcontent;
+	
+	public static File file;
+	private static BufferedWriter out;
+	
+	/*
+	 * the path to the folder where svg files should be saved
+	 */
+	private static String filepath = "files"+File.separator+"%s.svg";
 
+	
 	public SVGFile(String filnename, String xmlcontent) {
 		this.filnename = filnename;
 		this.xmlcontent = xmlcontent;
@@ -35,16 +47,35 @@ public class SVGFile implements SVGInterface{
 		this.xmlcontent = xmlcontent;
 	}
 
+	
+	/*
+	 * save SVG file into files
+	 */
 	@Override
-	public boolean writeSVGFile(String content) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addShapes(List<ShapeState> listShapes) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean writeSVGFile() {
+		
+		/*
+		 * put the file name into the filepath
+		 * e.g. "files\filename.svg"
+		 */
+		file = new File(String.format(filepath, this.getFilnename()));
+		
+		//if the file exists, return false and a warning
+		if(file.exists()){
+			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
+			return false;
+		}else{
+			try {
+				//write the file and its content
+				out = new BufferedWriter(new FileWriter(file));
+				out.write(this.getXmlcontent()+"\n");
+				out.close();
+				return true;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			} 
+		}
 	}
 
 	@Override
@@ -52,4 +83,5 @@ public class SVGFile implements SVGInterface{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 }
