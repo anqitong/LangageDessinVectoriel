@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 1052.3622 744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="interfaceDesign.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="433.36374"
+     inkscape:cy="469.23243"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.26772)">
+    <rect
+       style="fill:#008080;fill-opacity:0.25414363;stroke:#000000;stroke-width:1.36643195;stroke-linejoin:round;stroke-opacity:1"
+       id="rect4136"
+       width="175.48422"
+       height="686.73016"
+       x="1.2796896"
+       y="367.39227" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4140"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(0,308.26772)"><flowRegion
+         id="flowRegion4142"><rect
+           id="rect4144"
+           width="128.57143"
+           height="42.857143"
+           x="192.85715"
+           y="129.80876" /></flowRegion><flowPara
+         id="flowPara4146">OuOutil</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="4.2857013"
+       y="419.50507"
+       id="text4148"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4150"
+         x="4.2857013"
+         y="419.50507">Outils</tspan></text>
+    <rect
+       style="fill:#ffff00;fill-opacity:0.25414363;stroke:#000000;stroke-width:0.97647917;stroke-linejoin:round;stroke-opacity:1"
+       id="rect4152"
+       width="848.59497"
+       height="657.16632"
+       x="181.41681"
+       y="373.77902" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4154"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(254.28571,503.98201)"><flowRegion
+         id="flowRegion4156"><rect
+           id="rect4158"
+           width="551.42859"
+           height="127.14286"
+           x="231.42857"
+           y="154.09448" /></flowRegion><flowPara
+         id="flowPara4160">Dessin</flowPara><flowPara
+         id="flowPara4162" /></flowRoot>    <rect
+       style="fill:#ffaaaa;fill-opacity:0.25414363;stroke:#000000;stroke-linejoin:round;stroke-opacity:1"
+       id="rect4164"
+       width="1035.7142"
+       height="48.57143"
+       x="7.1428571"
+       y="313.79077" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="381.42856"
+       y="350.93365"
+       id="text4166"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4168"
+         x="381.42856"
+         y="350.93365">Barre menu</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4170"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(0,308.26772)"><flowRegion
+         id="flowRegion4172"><rect
+           id="rect4174"
+           width="112.85714"
+           height="474.28571"
+           x="8.5714283"
+           y="189.80876" /></flowRegion><flowPara
+         id="flowPara4176">penciler</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4178"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(-227.14286,296.83915)"><flowRegion
+         id="flowRegion4180"><rect
+           id="rect4182"
+           width="160"
+           height="297.14285"
+           x="232.85715"
+           y="191.23734" /></flowRegion><flowPara
+         id="flowPara4184"
+         style="font-size:25px">Pencil</flowPara><flowPara
+         style="font-size:25px"
+         id="flowPara4188">Fill</flowPara><flowPara
+         style="font-size:25px"
+         id="flowPara4190">Rectangle</flowPara><flowPara
+         style="font-size:25px"
+         id="flowPara4192">Circle</flowPara><flowPara
+         style="font-size:25px"
+         id="flowPara4194">Text</flowPara><flowPara
+         id="flowPara4186"
+         style="font-size:25px" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4196"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(-1.4285714,509.69629)"><flowRegion
+         id="flowRegion4198"><rect
+           id="rect4200"
+           width="134.28571"
+           height="169.99998"
+           x="14.285714"
+           y="362.66592"
+           style="font-size:25px" /></flowRegion><flowPara
+         id="flowPara4202">Colors</flowPara></flowRoot>  </g>
+</svg>
