@@ -6,8 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import model.specific_path.*;
 import view.Presentation;
 import view.ShapeState;
+import xml.*;
 
 public class SVGFile implements Presentation{
 
@@ -90,6 +92,35 @@ public class SVGFile implements Presentation{
 
 	@Override
 	public ShapeState getShapeState(Shape shape) {
+		ShapeState state = null;
+
+		switch (shape.getName()) {
+			case Circle:
+				state = new CircleXML((Circle)shape);
+				break;
+			case Ellipse:
+				state = new EllipseXML((Ellipse)shape);
+				break;
+			case Line:
+				state = new LineXML((Line)shape);
+				break;
+			case Path:
+				state = new PathXML((Path)shape);
+				break;
+			case Polygone:
+				state = new PolygoneXML((Polygone)shape);
+				break;
+			case Polyline:
+				state = new PolylineXML((Polyline)shape);
+				break;
+			case Rectangle:
+				state = new RectangleXML((Rectangle)shape);
+				break;
+			case Text:
+				state = new TextXML((Text)shape);
+				break;
+			default:
+		}
 		return null;
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Polygone extends Shape {
 
@@ -37,7 +38,12 @@ public class Polygone extends Shape {
 	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
 	}
-	
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Polygone;
+	}
+
 	/************************************
 	 *	Methods
 	 ************************************/

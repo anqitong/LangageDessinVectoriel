@@ -1,6 +1,7 @@
 package model.specific_path;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Text extends Shape {
 
@@ -52,7 +53,12 @@ public class Text extends Shape {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Text;
+	}
+
 	/************************************
 	 *	Methods
 	 ************************************/

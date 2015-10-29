@@ -1,6 +1,7 @@
 package model.specific_path;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Rectangle extends Shape {
 	
@@ -62,6 +63,11 @@ public class Rectangle extends Shape {
 
 	public void setWidth(int width) {
 		this.width = width;
+	}
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Rectangle;
 	}
 
 	/************************************
