@@ -28,5 +28,7 @@ public class TestSVG {
 		SVGFile f2 = new SVGFile("testFile","some content");
 		Assert.assertEquals(false, f2.writeSVGFile());
 	}
+	
+	//See if travis works !
 
 }
