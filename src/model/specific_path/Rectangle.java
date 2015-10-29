@@ -1,9 +1,8 @@
 package model.specific_path;
 
-import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Rectangle extends ShapesType {
+public class Rectangle extends Shape {
 	
 	/************************************
 	 *	Attributes
@@ -68,8 +67,4 @@ public class Rectangle extends ShapesType {
 	/************************************
 	 *	Methods
 	 ************************************/
-	@Override
-	public String getXML(Pencil pencil) {
-		return "<rect x=\""+this.getX()+"\" y=\""+this.getY()+"\" width=\""+this.getWidth()+"\" height=\""+this.getHeight()+"\" fill=\""+super.getColor()+"\" "+pencil.getXML()+" />";
-	}
 }

@@ -1,10 +1,5 @@
 package controller;
 
-import java.util.List;
-
-import model.Shapes;
-import model.ShapesType;
-
 public interface SVGInterface {
 			
 		/*

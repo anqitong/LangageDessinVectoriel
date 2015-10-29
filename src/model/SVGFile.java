@@ -77,7 +77,6 @@ public class SVGFile implements SVGInterface{
 		}
 	}
 
-
 	@Override
 	public boolean display() {
 		// TODO Auto-generated method stub
