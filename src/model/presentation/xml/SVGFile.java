@@ -1,4 +1,10 @@
-package xml;
+package model.presentation.xml;
+
+import model.Canvas;
+import model.Shape;
+import model.specific_path.*;
+import model.presentation.Presentation;
+import model.presentation.ShapeState;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -6,12 +12,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Canvas;
-import model.Shape;
-import model.specific_path.*;
-import view.Presentation;
-import view.ShapeState;
 
 public class SVGFile implements Presentation{
 

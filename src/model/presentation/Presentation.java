@@ -1,4 +1,4 @@
-package view;
+package model.presentation;
 
 import model.Canvas;
 import model.Shape;

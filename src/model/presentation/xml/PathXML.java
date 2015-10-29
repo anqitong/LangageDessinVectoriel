@@ -1,34 +1,33 @@
-package xml;
+package model.presentation.xml;
 
-import view.PencilState;
-import view.ShapeState;
 import model.Shape;
-import model.specific_path.Circle;
+import model.specific_path.Path;
+import model.presentation.PencilState;
+import model.presentation.ShapeState;
 
-public class CircleXML implements ShapeState {
+public class PathXML implements ShapeState {
 
     /************************************
      *    Attributes
      ************************************/
-    private Circle circle; // Shape used
+    private Path path;
 
     /************************************
      *    Constructors
      ************************************/
-    public CircleXML(Circle circle) {
-        this.circle = circle;
+    public PathXML(Path path) {
+        this.path = path;
     }
 
     /************************************
      *    Getters and Setters
      ************************************/
-
-    public Circle getCircle() {
-        return circle;
+    public Path getPath() {
+        return path;
     }
 
-    public void setCircle(Circle circle) {
-        this.circle = circle;
+    public void setLine(Path path) {
+        this.path = path;
     }
 
 
@@ -37,13 +36,14 @@ public class CircleXML implements ShapeState {
      ************************************/
     @Override
     public String getDrawing(PencilState pencil) {
-        return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+pencil.getDrawing()+" />";
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
     public void setShape(Shape shape) throws Exception {
-        if(shape instanceof Circle){
-            this.circle = (Circle) shape;
+        if(shape instanceof Path){
+            this.path = (Path) shape;
         }
         else{
             throw new Exception("The shape is not of the right type");

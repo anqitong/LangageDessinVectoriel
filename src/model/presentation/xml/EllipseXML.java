@@ -1,9 +1,9 @@
-package xml;
+package model.presentation.xml;
 
-import view.PencilState;
-import view.ShapeState;
 import model.Shape;
 import model.specific_path.Ellipse;
+import model.presentation.PencilState;
+import model.presentation.ShapeState;
 
 public class EllipseXML implements ShapeState {
 

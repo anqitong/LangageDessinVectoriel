@@ -1,35 +1,34 @@
-package xml;
+package model.presentation.xml;
 
-import java.awt.Point;
-
-import view.PencilState;
-import view.ShapeState;
 import model.Shape;
-import model.specific_path.Polyline;
+import model.specific_path.Circle;
+import model.presentation.PencilState;
+import model.presentation.ShapeState;
 
-public class PolylineXML implements ShapeState {
+public class CircleXML implements ShapeState {
 
     /************************************
      *    Attributes
      ************************************/
-    private Polyline polyline;
+    private Circle circle; // Shape used
 
     /************************************
      *    Constructors
      ************************************/
-    public PolylineXML(Polyline polyline) {
-        this.polyline = polyline;
+    public CircleXML(Circle circle) {
+        this.circle = circle;
     }
 
     /************************************
      *    Getters and Setters
      ************************************/
-    public Polyline getPolyline() {
-        return polyline;
+
+    public Circle getCircle() {
+        return circle;
     }
 
-    public void setPoints(Polyline polyline) {
-        this.polyline = polyline;
+    public void setCircle(Circle circle) {
+        this.circle = circle;
     }
 
 
@@ -38,17 +37,13 @@ public class PolylineXML implements ShapeState {
      ************************************/
     @Override
     public String getDrawing(PencilState pencil) {
-        String xml = "";
-        for(Point point:this.getPolyline().getPoints()){
-            xml = xml+" "+point.x+","+point.y;
-        }
-        return "<polyline points=\""+xml+"\" "+pencil.getDrawing()+" />";
+        return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+pencil.getDrawing()+" />";
     }
 
     @Override
     public void setShape(Shape shape) throws Exception {
-        if(shape instanceof Polyline){
-            this.polyline = (Polyline) shape;
+        if(shape instanceof Circle){
+            this.circle = (Circle) shape;
         }
         else{
             throw new Exception("The shape is not of the right type");

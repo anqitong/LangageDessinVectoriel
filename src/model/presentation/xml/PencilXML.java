@@ -1,7 +1,7 @@
-package xml;
+package model.presentation.xml;
 
 import model.Pencil;
-import view.PencilState;
+import model.presentation.PencilState;
 
 public class PencilXML implements PencilState{
 
