@@ -7,45 +7,45 @@ import model.Shape;
 import model.ShapeName;
 
 public class Polyline extends Shape {
-	
-	/************************************
-	 *	Attributes
-	 ************************************/	
-	private ArrayList<Point> points;
-	
-	/************************************
-	 *	Constructors
-	 ************************************/	
-	public Polyline(ArrayList<Point> points) {
-		this.points = points;
-	}
-	
-	public Polyline(){
-		ArrayList<Point> line = new ArrayList<Point>();
-		line.add(new Point(0,0));
-		line.add(new Point(0,5));
-		this.points = line;
-	}
-	
-	/************************************
-	 *	Getters and Setters
-	 ************************************/	
-	public ArrayList<Point> getPoints() {
-		return points;
-	}
 
-	public void setPoints(ArrayList<Point> points) {
-		this.points = points;
-	}
+    /************************************
+     *    Attributes
+     ************************************/
+    private ArrayList<Point> points;
 
-	@Override
-	public ShapeName getName() {
-		return ShapeName.Polyline;
-	}
+    /************************************
+     *    Constructors
+     ************************************/
+    public Polyline(ArrayList<Point> points) {
+        this.points = points;
+    }
 
-	/************************************
-	 *	Methods
-	 ************************************/
+    public Polyline(){
+        ArrayList<Point> line = new ArrayList<Point>();
+        line.add(new Point(0,0));
+        line.add(new Point(0,5));
+        this.points = line;
+    }
+
+    /************************************
+     *    Getters and Setters
+     ************************************/
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(ArrayList<Point> points) {
+        this.points = points;
+    }
+
+    @Override
+    public ShapeName getName() {
+        return ShapeName.Polyline;
+    }
+
+    /************************************
+     *    Methods
+     ************************************/
 
 
 }

@@ -5,33 +5,33 @@ package model;
  */
 public class Pencil {
 
-	private int width;
-	private ColorSVG color;
-	
-	public Pencil(int width, ColorSVG color) {
-		super();
-		this.width = width;
-		this.color = color;
-	}
+    private int width;
+    private ColorSVG color;
 
-	public int getWidth() {
-		return width;
-	}
+    public Pencil(int width, ColorSVG color) {
+        super();
+        this.width = width;
+        this.color = color;
+    }
 
-	public void setWidth(int width) {
-		this.width = width;
-	}
+    public int getWidth() {
+        return width;
+    }
 
-	public ColorSVG getColor() {
-		return color;
-	}
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
-	public void setColor(ColorSVG color) {
-		this.color = color;
-	}
-	
-	public String getXML(){
-		return "stroke=\""+this.getColor()+"\" stroke-width=\""+this.getWidth()+"\"";
-	}
+    public ColorSVG getColor() {
+        return color;
+    }
+
+    public void setColor(ColorSVG color) {
+        this.color = color;
+    }
+
+    public String getXML(){
+        return "stroke=\""+this.getColor()+"\" stroke-width=\""+this.getWidth()+"\"";
+    }
 
 }
