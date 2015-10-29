@@ -27,7 +27,7 @@ public class SVGFile implements Presentation{
 	/*
 	 * the path to the folder where svg files should be saved
 	 */
-	private static String filepath = "files"+File.separator+"%s.svg";
+	private static String filepath = "files" + File.separator + "%s.svg";
 
 	
 	public SVGFile(String fileName, String xmlcontent, Canvas canvas) {

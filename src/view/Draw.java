@@ -23,11 +23,11 @@ public class Draw {
 		shapes.add(c);
 		shapes.add(r);
 
-		SVGFile svg = new SVGFile("test.svg");
+		SVGFile svg = new SVGFile("test");
 		svg.addShapes(shapes);
 		svg.display();
 		System.out.println(svg.getXmlcontent());
-
+		svg.writeSVGFile();
 	}
 	
 }
