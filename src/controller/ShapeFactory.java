@@ -1,25 +1,17 @@
-package model;
+package controller;
 
+import model.Shape;
+import model.ShapesName;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
+import model.specific_path.Path;
 import model.specific_path.Polygone;
 import model.specific_path.Polyline;
 import model.specific_path.Rectangle;
-import model.specific_path.Path;
 
+public class ShapeFactory {
 
-public abstract class ShapesType implements ShapesProperties {
-	
-	/************************************
-	 * 	Attributes
-	 ************************************/
-	private ColorSVG color;
-	
-	/************************************
-	 *	Constructors
-	 ************************************/
-	
 	/**
 	 * This static function works as a Fabric and create new sub-ShapesType with the right given name
 	 * 
@@ -27,7 +19,7 @@ public abstract class ShapesType implements ShapesProperties {
 	 * @return new sub-shapesType
 	 * @throws Exception
 	 */
-	public static ShapesType create(ShapesName name) throws Exception {
+	public static Shape create(ShapesName name) throws Exception {
 		switch(name){
 			case Rectangle:
 				return new Rectangle();
@@ -55,16 +47,4 @@ public abstract class ShapesType implements ShapesProperties {
 		}
 	}
 	
-	/************************************
-	 *	Methods
-	 ************************************/
-	
-	public ColorSVG getColor(){
-		return (this.color!=null) ? this.color : null;
-	}
-	
-	public void setColor(ColorSVG color){
-		this.color = color;
-	}
-
 }

@@ -1,14 +1,8 @@
 package model.specific_path;
 
-import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Path extends ShapesType {
+public class Path extends Shape {
 
-	@Override
-	public String getXML(Pencil pencil) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

@@ -1,15 +1,13 @@
 package controller;
 
-import model.Shapes;
-
 public interface ITools {
 
-	public Shapes draw();
+	public void draw();
 	
-	public Shapes fill();
+	public void fill();
 	
-	public Shapes insert();
+	public void insert();
 	
-	public Shapes tag();
+	public void tag();
 	
 }

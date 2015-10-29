@@ -3,10 +3,9 @@ package model.specific_path;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import model.Pencil;
-import model.ShapesType;
+import model.Shape;
 
-public class Polyline extends ShapesType {
+public class Polyline extends Shape {
 	
 	/************************************
 	 *	Attributes
@@ -41,14 +40,6 @@ public class Polyline extends ShapesType {
 	/************************************
 	 *	Methods
 	 ************************************/
-	@Override
-	public String getXML(Pencil pencil) {
-		String xml = "";
-		for(Point point:this.getPoints()){
-			xml = xml+" "+point.x+","+point.y;
-		}
-		return "<polyline points=\""+xml+"\" "+pencil.getXML()+" />";
-	}
 
 
 }

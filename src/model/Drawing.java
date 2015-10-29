@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import view.Path;
+
 public class Drawing {
 	
 	/************************************
@@ -45,19 +47,6 @@ public class Drawing {
 
 	public void setWidth(int width) {
 		this.width = width;
-	}
-
-	/************************************
-	 *	Methods
-	 ************************************/
-	public String getXML(){
-		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-		xml=xml+"<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\""+this.getHeight()+"\" width=\""+this.getWidth()+"\">";
-		for(Path shape: this.getShapes()){
-			xml = xml+"\n\t"+shape.getXML();
-		}
-		xml = xml + "\n</svg>";
-		return xml;
 	}
 	
 }
