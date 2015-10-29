@@ -4,10 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
-import controller.SVGInterface;
+import view.Presentation;
+import view.ShapeState;
 
-public class SVGFile implements SVGInterface{
+public class SVGFile implements Presentation{
 
 	private String filnename;
 	private String xmlcontent;
@@ -50,7 +52,6 @@ public class SVGFile implements SVGInterface{
 	/*
 	 * save SVG file into files
 	 */
-	@Override
 	public boolean writeSVGFile() {
 		
 		/*
@@ -78,9 +79,18 @@ public class SVGFile implements SVGInterface{
 	}
 
 	@Override
-	public boolean display() {
-		// TODO Auto-generated method stub
-		return false;
+	public void addShapes(List<Shape> shapes) {
+
 	}
-	
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public ShapeState getShapeState(Shape shape) {
+		return null;
+	}
+
 }
