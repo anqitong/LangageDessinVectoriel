@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.specific_path.*;
@@ -15,7 +16,9 @@ public class SVGFile implements Presentation{
 
 	private String filnename;
 	private String xmlcontent;
-	
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private Canvas canvas;
+
 	public static File file;
 	private static BufferedWriter out;
 	
@@ -82,12 +85,18 @@ public class SVGFile implements Presentation{
 
 	@Override
 	public void addShapes(List<Shape> shapes) {
-
+        if (shapes != null)
+            this.shapes.addAll(shapes);
 	}
 
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
+		// TODO Generate SVG's head xmls
+
+        for (Shape shape : shapes) {
+            String xml = (String) this.getShapeState(shape).getDrawing(new PencilXML(shape.getPencil()));
+            this.xmlcontent += xml;
+        }
 	}
 
 	@Override
@@ -123,5 +132,10 @@ public class SVGFile implements Presentation{
 		}
 		return null;
 	}
+
+    @Override
+    public void setCanvas(Canvas canvas) {
+        this.canvas = canvas;
+    }
 
 }
