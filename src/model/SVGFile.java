@@ -14,7 +14,7 @@ import xml.*;
 
 public class SVGFile implements Presentation{
 
-	private String filnename;
+	private String fileName;
 	private String xmlcontent;
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
@@ -28,21 +28,25 @@ public class SVGFile implements Presentation{
 	private static String filepath = "files"+File.separator+"%s.svg";
 
 	
-	public SVGFile(String filnename, String xmlcontent) {
-		this.filnename = filnename;
+	public SVGFile(String fileName, String xmlcontent, Canvas canvas) {
+		this.fileName = fileName;
 		this.xmlcontent = xmlcontent;
+        this.canvas = canvas;
 	}
 
-	public SVGFile(String filnename) {
-		this.filnename = filnename;
-		this.xmlcontent = "";
+    public SVGFile(String fileName, String xmlcontent) {
+        this(fileName, xmlcontent, new Canvas(1024, 1024));
+    }
+
+	public SVGFile(String fileName) {
+		this(fileName, "", new Canvas(1024, 1024));
 	}
 
-	public String getFilnename() {
-		return filnename;
+	public String getFileName() {
+		return fileName;
 	}
-	public void setFilnename(String filnename) {
-		this.filnename = filnename;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getXmlcontent() {
@@ -63,11 +67,11 @@ public class SVGFile implements Presentation{
 		 * put the file name into the filepath
 		 * e.g. "files\filename.svg"
 		 */
-		file = new File(String.format(filepath, this.getFilnename()));
+		file = new File(String.format(filepath, this.getFileName()));
 		
 		//if the file exists, return false and a warning
 		if(file.exists()){
-			System.out.println("WARNING : the file "+this.getFilnename()+" already exists!");
+			System.out.println("WARNING : the file "+this.getFileName()+" already exists!");
 			return false;
 		}else{
 			try {
@@ -91,12 +95,20 @@ public class SVGFile implements Presentation{
 
 	@Override
 	public void display() {
-		// TODO Generate SVG's head xmls
+		this.xmlcontent = "";
+        String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+        xml += "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\""
+                + this.canvas.getHeight()
+                + "\" width=\""
+                + this.canvas.getWidth()+"\">";
+        this.xmlcontent += xml;
 
         for (Shape shape : shapes) {
-            String xml = (String) this.getShapeState(shape).getDrawing(new PencilXML(shape.getPencil()));
+            xml = (String) this.getShapeState(shape).getDrawing(new PencilXML(shape.getPencil()));
             this.xmlcontent += xml;
         }
+
+        this.xmlcontent += "\n</svg>";
 	}
 
 	@Override
@@ -130,7 +142,7 @@ public class SVGFile implements Presentation{
 				break;
 			default:
 		}
-		return null;
+		return state;
 	}
 
     @Override

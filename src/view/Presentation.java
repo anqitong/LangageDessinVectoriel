@@ -1,5 +1,6 @@
 package view;
 
+import model.Canvas;
 import model.Shape;
 
 import java.util.List;
@@ -15,6 +16,12 @@ public interface Presentation {
      * @param shapes shapes to add to the presentation
      */
     void addShapes(List<Shape> shapes);
+
+    /**
+     * Set Canvas
+     * @param canvas
+     */
+    void setCanvas(Canvas canvas);
 
     /**
      * To create real presentation like svg file and display it to user. Here is where to call
