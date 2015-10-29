@@ -3,7 +3,7 @@ package test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import model.SVGFile;
+import xml.SVGFile;
 
 public class TestSVG {
 

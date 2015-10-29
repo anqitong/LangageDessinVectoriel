@@ -1,4 +1,4 @@
-package model;
+package xml;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Canvas;
+import model.Shape;
 import model.specific_path.*;
 import view.Presentation;
 import view.ShapeState;

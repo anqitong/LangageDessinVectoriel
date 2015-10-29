@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import model.*;
 import model.specific_path.Circle;
 import model.specific_path.Rectangle;
+import xml.SVGFile;
 
 public class Draw {
 
