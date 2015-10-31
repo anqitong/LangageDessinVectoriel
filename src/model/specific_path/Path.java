@@ -6,8 +6,8 @@ import model.ShapeName;
 public class Path extends Shape {
 
 
-    @Override
-    public ShapeName getName() {
-        return ShapeName.Path;
-    }
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Path;
+	}
 }
