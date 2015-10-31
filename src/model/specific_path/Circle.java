@@ -1,6 +1,7 @@
 package model.specific_path;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Circle extends Shape {
 	
@@ -52,6 +53,11 @@ public class Circle extends Shape {
 
 	public void setRadius(int radius) {
 		this.radius = radius;
+	}
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Circle;
 	}
 
 	/************************************

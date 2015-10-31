@@ -1,6 +1,6 @@
 package model;
 
-public enum ShapesName {
+public enum ShapeName {
 	Rectangle,
 	Circle,
 	Ellipse,

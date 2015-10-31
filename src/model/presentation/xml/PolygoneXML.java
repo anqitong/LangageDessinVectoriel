@@ -1,11 +1,11 @@
-package xml;
+package model.presentation.xml;
 
-import java.awt.Point;
-
-import view.PencilState;
-import view.ShapeState;
 import model.Shape;
 import model.specific_path.Polygone;
+import model.presentation.PencilState;
+import model.presentation.ShapeState;
+
+import java.awt.*;
 
 public class PolygoneXML implements ShapeState {
 

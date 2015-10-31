@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Polyline extends Shape {
 	
@@ -36,7 +37,12 @@ public class Polyline extends Shape {
 	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
 	}
-	
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Polyline;
+	}
+
 	/************************************
 	 *	Methods
 	 ************************************/

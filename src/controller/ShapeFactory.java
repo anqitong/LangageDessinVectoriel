@@ -1,7 +1,7 @@
 package controller;
 
 import model.Shape;
-import model.ShapesName;
+import model.ShapeName;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
@@ -19,7 +19,7 @@ public class ShapeFactory {
 	 * @return new sub-shapesType
 	 * @throws Exception
 	 */
-	public static Shape create(ShapesName name) throws Exception {
+	public static Shape create(ShapeName name) throws Exception {
 		switch(name){
 			case Rectangle:
 				return new Rectangle();

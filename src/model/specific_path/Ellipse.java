@@ -1,6 +1,7 @@
 package model.specific_path;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Ellipse extends Shape {
 	
@@ -62,6 +63,11 @@ public class Ellipse extends Shape {
 
 	public void setRadius_y(int radius_y) {
 		this.radius_y = radius_y;
+	}
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Ellipse;
 	}
 
 	/************************************

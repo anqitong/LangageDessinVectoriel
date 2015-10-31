@@ -1,6 +1,7 @@
 package model.specific_path;
 
 import model.Shape;
+import model.ShapeName;
 
 public class Line extends Shape {
 	
@@ -63,7 +64,12 @@ public class Line extends Shape {
 	public void setY2(int y2) {
 		this.y2 = y2;
 	}
-	
+
+	@Override
+	public ShapeName getName() {
+		return ShapeName.Line;
+	}
+
 	/************************************
 	 *	Methods
 	 ************************************/

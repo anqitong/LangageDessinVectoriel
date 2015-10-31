@@ -1,33 +1,33 @@
-package xml;
+package model.presentation.xml;
 
-import view.PencilState;
-import view.ShapeState;
 import model.Shape;
-import model.specific_path.Path;
+import model.specific_path.Line;
+import model.presentation.PencilState;
+import model.presentation.ShapeState;
 
-public class PathXML implements ShapeState {
+public class LineXML implements ShapeState {
 	
 	/************************************
 	 *	Attributes
 	 ************************************/	
-	private Path path;
+	private Line line;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PathXML(Path path) {
-		this.path = path;
+	public LineXML(Line line) {
+		this.line = line;
 	}
 	
 	/************************************
 	 *	Getters and Setters
 	 ************************************/	
-	public Path getPath() {
-		return path;
+	public Line getLine() {
+		return line;
 	}
 
-	public void setLine(Path path) {
-		this.path = path;
+	public void setLine(Line line) {
+		this.line = line;
 	}
 
 	
@@ -36,14 +36,13 @@ public class PathXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing(PencilState pencil) {
-		// TODO Auto-generated method stub
-		return null;
+		return "<line x1=\""+this.getLine().getX1()+"\" y1=\""+this.getLine().getY1()+"\" x2=\""+this.getLine().getX2()+"\" y2=\""+this.getLine().getY2()+"\" "+pencil.getDrawing()+" />";
 	}
 	
 	@Override
 	public void setShape(Shape shape) throws Exception {
-		if(shape instanceof Path){
-			this.path = (Path) shape;
+		if(shape instanceof Line){
+			this.line = (Line) shape;
 		}
 		else{
 			throw new Exception("The shape is not of the right type");

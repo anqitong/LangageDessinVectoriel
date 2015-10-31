@@ -12,6 +12,7 @@ public interface ShapesProperties {
 
 	public void setColor(ColorSVG color);
 	public Color getColor();
-	
+	public ShapeName getName();
+	public Pencil getPencil();
 	
 }
