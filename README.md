@@ -36,7 +36,9 @@ Once it is done, you'll need to create a SVGFile, which is the presentation that
 		SVGFile svg = new SVGFile("name_of_the_file_without_extention");
 		
 Add your shapes to it and call the display to update the object after adding new Shapes.
+
 		svg.addShapes(shapes);
+		svg.display();
 
 ### Step 4:
 Create your SVG file, that will be created in the folder File in the root of the project by calling the function:
