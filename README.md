@@ -42,7 +42,8 @@ Add your shapes to it and call the display to update the object after adding new
 Create your SVG file, that will be created in the folder File in the root of the project by calling the function:
 
 		svg.writeSVGFile();
-
+		
+When this method is called, it checks if there is an other svg file with the same name. If yes, the svg file cannot be created and a warning is displayed. If no, then the file will be created.
 
 
 
