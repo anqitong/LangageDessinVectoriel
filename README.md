@@ -6,7 +6,7 @@ The subject of the subject is described [here](http://www.grall.name/teaching/so
 
 ## How to use the software:
 
-Once the project has been retrieve, you can use it to create SVG files.
+Once the project has been retrieved, you can use it to create SVG files.
 In the package src/view, you have a file "Draw.java". This is the java class you'll have to use to run the software.
 
 ### Step 1:
@@ -31,7 +31,7 @@ Gather your shapes to add them to a drawing:
 		ArrayList<Shape> shapes = new ArrayList<Shape>();
 		shapes.add(c);
 
-Once it has been done, you'll need to create a SVGFile, which is the presentation that will create a SVG File :
+Once it is done, you'll need to create a SVGFile, which is the presentation that will create a SVG File :
 
 		SVGFile svg = new SVGFile("name_of_the_file");
 		
