@@ -106,7 +106,7 @@ public class SVGFile implements Presentation{
 
 		for (Shape shape : shapes) {
 			xml = (String) this.getShapeState(shape).getDrawing(new PencilXML(shape.getPencil()));
-			this.xmlcontent += xml;
+			this.xmlcontent +="\n\t"+ xml;
 		}
 
 		this.xmlcontent += "\n</svg>";
