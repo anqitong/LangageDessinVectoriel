@@ -6,6 +6,7 @@ import model.specific_path.*;
 import model.presentation.Presentation;
 import model.presentation.ShapeState;
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -68,6 +69,7 @@ public class SVGFile implements Presentation{
 		 * put the file name into the filepath
 		 * e.g. "files\filename.svg"
 		 */
+		this.display();
 		file = new File(String.format(filepath, this.getFileName()));
 		
 		//if the file exists, return false and a warning
@@ -92,6 +94,7 @@ public class SVGFile implements Presentation{
 	public void addShapes(List<Shape> shapes) {
 		if (shapes != null)
 			this.shapes.addAll(shapes);
+		this.display();
 	}
 
 	@Override
@@ -110,6 +113,15 @@ public class SVGFile implements Presentation{
 		}
 
 		this.xmlcontent += "\n</svg>";
+	}
+	
+	public void view() {
+		File svgFile = new File(String.format(filepath, this.getFileName()));
+		try {
+			Desktop.getDesktop().browse(svgFile.toURI());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

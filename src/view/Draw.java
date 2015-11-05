@@ -28,6 +28,7 @@ public class Draw {
 		svg.display();
 		System.out.println(svg.getXmlcontent());
 		svg.writeSVGFile();
+		svg.view();
 	}
 	
 }
