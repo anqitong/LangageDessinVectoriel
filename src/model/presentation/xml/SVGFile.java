@@ -59,6 +59,10 @@ public class SVGFile implements Presentation{
 	}
 
 	
+	public Canvas getCanvas() {
+		return canvas;
+	}
+
 	/*
 	 * save SVG file into files
 	 */
