@@ -1,35 +1,40 @@
 package model.specific_path;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 
 
 public class PathPart {
 	
-	private Point point;
-	private Point point2;
+	private ArrayList<Point> points;
 	private LineType type;
 	
 	public PathPart(Point point, LineType type) {
-		this.point = point;
+		this.points = new ArrayList<Point>();
+		this.points.add(point);
 		this.type = type;
 	}
 
-	public Point getPoint() {
-		return point;
+	public PathPart(ArrayList<Point> points, LineType type) {
+		super();
+		this.points = points;
+		this.type = type;
 	}
 
-	public void setPoint(Point point) {
-		this.point = point;
+
+
+	public ArrayList<Point> getPoints() {
+		return points;
 	}
 
-	public Point getPoint2() {
-		return point2;
+
+
+	public void setPoints(ArrayList<Point> points) {
+		this.points = points;
 	}
 
-	public void setPoint2(Point point2) {
-		this.point2 = point2;
-	}
+
 
 	public LineType getType() {
 		return type;

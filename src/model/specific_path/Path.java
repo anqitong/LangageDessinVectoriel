@@ -55,9 +55,13 @@ public class Path extends Shape {
 		return ShapeName.Path;
 	}
 	
+	/**
+	 * Looks if the first point (start) is the same as the last one (last point of the last part)
+	 * @return boolean
+	 */
 	//@Override
 	public boolean isFillable() {
-		return this.getStart().equals(this.getParts().get(this.getParts().size()-1).getPoint());
+		return this.getStart().equals(this.getParts().get(this.getParts().size()-1).getPoints().get(this.getParts().get(this.getParts().size()-1).getPoints().size()-1));
 	}
 	
 }

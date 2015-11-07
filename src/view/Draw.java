@@ -91,8 +91,8 @@ public class Draw {
 		path5.setStart(new Point(100, 350));
 		path5.setPencil(pblue);
 		ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
-		PathPart bez = new PathPart(new Point(400, 350), LineType.Bezier);
-		bez.setPoint2(new Point(250, 50));
+		PathPart bez = new PathPart(new Point(250, 50), LineType.Bezier);
+		bez.getPoints().add(new Point(400, 350));
 		parts5.add(bez);
 		path5.setParts(parts5);
 		

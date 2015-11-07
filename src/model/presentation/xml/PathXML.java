@@ -1,5 +1,7 @@
 package model.presentation.xml;
 
+import java.awt.Point;
+
 import model.Shape;
 import model.specific_path.LineType;
 import model.specific_path.Path;
@@ -42,14 +44,13 @@ public class PathXML implements ShapeState {
 		for(PathPart pathpart:this.getPath().getParts()){
 			try {
 				xml = xml+" "+this.getLineTypeLetter(pathpart.getType());
-				if(pathpart.getPoint2()!=null){
-					xml = xml+" "+pathpart.getPoint2().x+" "+pathpart.getPoint2().y;
-				}
 			} catch (Exception e) {
 				System.out.println("The type: "+pathpart.getType()+"of line used in the Path is not recognised");
 				e.printStackTrace();
 			}
-			xml = xml+" "+pathpart.getPoint().x+" "+pathpart.getPoint().y;
+			for(Point p: pathpart.getPoints()){
+				xml = xml+" "+p.x+" "+p.y;
+			}
 		}
 		if(this.getPath().isFillable()){
 			xml = "<path d=\""+xml+" Z\" fill=\""+this.getPath().getColor()+"\"";

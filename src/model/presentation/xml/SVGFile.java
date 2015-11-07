@@ -19,8 +19,7 @@ public class SVGFile implements Presentation{
 	private String xmlcontent;
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	private Canvas canvas;
-
-	public static File file;
+	public File file;
 	private static BufferedWriter out;
 	
 	/*
@@ -61,6 +60,14 @@ public class SVGFile implements Presentation{
 	
 	public Canvas getCanvas() {
 		return canvas;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
 	}
 
 	/*
