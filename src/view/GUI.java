@@ -47,94 +47,61 @@ public class GUI extends JFrame{
 	public JPanel createToolBox() {
 		JPanel toolbox = new JPanel();
 		toolbox.setLayout(new BorderLayout());
-		JPanel touches = new JPanel();
-		touches.setLayout(new BoxLayout(touches,BoxLayout.Y_AXIS));
-		//		touches.setLayout(new BorderLayout());
-		int width = touches.getWidth();
+		JPanel components = new JPanel();
+		components.setLayout(new BoxLayout(components,BoxLayout.Y_AXIS));
+		
+		JLabel pencilStyle = new JLabel("Pencil style");
+		components.add(pencilStyle);
+		JButton pencilColor = new JButton("Pencil color");
+		JButton pencilThickness = new JButton("Pencil thickness");
+		components.add(pencilColor);
+		components.add(pencilThickness);
 
-		JButton pencil = new JButton("Pencil");
-
-		pencil.setBackground(Color.RED);
-		pencil.setFont(new Font("Arial",Font.BOLD,16));
-		pencil.setForeground(Color.WHITE);
-		pencil.setAlignmentX(LEFT_ALIGNMENT);
-		//touches.add(pencil, BorderLayout.WEST);
-		touches.add(pencil);
-
-		JButton fill = new JButton("Fill");
-		fill.setBackground(Color.RED);
-		fill.setFont(new Font("Arial",Font.BOLD,16));
-		fill.setForeground(Color.WHITE);
-		//touches.add(fill, BorderLayout.EAST);
-		touches.add(fill);
-		//toolbox.add(touches, BorderLayout.WEST);
-
-		JButton colorpicker = new JButton("Color picker");
-		colorpicker.setBackground(Color.RED);
-		colorpicker.setFont(new Font("Arial",Font.BOLD,16));
-		colorpicker.setForeground(Color.WHITE);
-		//touches.add(colorpicker, BorderLayout.EAST);
-		touches.add(colorpicker);
-		//toolbox.add(touches, BorderLayout.WEST);
-
-		JButton circle = new JButton("Circle");
-		circle.setBackground(Color.RED);
-		circle.setFont(new Font("Arial",Font.BOLD,16));
-		circle.setForeground(Color.WHITE);
-		//touches.add(circle, BorderLayout.EAST);
-		touches.add(circle);
-		//toolbox.add(touches, BorderLayout.WEST);
+		JSeparator sep1 = new JSeparator();
+		components.add(sep1);
+		
+		
+		JLabel shapes = new JLabel("Shapes");
+		components.add(shapes);
+		
+		JButton circle = new JButton("Circle");		
+		components.add(circle);
 
 		JButton ellipse = new JButton("Ellipse");
-		ellipse.setBackground(Color.RED);
-		ellipse.setFont(new Font("Arial",Font.BOLD,16));
-		ellipse.setForeground(Color.WHITE);
-		//		touches.add(ellipse, BorderLayout.EAST);
-		touches.add(ellipse);
-		//toolbox.add(touches, BorderLayout.WEST);
+		components.add(ellipse);
 
 		JButton line = new JButton("Line");
-		line.setBackground(Color.RED);
-		line.setFont(new Font("Arial",Font.BOLD,16));
-		line.setForeground(Color.WHITE);
-		//		touches.add(line, BorderLayout.EAST);
-		touches.add(line);
-		//		toolbox.add(touches, BorderLayout.WEST);
+		components.add(line);
 
 		JButton polygone = new JButton("Polygone");
-		polygone.setBackground(Color.RED);
-		polygone.setFont(new Font("Arial",Font.BOLD,16));
-		polygone.setForeground(Color.WHITE);
-		//		touches.add(polygone, BorderLayout.EAST);
-		touches.add(polygone);
-		//		toolbox.add(touches, BorderLayout.WEST);
+		components.add(polygone);
 
 		JButton polyline = new JButton("Polyline");
-		polyline.setBackground(Color.RED);
-		polyline.setFont(new Font("Arial",Font.BOLD,16));
-		polyline.setForeground(Color.WHITE);
-		//		touches.add(polyline, BorderLayout.EAST);
-		touches.add(polyline);
-		//		toolbox.add(touches, BorderLayout.WEST);
+		components.add(polyline);
 
 		JButton rectangle = new JButton("Rectangle");
-		rectangle.setBackground(Color.RED);
-		rectangle.setFont(new Font("Arial",Font.BOLD,16));
-		rectangle.setForeground(Color.WHITE);
-		//		touches.add(rectangle, BorderLayout.EAST);
-		touches.add(rectangle);
-		//		toolbox.add(touches, BorderLayout.WEST);
+		components.add(rectangle);
 
 		JButton text = new JButton("Text");
-		text.setBackground(Color.RED);
-		text.setFont(new Font("Arial",Font.BOLD,16));
-		text.setForeground(Color.WHITE);
-		//		touches.add(text, BorderLayout.EAST);
-		touches.add(text);
-		//		toolbox.add(touches, BorderLayout.WEST);
+		components.add(text);
 
-		//toolbox.setMaximumSize(new Dimension(2000,50));
-		toolbox.add(touches,BorderLayout.CENTER);
+		JSeparator sep2 = new JSeparator();
+		components.add(sep2);
+		
+		JLabel fill = new JLabel("Fill");
+		JRadioButton yes = new JRadioButton("Yes");
+		JRadioButton no = new JRadioButton("no");
+		ButtonGroup radioBtns = new ButtonGroup();
+		JButton colorpicker = new JButton("Color picker");
+		radioBtns.add(yes);
+		radioBtns.add(no);
+		components.add(fill);
+		components.add(yes);
+		components.add(no);
+		components.add(colorpicker);
+		
+		
+		toolbox.add(components,BorderLayout.CENTER);
 		return toolbox;
 	}
 
