@@ -52,6 +52,11 @@ Create your SVG file, that will be created in the folder File in the root of the
 		
 When this method is called, it checks if there is an other svg file with the same name. If yes, the svg file cannot be created and a warning is displayed. If no, then the file will be created.
 
+If you want to open that file in your default browser, call the view() method:
+
+		svg.view();
+		
+The file must have been created for it to be displayed without error.
 
 
 ## Team Members:
