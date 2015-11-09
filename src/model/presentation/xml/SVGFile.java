@@ -96,7 +96,7 @@ public class SVGFile implements Presentation{
 		 * put the file name into the filepath
 		 * e.g. "files\filename.svg"
 		 */
-		this.display();
+		this.createDrawing();
 		file = new File(String.format(filepath, this.getFileName()));
 		
 		//if the file exists, return false and a warning
@@ -121,7 +121,7 @@ public class SVGFile implements Presentation{
 	public void addShapes(List<Shape> shapes) {
 		if (shapes != null)
 			this.shapes.addAll(shapes);
-		this.display();
+		this.createDrawing();
 	}
 	
 	@Override

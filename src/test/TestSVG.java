@@ -58,7 +58,7 @@ public class TestSVG {
 		//Create the first svg
 		SVGFile svg = new SVGFile("test");
 		svg.addShapes(shapes);
-		svg.display();
+		svg.createDrawing();
 		
 		Rectangle r2 = new Rectangle(60, 60, 60, 60);
 		r2.setPencil(p);
@@ -68,11 +68,11 @@ public class TestSVG {
 		//Create the second svg
 		SVGFile svg2 = new SVGFile("insert");
 		svg2.addShapes(shape2);
-		svg2.display();
+		svg2.createDrawing();
 		
 
 		svg.insert(svg2);
-		svg.display();
+		svg.createDrawing();
 		System.out.println(svg.getXmlcontent());
 		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 		xml+="\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"1024\" width=\"1024\">";
