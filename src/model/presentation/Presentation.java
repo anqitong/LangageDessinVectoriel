@@ -34,7 +34,7 @@ public interface Presentation {
 	 * To create real presentation like svg file and display it to user. Here is where to call
 	 * <code>this.getShapeState(aShape)</code> to create concrete ShapeStates and render Shapes in list.
 	 */
-	Object display();
+	Object createDrawing();
 
 	/**
 	 * This method is a tool to create concrete ShapeStates according to the type of shapes given. A typical implementation is to

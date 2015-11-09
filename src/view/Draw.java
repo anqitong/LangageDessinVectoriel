@@ -25,7 +25,7 @@ public class Draw {
 
 		SVGFile svg = new SVGFile("test");
 		svg.addShapes(shapes);
-		svg.display();
+		svg.createDrawing();
 		System.out.println(svg.getXmlcontent());
 		svg.writeSVGFile();
 	}

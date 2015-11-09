@@ -134,7 +134,7 @@ public class SVGFile implements Presentation{
 	}
 
 	@Override
-	public String display() {
+	public String createDrawing() {
 		this.xmlcontent = "";
 		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 		xml += "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\""
@@ -150,7 +150,7 @@ public class SVGFile implements Presentation{
 				this.xmlcontent +="\n\t"+ xml;
 			}
 			if(obj instanceof SVGFile){
-				xml = ((SVGFile)obj).display();
+				xml = ((SVGFile)obj).createDrawing();
 				this.xmlcontent +="\n\t"+ xml;
 			}
 		}
