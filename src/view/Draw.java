@@ -36,7 +36,7 @@ public class Draw {
 		svg.display();
 		System.out.println(svg.getXmlcontent());
 		svg.writeSVGFile();
-	
+		svg.view();	
 		
 		
 		/************************************
@@ -91,7 +91,7 @@ public class Draw {
 		path5.setStart(new Point(100, 350));
 		path5.setPencil(pblue);
 		ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
-		PathPart bez = new PathPart(new Point(250, 50), LineType.Bezier);
+		PathPart bez = new PathPart(new Point(250, 50), LineType.QuadricBezier);
 		bez.getPoints().add(new Point(400, 350));
 		parts5.add(bez);
 		path5.setParts(parts5);
