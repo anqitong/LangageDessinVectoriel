@@ -1,5 +1,7 @@
 package model.presentation;
 
+import model.Pencil;
+
 public interface PencilState {
 	/**
 	 * Render the pencil aspect
@@ -11,7 +13,7 @@ public interface PencilState {
 	 * Get the Pencil
 	 * @return
 	 */
-	Object getPencil();
+	Pencil getPencil();
 
 
 }
