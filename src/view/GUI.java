@@ -149,7 +149,7 @@ public class GUI extends JFrame{
 		consoleArea.add(scrollPane);
 		JButton pencil = new JButton("Run");
 
-		pencil.setBackground(Color.RED);
+		//pencil.setBackground(Color.RED);
 		//		pencil.setFont(new Font("Arial",Font.BOLD,16));
 		//		pencil.setForeground(Color.WHITE);
 		pencil.setAlignmentX(LEFT_ALIGNMENT);
