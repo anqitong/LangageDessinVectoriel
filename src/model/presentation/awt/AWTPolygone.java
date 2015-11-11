@@ -10,11 +10,11 @@ import java.util.ArrayList;
 /**
  * Created by Xiaxing SHI on 11/11/15.
  */
-public class PolygoneAWT implements ShapeState {
+public class AWTPolygone implements ShapeState {
     private Polygone polygone;
     private StateDelegate delegate;
 
-    public PolygoneAWT(Polygone polygone, StateDelegate delegate) {
+    public AWTPolygone(Polygone polygone, StateDelegate delegate) {
         this.polygone = polygone;
         this.delegate = delegate;
     }

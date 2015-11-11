@@ -2,20 +2,19 @@ package model.presentation.awt;
 
 import model.Shape;
 import model.presentation.ShapeState;
-import model.specific_path.Text;
-import org.junit.Test;
+import model.specific_path.Line;
 
 import java.awt.*;
 
 /**
  * Created by Xiaxing SHI on 11/11/15.
  */
-public class TextAWT implements ShapeState {
-    private Text text;
+public class AWTLine implements ShapeState {
+    private Line line;
     private StateDelegate delegate;
 
-    public TextAWT(Text text, StateDelegate delegate) {
-        this.text = text;
+    public AWTLine(Line line, StateDelegate delegate) {
+        this.line = line;
         this.delegate = delegate;
     }
 
@@ -23,9 +22,8 @@ public class TextAWT implements ShapeState {
     public Object getDrawing() {
         Graphics2D g = delegate.getGraphics2D();
 
-        g.setColor(this.text.getPencil().getColor());
-        g.setStroke(new BasicStroke(this.text.getPencil().getWidth()));
-        g.drawString(this.text.getText(), this.text.getX(), this.text.getY());
+        g.setStroke(new BasicStroke(this.line.getPencil().getWidth()));
+        g.drawLine(this.line.getX1(), this.line.getY1(), this.line.getX2(), this.line.getY2());
 
         return this;
     }

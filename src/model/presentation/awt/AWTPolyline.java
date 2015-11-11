@@ -10,12 +10,12 @@ import java.util.ArrayList;
 /**
  * Created by Xiaxing SHI on 11/11/15.
  */
-public class PolylineAWT implements ShapeState {
+public class AWTPolyline implements ShapeState {
 
     private Polyline polyline;
     private StateDelegate delegate;
 
-    public PolylineAWT(Polyline polyline, StateDelegate delegate) {
+    public AWTPolyline(Polyline polyline, StateDelegate delegate) {
         this.polyline = polyline;
         this.delegate = delegate;
     }

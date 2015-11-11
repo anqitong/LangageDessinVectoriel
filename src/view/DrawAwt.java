@@ -2,13 +2,12 @@ package view;
 
 import model.*;
 import model.Canvas;
-import model.presentation.awt.AWT;
+import model.presentation.awt.AWTFrame;
 import model.presentation.xml.SVGFile;
 import model.specific_path.*;
 import model.specific_path.Rectangle;
 
 import java.awt.*;
-import java.awt.Shape;
 import java.util.ArrayList;
 
 /**
@@ -65,7 +64,7 @@ public class DrawAwt {
         t.setPencil(p);
         shapes.add(t);
 
-        AWT awt = new AWT("new awt", new Canvas(600, 600));
+        AWTFrame awt = new AWTFrame("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);
         awt.display();
 

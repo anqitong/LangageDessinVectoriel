@@ -9,11 +9,11 @@ import java.awt.*;
 /**
  * Created by Xiaxing SHI on 11/11/15.
  */
-public class EllipseAWT implements ShapeState {
+public class AWTEllipse implements ShapeState {
     private Ellipse ellipse;
     private StateDelegate delegate;
 
-    public EllipseAWT(Ellipse ellipse, StateDelegate delegate) {
+    public AWTEllipse(Ellipse ellipse, StateDelegate delegate) {
         this.ellipse = ellipse;
         this.delegate = delegate;
     }

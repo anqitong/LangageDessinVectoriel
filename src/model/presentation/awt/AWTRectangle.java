@@ -9,12 +9,12 @@ import java.awt.*;
 /**
  * Created by Xiaxing SHI on 11/11/15.
  */
-public class RectangleAWT implements ShapeState {
+public class AWTRectangle implements ShapeState {
 
     private Rectangle rectangle;
     private StateDelegate delegate;
 
-    public RectangleAWT(Rectangle rectangle, StateDelegate delegate) {
+    public AWTRectangle(Rectangle rectangle, StateDelegate delegate) {
         this.rectangle = rectangle;
         this.delegate = delegate;
     }

@@ -9,11 +9,11 @@ import java.awt.*;
 /**
  * Created by Xiaxing SHI on 09/11/15.
  */
-public class CircleAWT implements ShapeState {
+public class AWTCircle implements ShapeState {
     private Circle circle;
     private StateDelegate delegate;
 
-    public CircleAWT(Circle circle, StateDelegate delegate) {
+    public AWTCircle(Circle circle, StateDelegate delegate) {
         this.delegate = delegate;
         this.circle = circle;
     }

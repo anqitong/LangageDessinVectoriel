@@ -18,19 +18,19 @@ import java.util.List;
 /**
  * Created by Xiaxing SHI on 09/11/15.
  */
-public class AWT extends Frame implements Presentation, StateDelegate {
+public class AWTFrame extends Frame implements Presentation, StateDelegate {
 
     private String name;
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
     private Graphics2D g2d = null;
 
-    public AWT(String name, Canvas canvas) {
+    public AWTFrame(String name, Canvas canvas) {
         this.setCanvas(canvas);
         this.setName(name);
     }
 
-    public AWT(String name) {
+    public AWTFrame(String name) {
         this(name, new Canvas(1024, 1024));
     }
 
@@ -65,28 +65,28 @@ public class AWT extends Frame implements Presentation, StateDelegate {
 
         switch (shape.getName()) {
             case Circle:
-                state = new CircleAWT((Circle)shape, this);
+                state = new AWTCircle((Circle)shape, this);
                 break;
             case Ellipse:
-                state = new EllipseAWT((Ellipse)shape, this);
+                state = new AWTEllipse((Ellipse)shape, this);
                 break;
             case Line:
-                state = new LineAWT((Line)shape, this);
+                state = new AWTLine((Line)shape, this);
                 break;
             case Path:
 //                state = new PathXML((Path)shape);
                 break;
             case Polygone:
-                state = new PolygoneAWT((Polygone)shape, this);
+                state = new AWTPolygone((Polygone)shape, this);
                 break;
             case Polyline:
-                state = new PolylineAWT((Polyline)shape, this);
+                state = new AWTPolyline((Polyline)shape, this);
                 break;
             case Rectangle:
-                state = new RectangleAWT((Rectangle)shape, this);
+                state = new AWTRectangle((Rectangle)shape, this);
                 break;
             case Text:
-                state = new TextAWT((Text)shape, this);
+                state = new AWTText((Text)shape, this);
                 break;
             default:
         }
