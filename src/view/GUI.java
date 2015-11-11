@@ -195,14 +195,55 @@ public class GUI extends JFrame{
 		JTextField ellipseRadiusValueY =  new JTextField(5);
 		toolbox.add(ellipseRadiusValueY, gc);
 		
-		
-		
-		/*gc.gridx = 0;
-		gc.gridy = 6;
+		//Line and its points
+		gc.gridx = 0;
+		gc.gridy = 13;
 		JButton line = new JButton("Line");
 		line.setPreferredSize(new Dimension(10,10));
 		toolbox.add(line, gc);
 		
+		gc.gridx = 0;
+		gc.gridy = 14;
+		JLabel x1 = new JLabel("x1 : ");
+		toolbox.add(x1, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 14;
+		JTextField x1Value = new JTextField(5);
+		toolbox.add(x1Value, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 15;
+		JLabel y1 = new JLabel("y1 : ");
+		toolbox.add(y1, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 15;
+		JTextField y1Value = new JTextField(5);
+		toolbox.add(y1Value, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 16;
+		JLabel x2 = new JLabel("x2 : ");
+		toolbox.add(x2, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 16;
+		JTextField x2Value = new JTextField(5);
+		toolbox.add(x2Value, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 17;
+		JLabel y2 = new JLabel("y2 : ");
+		toolbox.add(y2, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 17;
+		JTextField y2Value = new JTextField(5);
+		toolbox.add(y2Value, gc);
+		
+		
+		/*
 		gc.gridx = 0;
 		gc.gridy = 7;
 		JButton polygone = new JButton("Polygone");
