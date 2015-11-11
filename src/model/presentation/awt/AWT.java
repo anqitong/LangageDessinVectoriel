@@ -15,11 +15,12 @@ import java.util.List;
 /**
  * Created by Xiaxing SHI on 09/11/15.
  */
-public class AWT extends Frame implements Presentation {
+public class AWT extends Frame implements Presentation, StateDelegate {
 
     private String name;
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
+    private Graphics2D g2d = null;
 
     public AWT(String name, Canvas canvas) {
         this.setCanvas(canvas);
@@ -61,7 +62,7 @@ public class AWT extends Frame implements Presentation {
 
         switch (shape.getName()) {
             case Circle:
-                state = new CircleAWT((Circle)shape);
+                state = new CircleAWT((Circle)shape, this);
                 break;
             case Ellipse:
 //                state = new EllipseXML((Ellipse)shape);
@@ -91,13 +92,18 @@ public class AWT extends Frame implements Presentation {
 
     @Override
     public void paint(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
+        this.g2d = (Graphics2D) g;
         for (Shape shape : shapes) {
-            this.getShapeState(shape).getDrawing(new PencilAWT(shape.getPencil(), g2d));
+            this.getShapeState(shape).getDrawing();
         }
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Graphics2D getGraphics2D() {
+        return this.g2d;
     }
 }

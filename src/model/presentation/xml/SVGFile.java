@@ -1,6 +1,7 @@
 package model.presentation.xml;
 
 import model.Canvas;
+import model.Pencil;
 import model.Shape;
 import model.specific_path.*;
 import model.presentation.Presentation;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SVGFile implements Presentation{
+public class SVGFile implements Presentation, StateDelegate {
 
 	private String fileName;
 	private String xmlcontent;
@@ -108,7 +109,7 @@ public class SVGFile implements Presentation{
 		this.xmlcontent += xml;
 
 		for (Shape shape : shapes) {
-			xml = (String) this.getShapeState(shape).getDrawing(new PencilXML(shape.getPencil()));
+			xml = (String) this.getShapeState(shape).getDrawing();
 			this.xmlcontent +="\n\t"+ xml;
 		}
 
@@ -130,28 +131,28 @@ public class SVGFile implements Presentation{
 
 		switch (shape.getName()) {
 			case Circle:
-				state = new CircleXML((Circle)shape);
+				state = new CircleXML((Circle)shape, this);
 				break;
 			case Ellipse:
-				state = new EllipseXML((Ellipse)shape);
+				state = new EllipseXML((Ellipse)shape, this);
 				break;
 			case Line:
-				state = new LineXML((Line)shape);
+				state = new LineXML((Line)shape, this);
 				break;
 			case Path:
-				state = new PathXML((Path)shape);
+				state = new PathXML((Path)shape, this);
 				break;
 			case Polygone:
-				state = new PolygoneXML((Polygone)shape);
+				state = new PolygoneXML((Polygone)shape, this);
 				break;
 			case Polyline:
-				state = new PolylineXML((Polyline)shape);
+				state = new PolylineXML((Polyline)shape, this);
 				break;
 			case Rectangle:
-				state = new RectangleXML((Rectangle)shape);
+				state = new RectangleXML((Rectangle)shape, this);
 				break;
 			case Text:
-				state = new TextXML((Text)shape);
+				state = new TextXML((Text)shape, this);
 				break;
 			default:
 		}
@@ -161,6 +162,11 @@ public class SVGFile implements Presentation{
 	@Override
 	public void setCanvas(Canvas canvas) {
 		this.canvas = canvas;
+	}
+
+	@Override
+	public String getPencilXML(Pencil p) {
+		return "stroke=\"" + p.getColor() + "\" stroke-width=\"" + p.getWidth() + "\"";
 	}
 
 }

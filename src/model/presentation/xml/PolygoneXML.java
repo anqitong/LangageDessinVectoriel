@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Polygone;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 import java.awt.*;
@@ -13,11 +12,13 @@ public class PolygoneXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Polygone polygone;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PolygoneXML(Polygone polygone) {
+	public PolygoneXML(Polygone polygone, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.polygone = polygone;
 	}
 	
@@ -36,12 +37,12 @@ public class PolygoneXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
+	public String getDrawing() {
 		String xml = "";
 		for(Point point:this.getPolygone().getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polygon points=\""+xml+"\" fill=\""+this.getPolygone().getColor()+"\" "+pencil.getDrawing()+" />";
+		return "<polygon points=\""+xml+"\" fill=\""+this.getPolygone().getColor()+"\" "+this.delegate.getPencilXML(this.polygone.getPencil())+" />";
 	}
 	
 	@Override

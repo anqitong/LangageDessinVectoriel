@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Circle;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 public class CircleXML implements ShapeState {
@@ -11,11 +10,13 @@ public class CircleXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Circle circle; // Shape used
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public CircleXML(Circle circle) {
+	public CircleXML(Circle circle, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.circle = circle;
 	}
 	
@@ -36,8 +37,8 @@ public class CircleXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
-		return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+pencil.getDrawing()+" />";
+	public String getDrawing() {
+		return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+this.delegate.getPencilXML(this.circle.getPencil())+" />";
 	}
 
 	@Override

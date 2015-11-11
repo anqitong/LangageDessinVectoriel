@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Rectangle;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 public class RectangleXML implements ShapeState {
@@ -11,11 +10,13 @@ public class RectangleXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Rectangle rectangle;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public RectangleXML(Rectangle rectangle) {
+	public RectangleXML(Rectangle rectangle, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.rectangle = rectangle;	
 	}
 
@@ -34,8 +35,8 @@ public class RectangleXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
-		return "<rect x=\""+this.getRectangle().getX()+"\" y=\""+this.getRectangle().getY()+"\" width=\""+this.getRectangle().getWidth()+"\" height=\""+this.getRectangle().getHeight()+"\" fill=\""+this.getRectangle().getColor()+"\" "+pencil.getDrawing()+" />";
+	public String getDrawing() {
+		return "<rect x=\""+this.getRectangle().getX()+"\" y=\""+this.getRectangle().getY()+"\" width=\""+this.getRectangle().getWidth()+"\" height=\""+this.getRectangle().getHeight()+"\" fill=\""+this.getRectangle().getColor()+"\" "+this.delegate.getPencilXML(this.rectangle.getPencil())+" />";
 	}
 	
 	@Override

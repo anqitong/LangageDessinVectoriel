@@ -1,7 +1,6 @@
 package model.presentation.awt;
 
 import model.Shape;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 import model.specific_path.Circle;
 
@@ -12,14 +11,16 @@ import java.awt.*;
  */
 public class CircleAWT implements ShapeState {
     private Circle circle;
+    private StateDelegate delegate;
 
-    public CircleAWT(Circle circle) {
+    public CircleAWT(Circle circle, StateDelegate delegate) {
+        this.delegate = delegate;
         this.circle = circle;
     }
 
     @Override
-    public Object getDrawing(PencilState pencil) {
-        Graphics2D g = (Graphics2D) pencil.getDrawing();
+    public Object getDrawing() {
+        Graphics2D g = delegate.getGraphics2D();
 
         g.setColor(this.circle.getColor());
         g.fillOval(this.circle.getCenter_x(), this.circle.getCenter_y(), this.circle.getRadius()*2, this.circle.getRadius()*2);

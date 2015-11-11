@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Path;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 public class PathXML implements ShapeState {
@@ -11,11 +10,13 @@ public class PathXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Path path;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PathXML(Path path) {
+	public PathXML(Path path, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.path = path;
 	}
 	
@@ -35,7 +36,7 @@ public class PathXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
+	public String getDrawing() {
 		// TODO Auto-generated method stub
 		return null;
 	}

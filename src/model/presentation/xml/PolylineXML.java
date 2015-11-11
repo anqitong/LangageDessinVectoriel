@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Polyline;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 import java.awt.*;
@@ -13,11 +12,13 @@ public class PolylineXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Polyline polyline;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PolylineXML(Polyline polyline) {
+	public PolylineXML(Polyline polyline, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.polyline = polyline;
 	}
 	
@@ -37,12 +38,12 @@ public class PolylineXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
+	public String getDrawing() {
 		String xml = "";
 		for(Point point:this.getPolyline().getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polyline points=\""+xml+"\" "+pencil.getDrawing()+" />";
+		return "<polyline points=\""+xml+"\" "+this.delegate.getPencilXML(this.polyline.getPencil())+" />";
 	}
 
 	@Override
