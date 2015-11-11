@@ -46,6 +46,9 @@ public class Polyline extends Shape {
 	/************************************
 	 *	Methods
 	 ************************************/
-
+	@Override
+	public boolean isFillable() {
+		return false;
+	}
 
 }

@@ -73,4 +73,9 @@ public class Rectangle extends Shape {
 	/************************************
 	 *	Methods
 	 ************************************/
+	
+	@Override
+	public boolean isFillable() {
+		return true;
+	}
 }
