@@ -86,7 +86,7 @@ public class AWT extends Frame implements Presentation, StateDelegate {
                 state = new RectangleAWT((Rectangle)shape, this);
                 break;
             case Text:
-//                state = new TextXML((Text)shape);
+                state = new TextAWT((Text)shape, this);
                 break;
             default:
         }

@@ -60,7 +60,11 @@ public class DrawAwt {
         r.setColor(blue);
         shapes.add(r);
 
-        AWT awt = new AWT("new awt", new Canvas(1024, 720));
+        Text t = new Text(500, 50, "Hello, World!");
+        t.setPencil(p);
+        shapes.add(t);
+
+        AWT awt = new AWT("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);
         awt.display();
     }
