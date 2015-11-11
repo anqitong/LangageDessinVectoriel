@@ -4,7 +4,7 @@ import model.Canvas;
 import model.Shape;
 import model.presentation.Presentation;
 import model.presentation.ShapeState;
-import model.specific_path.Circle;
+import model.specific_path.*;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -65,7 +65,7 @@ public class AWT extends Frame implements Presentation, StateDelegate {
                 state = new CircleAWT((Circle)shape, this);
                 break;
             case Ellipse:
-//                state = new EllipseXML((Ellipse)shape);
+                state = new EllipseAWT((Ellipse)shape, this);
                 break;
             case Line:
 //                state = new LineXML((Line)shape);

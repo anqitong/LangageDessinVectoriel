@@ -4,6 +4,8 @@ import model.*;
 import model.Canvas;
 import model.presentation.awt.AWT;
 import model.specific_path.Circle;
+import model.specific_path.Ellipse;
+import sun.plugin2.util.ColorUtil;
 
 import java.awt.*;
 import java.awt.Shape;
@@ -15,14 +17,22 @@ import java.util.ArrayList;
 public class DrawAwt {
 
     public static void main(String args[]) {
-        Pencil p = new Pencil(4, new ColorSVG(Color.black.getRGB()));
-        Circle c = new Circle(30,30,30);
-        c.setColor(new ColorSVG(Color.blue.getRGB()));
-        c.setPencil(p);
         ArrayList<model.Shape> shapes = new ArrayList<model.Shape>();
+
+        Pencil p = new Pencil(4, new ColorSVG(Color.red.getRGB()));
+        ColorSVG blue = new ColorSVG(Color.blue.getRGB());
+
+        Circle c = new Circle(30,30,30);
+        c.setColor(blue);
+        c.setPencil(p);
         shapes.add(c);
 
-        AWT awt = new AWT("new awt", new Canvas(200, 200));
+        Ellipse e = new Ellipse(100, 30, 40, 20);
+        e.setColor(blue);
+        e.setPencil(p);
+        shapes.add(e);
+
+        AWT awt = new AWT("new awt", new Canvas(1024, 720));
         awt.addShapes(shapes);
         awt.display();
     }
