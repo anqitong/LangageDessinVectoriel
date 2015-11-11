@@ -64,9 +64,11 @@ public class GUI extends JFrame{
 	 * the tool box contains style and shape elements such as pencil,
 	 * color, thickness, fill, circle, rectangle, ...
 	 */
-	public JPanel createToolBox() {
+	public JScrollPane createToolBox() {
 		JPanel toolbox = new JPanel();
-		//JScrollPane essai = new JScrollPane(toolbox);
+		JScrollPane scrollPane = new JScrollPane(toolbox);
+		scrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setPreferredSize(new Dimension(250,400));
 
 		toolbox.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
@@ -243,66 +245,107 @@ public class GUI extends JFrame{
 		toolbox.add(y2Value, gc);
 		
 		
-		/*
+		//Polygone
 		gc.gridx = 0;
-		gc.gridy = 7;
+		gc.gridy = 18;
 		JButton polygone = new JButton("Polygone");
 		polygone.setPreferredSize(new Dimension(10,10));
 		toolbox.add(polygone, gc);
 		
+		//Polyline
 		gc.gridx = 0;
-		gc.gridy = 8;
+		gc.gridy = 19;
 		JButton polyline = new JButton("Polyline");
 		polyline.setPreferredSize(new Dimension(10,10));
 		toolbox.add(polyline, gc);
 
+		//Rectangle and its values
 		gc.gridx = 0;
-		gc.gridy = 9;
+		gc.gridy = 20;
 		JButton rectangle = new JButton("Rectangle");
 		rectangle.setPreferredSize(new Dimension(10,10));
 		toolbox.add(rectangle, gc);
 		
 		gc.gridx = 0;
-		gc.gridy = 10;
+		gc.gridy = 21;
+		JLabel rectX = new JLabel("Rectangle X : ");
+		toolbox.add(rectX, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 21;
+		JTextField rectValueX = new JTextField(10);
+		toolbox.add(rectValueX, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 22;
+		JLabel rectY = new JLabel("Rectangle Y : ");
+		toolbox.add(rectY, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 22;
+		JTextField rectValueY = new JTextField(10);
+		toolbox.add(rectValueY, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 23;
+		JLabel rectWidth = new JLabel("Rectangle width : ");
+		toolbox.add(rectWidth, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 23;
+		JTextField rectWidthValue = new JTextField(10);
+		toolbox.add(rectWidthValue, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 24;
+		JLabel rectHeight = new JLabel("Rectangle height : ");
+		toolbox.add(rectHeight, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 24;
+		JTextField rectHeightValue = new JTextField(10);
+		toolbox.add(rectHeightValue, gc);
+		
+		//Text and its values
+		gc.gridx = 0;
+		gc.gridy = 25;
 		JButton text = new JButton("Text");
 		text.setPreferredSize(new Dimension(10,10));
 		toolbox.add(text, gc);
 		
 		gc.gridx = 0;
-		gc.gridy = 11;
-		JLabel fill = new JLabel("Fill");
-		fill.setFont(new Font("Label.font",Font.BOLD,15));
-		toolbox.add(fill, gc);
+		gc.gridy = 26;
+		JLabel textX = new JLabel("Text X : ");
+		toolbox.add(textX, gc);
 		
 		gc.gridx = 1;
-		gc.gridy = 11;
-		JRadioButton yes = new JRadioButton("Yes");
-		toolbox.add(yes, gc);
-		
-		gc.gridx = 2;
-		gc.gridy = 11;
-		JRadioButton no = new JRadioButton("no");
-		toolbox.add(no, gc);
-		
-		ButtonGroup radioBtns = new ButtonGroup();
-		radioBtns.add(yes);
-		radioBtns.add(no);
+		gc.gridy = 26;
+		JTextField textValueX = new JTextField(10);
+		toolbox.add(textValueX, gc);
 		
 		gc.gridx = 0;
-		gc.gridy = 12;
-		JLabel colorpicker = new JLabel("Fill color");
-		toolbox.add(colorpicker, gc);
+		gc.gridy = 27;
+		JLabel textY = new JLabel("Text Y : ");
+		toolbox.add(textY, gc);
 		
 		gc.gridx = 1;
-		gc.gridy = 12;
-		JTextField fillColor = new JTextField(10);
-		toolbox.add(fillColor, gc);*/
-		return toolbox;
+		gc.gridy = 27;
+		JTextField textValueY = new JTextField(10);
+		toolbox.add(textValueY, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 28;
+		JLabel textValueLabel = new JLabel("Text value : ");
+		toolbox.add(textValueLabel, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 28;
+		JTextField textValue = new JTextField(10);
+		toolbox.add(textValue, gc);
+		
+		return scrollPane;
 	}
 
-	
-	
-	
 	/*
 	 * the console for the Java commands
 	 */
@@ -318,7 +361,7 @@ public class GUI extends JFrame{
 		//textArea.setSize(100, 1);
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(100,250));
+		scrollPane.setPreferredSize(new Dimension(100,200));
 
 		consoleArea.add(scrollPane);
 		JButton pencil = new JButton("Run");
@@ -332,7 +375,6 @@ public class GUI extends JFrame{
 
 		return consoleArea;		
 	}
-
 
 	public static void main(String[] args) throws IOException {
 		GUI gui = new GUI();
