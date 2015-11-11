@@ -3,10 +3,7 @@ package view;
 import model.*;
 import model.Canvas;
 import model.presentation.awt.AWT;
-import model.specific_path.Circle;
-import model.specific_path.Ellipse;
-import model.specific_path.Line;
-import model.specific_path.Polygone;
+import model.specific_path.*;
 
 import java.awt.*;
 import java.awt.Shape;
@@ -46,6 +43,16 @@ public class DrawAwt {
         polygone.setColor(blue);
         polygone.setPencil(p);
         shapes.add(polygone);
+
+        Polyline polyline = new Polyline();
+        points = new ArrayList<Point>();
+        points.add(new Point(250, 100));
+        points.add(new Point(100, 300));
+        points.add(new Point(20, 300));
+        points.add(new Point(250, 200));
+        polyline.setPoints(points);
+        polyline.setPencil(p);
+        shapes.add(polyline);
 
         AWT awt = new AWT("new awt", new Canvas(1024, 720));
         awt.addShapes(shapes);
