@@ -6,7 +6,7 @@ import model.presentation.awt.AWT;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
-import sun.plugin2.util.ColorUtil;
+import model.specific_path.Polygone;
 
 import java.awt.*;
 import java.awt.Shape;
@@ -36,6 +36,16 @@ public class DrawAwt {
         Line l = new Line(5, 60, 15, 100);
         l.setPencil(p);
         shapes.add(l);
+
+        Polygone polygone = new Polygone();
+        ArrayList<Point> points = new ArrayList<Point>();
+        points.add(new Point(100, 100));
+        points.add(new Point(200, 200));
+        points.add(new Point(100, 200));
+        polygone.setPoints(points);
+        polygone.setColor(blue);
+        polygone.setPencil(p);
+        shapes.add(polygone);
 
         AWT awt = new AWT("new awt", new Canvas(1024, 720));
         awt.addShapes(shapes);

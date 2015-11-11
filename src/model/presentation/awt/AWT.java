@@ -74,7 +74,7 @@ public class AWT extends Frame implements Presentation, StateDelegate {
 //                state = new PathXML((Path)shape);
                 break;
             case Polygone:
-//                state = new PolygoneXML((Polygone)shape);
+                state = new PolygoneAWT((Polygone)shape, this);
                 break;
             case Polyline:
 //                state = new PolylineXML((Polyline)shape);
