@@ -5,8 +5,11 @@ import model.Shape;
 import model.presentation.Presentation;
 import model.presentation.ShapeState;
 import model.specific_path.*;
+import model.specific_path.Rectangle;
 
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -80,7 +83,7 @@ public class AWT extends Frame implements Presentation, StateDelegate {
                 state = new PolylineAWT((Polyline)shape, this);
                 break;
             case Rectangle:
-//                state = new RectangleXML((Rectangle)shape);
+                state = new RectangleAWT((Rectangle)shape, this);
                 break;
             case Text:
 //                state = new TextXML((Text)shape);

@@ -4,6 +4,7 @@ import model.*;
 import model.Canvas;
 import model.presentation.awt.AWT;
 import model.specific_path.*;
+import model.specific_path.Rectangle;
 
 import java.awt.*;
 import java.awt.Shape;
@@ -53,6 +54,11 @@ public class DrawAwt {
         polyline.setPoints(points);
         polyline.setPencil(p);
         shapes.add(polyline);
+
+        Rectangle r = new Rectangle(300, 50, 100, 150);
+        r.setPencil(p);
+        r.setColor(blue);
+        shapes.add(r);
 
         AWT awt = new AWT("new awt", new Canvas(1024, 720));
         awt.addShapes(shapes);
