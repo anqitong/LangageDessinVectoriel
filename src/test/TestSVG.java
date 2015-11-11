@@ -49,6 +49,8 @@ public class TestSVG {
 	@Test
 	public void create_open_path(){
 	Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
+	
+	// Create a red line
 	Path path2 = new Path();
 	path2.setStart(new Point(100, 350));
 	path2.setPencil(pred);
@@ -56,6 +58,7 @@ public class TestSVG {
 	parts2.add(new PathPart(new Point(250, 50), LineType.Line));
 	path2.setParts(parts2);
 	
+	// Create another read line that touch the first one
 	Path path3 = new Path();
 	path3.setStart(new Point(250, 50));
 	path3.setPencil(pred);
@@ -64,6 +67,7 @@ public class TestSVG {
 	path3.setParts(parts3);
 	
 	Pencil pgreen = new Pencil(3, new ColorSVG(Color.green.getRGB()));
+	// Create a horizontal green line
 	Path path4 = new Path();
 	path4.setStart(new Point(175, 200));
 	path4.setPencil(pgreen);
@@ -72,6 +76,7 @@ public class TestSVG {
 	path4.setParts(parts4);
 	
 	Pencil pblue = new Pencil(3, new ColorSVG(Color.blue.getRGB()));
+	// Create a bezier blue line
 	Path path5 = new Path();
 	path5.setStart(new Point(100, 350));
 	path5.setPencil(pblue);
@@ -81,17 +86,22 @@ public class TestSVG {
 	parts5.add(bez);
 	path5.setParts(parts5);
 	
-	
+	//Add all the lines together
 	ArrayList<Shape> shapes3 = new ArrayList<Shape>();
 	shapes3.add(path2);
 	shapes3.add(path3);
 	shapes3.add(path4);
 	shapes3.add(path5);
 	
+	// Create the drawing
 	SVGFile svg3 = new SVGFile("OpenedPath");
+	
+	// Add the lines to it
 	svg3.addShapes(shapes3);
 	svg3.display();
 	System.out.println(svg3.getXmlcontent());
+	
+	// Assert for the right result
 	Assert.assertEquals(svg3.getXmlcontent(), "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
 			+"<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"1024\" width=\"1024\">\n\t"
 			+"<path d=\"M 100 350 L 250 50\" fill=\"none\" stroke=\"rgb(255,0,0)\" stroke-width=\"3\" />\n\t"
