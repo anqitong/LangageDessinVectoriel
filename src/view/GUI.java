@@ -66,19 +66,21 @@ public class GUI extends JFrame{
 	 */
 	public JPanel createToolBox() {
 		JPanel toolbox = new JPanel();
-		//toolbox.setLayout(new BorderLayout());
+		//JScrollPane essai = new JScrollPane(toolbox);
+
 		toolbox.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.fill = GridBagConstraints.BOTH;
 		gc.insets = new Insets(2, 2, 2, 2);
 		gc.ipady = gc.anchor = GridBagConstraints.CENTER;
-		gc.weightx = 3;
+		gc.weightx = 4;
 		gc.weighty = 13;
 		
-		//line 1
+		//Pencil and its style
 		gc.gridx = 0;
 		gc.gridy = 0;
 		JLabel pencilStyle = new JLabel("Pencil style");
+		pencilStyle.setFont(new Font("Label.font",Font.BOLD,15));
 		toolbox.add(pencilStyle, gc);
 		
 		gc.gridx = 0;
@@ -86,7 +88,6 @@ public class GUI extends JFrame{
 		JLabel pencilColor = new JLabel("Pencil color");
 		toolbox.add(pencilColor, gc);
 		
-		//line 2
 		gc.gridx = 1;
 		gc.gridy = 1;
 		JTextField pencilColorValue = new JTextField(10);
@@ -97,56 +98,139 @@ public class GUI extends JFrame{
 		JLabel pencilThickness = new JLabel("Pencil thickness");
 		toolbox.add(pencilThickness, gc);
 		
-		//line 3
 		gc.gridx = 1;
 		gc.gridy = 2;
 		JTextField thicknessValue = new JTextField(10);
 		toolbox.add(thicknessValue, gc);
 		
-		//line 4
+		/* Shapes section */
 		gc.gridx = 0;
 		gc.gridy = 3;
 		JLabel shapes = new JLabel("Shapes");
+		shapes.setFont(new Font("Label.font",Font.BOLD,15));
 		toolbox.add(shapes, gc);
 		
+		//Circle  : center and radius values
 		gc.gridx = 0;
 		gc.gridy = 4;
 		JButton circle = new JButton("Circle");
+		circle.setPreferredSize(new Dimension(10,10));
 		toolbox.add(circle, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 5;
-		JButton ellipse = new JButton("Ellipse");
-		toolbox.add(ellipse, gc);
+		JLabel circleX = new JLabel("Center X : ");
+		toolbox.add(circleX, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 5;
+		JTextField centerX = new JTextField(3);
+		toolbox.add(centerX, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 6;
+		JLabel circleY = new JLabel("Center Y : ");
+		toolbox.add(circleY, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 6;
+		JTextField centerY = new JTextField(3);
+		toolbox.add(centerY, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 7;
+		JLabel circleRadius = new JLabel("Circle radius : ");
+		toolbox.add(circleRadius, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 7;
+		JTextField radiusValue = new JTextField(3);
+		toolbox.add(radiusValue, gc);
+		
+		
+		//Ellipse : center and radius values
+		gc.gridx = 0;
+		gc.gridy = 8;
+		JButton ellipse = new JButton("Ellipse");
+		ellipse.setPreferredSize(new Dimension(10,10));
+		toolbox.add(ellipse, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 9;
+		JLabel ellipseCenterX = new JLabel("Ellipse center X : ");
+		toolbox.add(ellipseCenterX, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 9;
+		JTextField ellipseCenterValueX =  new JTextField(5);
+		toolbox.add(ellipseCenterValueX, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 10;
+		JLabel ellipseCenterY = new JLabel("Ellipse center Y : ");
+		toolbox.add(ellipseCenterY, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 10;
+		JTextField ellipseCenterValueY =  new JTextField(5);
+		toolbox.add(ellipseCenterValueY, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 11;
+		JLabel ellipseRadiusX = new JLabel("Ellipse radius X : ");
+		toolbox.add(ellipseRadiusX, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 11;
+		JTextField ellipseRadiusValueX =  new JTextField(5);
+		toolbox.add(ellipseRadiusValueX, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 12;
+		JLabel ellipseRadiusY = new JLabel("Ellipse radius Y : ");
+		toolbox.add(ellipseRadiusY, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 12;
+		JTextField ellipseRadiusValueY =  new JTextField(5);
+		toolbox.add(ellipseRadiusValueY, gc);
+		
+		
+		
+		/*gc.gridx = 0;
+		gc.gridy = 6;
 		JButton line = new JButton("Line");
+		line.setPreferredSize(new Dimension(10,10));
 		toolbox.add(line, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 7;
 		JButton polygone = new JButton("Polygone");
+		polygone.setPreferredSize(new Dimension(10,10));
 		toolbox.add(polygone, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 8;
 		JButton polyline = new JButton("Polyline");
+		polyline.setPreferredSize(new Dimension(10,10));
 		toolbox.add(polyline, gc);
 
 		gc.gridx = 0;
 		gc.gridy = 9;
 		JButton rectangle = new JButton("Rectangle");
+		rectangle.setPreferredSize(new Dimension(10,10));
 		toolbox.add(rectangle, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 10;
 		JButton text = new JButton("Text");
+		text.setPreferredSize(new Dimension(10,10));
 		toolbox.add(text, gc);
 		
 		gc.gridx = 0;
 		gc.gridy = 11;
 		JLabel fill = new JLabel("Fill");
+		fill.setFont(new Font("Label.font",Font.BOLD,15));
 		toolbox.add(fill, gc);
 		
 		gc.gridx = 1;
@@ -165,9 +249,13 @@ public class GUI extends JFrame{
 		
 		gc.gridx = 0;
 		gc.gridy = 12;
-		JButton colorpicker = new JButton("Color picker");
+		JLabel colorpicker = new JLabel("Fill color");
 		toolbox.add(colorpicker, gc);
-
+		
+		gc.gridx = 1;
+		gc.gridy = 12;
+		JTextField fillColor = new JTextField(10);
+		toolbox.add(fillColor, gc);*/
 		return toolbox;
 	}
 
