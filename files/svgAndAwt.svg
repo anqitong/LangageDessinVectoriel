@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="600" width="600">
+	<circle cx="30" cy="30" r="30" fill="rgb(0,0,255)" stroke="rgb(255,0,0)" stroke-width="4" />
+	<circle cx="100" cy="30" rx="40" ry="20" fill="rgb(0,0,255)" stroke="rgb(255,0,0)" stroke-width="4" />
+	<line x1="5" y1="60" x2="15" y2="100" stroke="rgb(255,0,0)" stroke-width="4" />
+	<polygon points=" 100,100 200,200 100,200" fill="rgb(0,0,255)" stroke="rgb(255,0,0)" stroke-width="4" />
+	<polyline points=" 250,100 100,300 20,300 250,200" stroke="rgb(255,0,0)" stroke-width="4" />
+	<rect x="300" y="50" width="150" height="100" fill="rgb(0,0,255)" stroke="rgb(255,0,0)" stroke-width="4" />
+	<text x="500" y="50" stroke="rgb(255,0,0)" stroke-width="4"">Hello, World!</text>
+</svg>

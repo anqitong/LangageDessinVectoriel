@@ -3,6 +3,7 @@ package view;
 import model.*;
 import model.Canvas;
 import model.presentation.awt.AWT;
+import model.presentation.xml.SVGFile;
 import model.specific_path.*;
 import model.specific_path.Rectangle;
 
@@ -67,5 +68,12 @@ public class DrawAwt {
         AWT awt = new AWT("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);
         awt.display();
+
+        SVGFile svg = new SVGFile("svgAndAwt");
+        svg.setCanvas(new Canvas(600, 600));
+        svg.addShapes(shapes);
+        svg.display();
+        svg.writeSVGFile();
+        svg.view();
     }
 }
