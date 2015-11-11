@@ -92,7 +92,7 @@ public class Draw {
 		path5.setPencil(pblue);
 		ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
 		PathPart bez = new PathPart(new Point(250, 50), LineType.QuadricBezier);
-		bez.getPoints().add(new Point(400, 350));
+		bez.addPoint(new Point(400, 350));
 		parts5.add(bez);
 		path5.setParts(parts5);
 		

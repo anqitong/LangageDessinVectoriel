@@ -23,18 +23,18 @@ public class PathPart {
 	}
 
 
-
 	public ArrayList<Point> getPoints() {
 		return points;
 	}
 
 
-
 	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
 	}
-
-
+	
+	public void addPoint(Point p) {
+		this.points.add(p);
+	}
 
 	public LineType getType() {
 		return type;
