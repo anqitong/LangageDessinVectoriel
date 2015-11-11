@@ -2,8 +2,6 @@ package test;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
 
 import org.junit.Assert;
@@ -16,6 +14,8 @@ import model.presentation.xml.SVGFile;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
+import model.specific_path.Circle;
+import model.specific_path.Rectangle;
 
 public class TestSVG {
 
@@ -98,7 +98,7 @@ public class TestSVG {
 	
 	// Add the lines to it
 	svg3.addShapes(shapes3);
-	svg3.display();
+	svg3.createDrawing();
 	System.out.println(svg3.getXmlcontent());
 	
 	// Assert for the right result
@@ -109,6 +109,59 @@ public class TestSVG {
 			+"<path d=\"M 175 200 L 325 200\" fill=\"none\" stroke=\"rgb(0,255,0)\" stroke-width=\"3\" />\n\t"
 			+"<path d=\"M 100 350 Q 250 50 400 350\" fill=\"none\" stroke=\"rgb(0,0,255)\" stroke-width=\"3\" />\n"
 			+"</svg>");
+	}
+	
+	/*
+	 * Test the insert method
+	 */
+	@Test
+	public void insert(){
+		
+		Pencil p = new Pencil(4, new ColorSVG(Color.black.getRGB()));
+		Circle c = new Circle(50,40,30);
+		c.setColor(new ColorSVG(Color.blue.getRGB()));
+		c.setPencil(p);
+		Rectangle r = new Rectangle(55,45,50,50);
+		r.setPencil(p);
+		r.setColor(new ColorSVG(Color.green.getRGB()));
+
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		shapes.add(c);
+		shapes.add(r);
+
+		//Create the first svg
+		SVGFile svg = new SVGFile("test");
+		svg.addShapes(shapes);
+		svg.createDrawing();
+		
+		Rectangle r2 = new Rectangle(60, 60, 60, 60);
+		r2.setPencil(p);
+		ArrayList<Shape> shape2 = new ArrayList<Shape>();
+		shape2.add(r2);
+		
+		//Create the second svg
+		SVGFile svg2 = new SVGFile("insert");
+		svg2.addShapes(shape2);
+		svg2.createDrawing();
+		
+
+		svg.insert(svg2);
+		svg.createDrawing();
+		System.out.println(svg.getXmlcontent());
+		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+		xml+="\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"1024\" width=\"1024\">";
+		xml+="\n\t<circle cx=\"50\" cy=\"40\" r=\"30\" fill=\"rgb(0,0,255)\" stroke=\"rgb(0,0,0)\" stroke-width=\"4\" />";
+		xml+="\n\t<rect x=\"55\" y=\"45\" width=\"50\" height=\"50\" fill=\"rgb(0,255,0)\" stroke=\"rgb(0,0,0)\" stroke-width=\"4\" />";
+		// TODO see to change indent
+		xml+="\n\t<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+		xml+="\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"1024\" width=\"1024\">";
+		// TODO see to change null into None
+		xml+="\n\t<rect x=\"60\" y=\"60\" width=\"60\" height=\"60\" fill=\"null\" stroke=\"rgb(0,0,0)\" stroke-width=\"4\" />";
+		xml+="\n</svg>";
+		xml+="\n</svg>";
+		
+		Assert.assertEquals(xml, svg.getXmlcontent());
+
 	}
 
 }

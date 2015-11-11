@@ -73,5 +73,8 @@ public class Line extends Shape {
 	/************************************
 	 *	Methods
 	 ************************************/
-
+	@Override
+	public boolean isFillable() {
+		return false;
+	}
 }

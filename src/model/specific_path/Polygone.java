@@ -47,6 +47,9 @@ public class Polygone extends Shape {
 	/************************************
 	 *	Methods
 	 ************************************/
-
+	@Override
+	public boolean isFillable() {
+		return true;
+	}
 
 }

@@ -53,7 +53,7 @@ public class Draw {
 		svg.addShapes(shapes);
 		
 		// Create the drawing in the object
-		svg.display();
+		svg.createDrawing();
 		System.out.println(svg.getXmlcontent());
 		
 		// Create a svg file with the drawing
@@ -97,7 +97,7 @@ public class Draw {
 		svg2.addShapes(shapes2);
 		
 		// Update it
-		svg2.display();
+		svg2.createDrawing();
 		System.out.println(svg2.getXmlcontent());
 		
 		// Create the file
@@ -161,7 +161,7 @@ public class Draw {
 		svg3.addShapes(shapes3);
 		
 		// Update svg3
-		svg3.display();
+		svg3.createDrawing();
 		System.out.println(svg3.getXmlcontent());
 		
 		// Create the file
