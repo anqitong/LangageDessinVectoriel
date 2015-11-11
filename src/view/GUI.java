@@ -66,69 +66,114 @@ public class GUI extends JFrame{
 	 */
 	public JPanel createToolBox() {
 		JPanel toolbox = new JPanel();
-		toolbox.setLayout(new BorderLayout());
-
-		//the panel for the shapes and the style elements
-		JPanel components = new JPanel();
-		components.setLayout(new BoxLayout(components,BoxLayout.Y_AXIS));
-
-		//Pencil and its style
+		//toolbox.setLayout(new BorderLayout());
+		toolbox.setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.fill = GridBagConstraints.BOTH;
+		gc.insets = new Insets(2, 2, 2, 2);
+		gc.ipady = gc.anchor = GridBagConstraints.CENTER;
+		gc.weightx = 3;
+		gc.weighty = 13;
+		
+		//line 1
+		gc.gridx = 0;
+		gc.gridy = 0;
 		JLabel pencilStyle = new JLabel("Pencil style");
-		components.add(pencilStyle);
-		JButton pencilColor = new JButton("Pencil color");
-		components.add(pencilColor);
-		JButton pencilThickness = new JButton("Pencil thickness");
-		components.add(pencilThickness);
-
-		JSeparator sep1 = new JSeparator();
-		components.add(sep1);
-
-		//Shapes
+		toolbox.add(pencilStyle, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 1;
+		JLabel pencilColor = new JLabel("Pencil color");
+		toolbox.add(pencilColor, gc);
+		
+		//line 2
+		gc.gridx = 1;
+		gc.gridy = 1;
+		JTextField pencilColorValue = new JTextField(10);
+		toolbox.add(pencilColorValue, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 2;
+		JLabel pencilThickness = new JLabel("Pencil thickness");
+		toolbox.add(pencilThickness, gc);
+		
+		//line 3
+		gc.gridx = 1;
+		gc.gridy = 2;
+		JTextField thicknessValue = new JTextField(10);
+		toolbox.add(thicknessValue, gc);
+		
+		//line 4
+		gc.gridx = 0;
+		gc.gridy = 3;
 		JLabel shapes = new JLabel("Shapes");
-		components.add(shapes);
-
-		JButton circle = new JButton("Circle");		
-		components.add(circle);
-
+		toolbox.add(shapes, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 4;
+		JButton circle = new JButton("Circle");
+		toolbox.add(circle, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 5;
 		JButton ellipse = new JButton("Ellipse");
-		components.add(ellipse);
-
+		toolbox.add(ellipse, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 6;
 		JButton line = new JButton("Line");
-		components.add(line);
-
+		toolbox.add(line, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 7;
 		JButton polygone = new JButton("Polygone");
-		components.add(polygone);
-
+		toolbox.add(polygone, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 8;
 		JButton polyline = new JButton("Polyline");
-		components.add(polyline);
+		toolbox.add(polyline, gc);
 
+		gc.gridx = 0;
+		gc.gridy = 9;
 		JButton rectangle = new JButton("Rectangle");
-		components.add(rectangle);
-
+		toolbox.add(rectangle, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 10;
 		JButton text = new JButton("Text");
-		components.add(text);
-
-		JSeparator sep2 = new JSeparator();
-		components.add(sep2);
-
-		//Fill and its options
+		toolbox.add(text, gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 11;
 		JLabel fill = new JLabel("Fill");
+		toolbox.add(fill, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 11;
 		JRadioButton yes = new JRadioButton("Yes");
+		toolbox.add(yes, gc);
+		
+		gc.gridx = 2;
+		gc.gridy = 11;
 		JRadioButton no = new JRadioButton("no");
+		toolbox.add(no, gc);
+		
 		ButtonGroup radioBtns = new ButtonGroup();
-		JButton colorpicker = new JButton("Color picker");
 		radioBtns.add(yes);
 		radioBtns.add(no);
-		components.add(fill);
-		components.add(yes);
-		components.add(no);
-		components.add(colorpicker);
+		
+		gc.gridx = 0;
+		gc.gridy = 12;
+		JButton colorpicker = new JButton("Color picker");
+		toolbox.add(colorpicker, gc);
 
-
-		toolbox.add(components,BorderLayout.CENTER);
 		return toolbox;
 	}
 
+	
+	
+	
 	/*
 	 * the console for the Java commands
 	 */
