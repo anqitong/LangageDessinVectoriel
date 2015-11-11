@@ -68,7 +68,7 @@ public class AWT extends Frame implements Presentation, StateDelegate {
                 state = new EllipseAWT((Ellipse)shape, this);
                 break;
             case Line:
-//                state = new LineXML((Line)shape);
+                state = new LineAWT((Line)shape, this);
                 break;
             case Path:
 //                state = new PathXML((Path)shape);

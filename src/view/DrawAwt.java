@@ -5,6 +5,7 @@ import model.Canvas;
 import model.presentation.awt.AWT;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
+import model.specific_path.Line;
 import sun.plugin2.util.ColorUtil;
 
 import java.awt.*;
@@ -31,6 +32,10 @@ public class DrawAwt {
         e.setColor(blue);
         e.setPencil(p);
         shapes.add(e);
+
+        Line l = new Line(5, 60, 15, 100);
+        l.setPencil(p);
+        shapes.add(l);
 
         AWT awt = new AWT("new awt", new Canvas(1024, 720));
         awt.addShapes(shapes);
