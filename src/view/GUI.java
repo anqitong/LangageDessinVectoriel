@@ -51,11 +51,13 @@ public class GUI extends JFrame{
 		JPanel left = new JPanel();
 		left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
 
+		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, createToolBox(), createConsole());		
+		left.add(splitPane);
 		//add the tool box to the panel
-		left.add(createToolBox()) ;
-
+//		left.add(createToolBox()) ;
+		
 		//add the console to the panel
-		left.add(createConsole());
+//		left.add(createConsole());
 
 		return left;
 	}
