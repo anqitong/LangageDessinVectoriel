@@ -62,5 +62,10 @@ public class Text extends Shape {
 	/************************************
 	 *	Methods
 	 ************************************/
-
+	
+	@Override
+	public boolean isFillable() {
+		return false;
+	}
+	
 }

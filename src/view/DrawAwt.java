@@ -66,12 +66,12 @@ public class DrawAwt {
 
         AWTFrame awt = new AWTFrame("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);
-        awt.display();
+        awt.createDrawing();
 
         SVGFile svg = new SVGFile("svgAndAwt");
         svg.setCanvas(new Canvas(600, 600));
         svg.addShapes(shapes);
-        svg.display();
+        svg.createDrawing();
         svg.writeSVGFile();
         svg.view();
     }

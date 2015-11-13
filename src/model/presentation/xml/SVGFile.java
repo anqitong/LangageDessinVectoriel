@@ -19,7 +19,7 @@ public class SVGFile implements Presentation, StateDelegate {
 
 	private String fileName;
 	private String xmlcontent;
-	private ArrayList<Shape> shapes = new ArrayList<Shape>();
+	private ArrayList<Object> shapes = new ArrayList<Object>();
 	private Canvas canvas;
 
 	public static File file;
@@ -31,6 +31,9 @@ public class SVGFile implements Presentation, StateDelegate {
 	private static String filepath = "files" + File.separator + "%s.svg";
 
 	
+	/************************************
+	 *	Constructors
+	 ************************************/
 	public SVGFile(String fileName, String xmlcontent, Canvas canvas) {
 		this.fileName = fileName;
 		this.xmlcontent = xmlcontent;
@@ -44,7 +47,16 @@ public class SVGFile implements Presentation, StateDelegate {
 	public SVGFile(String fileName) {
 		this(fileName, "", new Canvas(1024, 1024));
 	}
+	
+	public SVGFile(SVGFile svg) {
+		this(svg.getFileName(), svg.getXmlcontent(), svg.getCanvas());
+		this.shapes.addAll(svg.shapes);
+	}
 
+	
+	/************************************
+	 *	Getters and Setters
+	 ************************************/
 	public String getFileName() {
 		return fileName;
 	}
@@ -59,7 +71,19 @@ public class SVGFile implements Presentation, StateDelegate {
 	public void setXmlcontent(String xmlcontent) {
 		this.xmlcontent = xmlcontent;
 	}
+	
+	public Canvas getCanvas() {
+		return canvas;
+	}
 
+	@Override
+	public void setCanvas(Canvas canvas) {
+		this.canvas = canvas;
+	}
+
+	/************************************
+	 *	Methods
+	 ************************************/
 	
 	/*
 	 * save SVG file into files
@@ -70,7 +94,7 @@ public class SVGFile implements Presentation, StateDelegate {
 		 * put the file name into the filepath
 		 * e.g. "files\filename.svg"
 		 */
-		this.display();
+		this.createDrawing();
 		file = new File(String.format(filepath, this.getFileName()));
 		
 		//if the file exists, return false and a warning
@@ -95,11 +119,23 @@ public class SVGFile implements Presentation, StateDelegate {
 	public void addShapes(List<Shape> shapes) {
 		if (shapes != null)
 			this.shapes.addAll(shapes);
-		this.display();
+		this.createDrawing();
+	}
+	
+	@Override
+	public void insert(Presentation svg) {
+		if(this==svg){
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+			this.shapes.add(svg);
 	}
 
 	@Override
-	public void display() {
+	public String createDrawing() {
 		this.xmlcontent = "";
 		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 		xml += "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\""
@@ -108,12 +144,21 @@ public class SVGFile implements Presentation, StateDelegate {
 				+ this.canvas.getWidth()+"\">";
 		this.xmlcontent += xml;
 
-		for (Shape shape : shapes) {
-			xml = (String) this.getShapeState(shape).getDrawing();
-			this.xmlcontent +="\n\t"+ xml;
+		for (Object obj : shapes) {
+			if(obj instanceof Shape){
+				Shape shape = (Shape)obj;
+				xml = (String) this.getShapeState(shape).getDrawing();
+				this.xmlcontent +="\n\t"+ xml;
+			}
+			if(obj instanceof SVGFile){
+				xml = ((SVGFile)obj).createDrawing();
+				this.xmlcontent +="\n\t"+ xml;
+			}
 		}
 
 		this.xmlcontent += "\n</svg>";
+		
+		return this.getXmlcontent();
 	}
 	
 	public void view() {
@@ -158,10 +203,11 @@ public class SVGFile implements Presentation, StateDelegate {
 		}
 		return state;
 	}
-
+	
 	@Override
-	public void setCanvas(Canvas canvas) {
-		this.canvas = canvas;
+	public SVGFile clone(){
+		return new SVGFile(this);
+		
 	}
 
 	@Override

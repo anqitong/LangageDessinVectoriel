@@ -11,6 +11,13 @@ import java.util.List;
 public interface Presentation {
 
 	/**
+	 * Add a presentation in a presentation (ie "Inserer")
+	 * @param p
+	 */
+	void insert(Presentation p);
+	
+	
+	/**
 	 * Add shapes for the presentation (or image/painting). Concrete ShapeStates would be created according to these
 	 * shapes.
 	 * @param shapes shapes to add to the presentation
@@ -27,7 +34,7 @@ public interface Presentation {
 	 * To create real presentation like svg file and display it to user. Here is where to call
 	 * <code>this.getShapeState(aShape)</code> to create concrete ShapeStates and render Shapes in list.
 	 */
-	void display();
+	Object createDrawing();
 
 	/**
 	 * This method is a tool to create concrete ShapeStates according to the type of shapes given. A typical implementation is to
@@ -36,4 +43,12 @@ public interface Presentation {
 	 * @return a concrete ShapeState object that can render shape
 	 */
 	ShapeState getShapeState(Shape shape);
+	
+	
+	/**
+	 * Clone the current presentation to get a new one.
+	 * @return Presentation
+	 */
+	Presentation clone();
+	
 }

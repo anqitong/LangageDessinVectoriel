@@ -40,6 +40,11 @@ Add your shapes to it and call the display to update the object after adding new
 		svg.addShapes(shapes);
 		svg.display();
 
+You can also add a drawing into another drawing by doing:
+
+		svg.insert(svg1); //with sv1 being a SVGFile
+		
+
 ### Step 4:
 Create your SVG file, that will be created in the folder File in the root of the project by calling the function:
 

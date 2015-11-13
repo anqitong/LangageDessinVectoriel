@@ -46,7 +46,7 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     }
 
     @Override
-    public void display() {
+    public Object createDrawing() {
         this.setSize(canvas.getWidth(), canvas.getHeight());
         this.setName(name);
         this.setTitle(name);
@@ -57,6 +57,7 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
         });
 
         this.setVisible(true);
+        return this;
     }
 
     @Override
@@ -108,5 +109,16 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     @Override
     public Graphics2D getGraphics2D() {
         return this.g2d;
+    }
+
+    @Override
+    public Presentation clone() {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public void insert(Presentation p) {
+        //TODO
     }
 }
