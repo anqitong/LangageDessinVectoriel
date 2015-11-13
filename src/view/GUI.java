@@ -1,10 +1,6 @@
 package view;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /*
@@ -18,40 +14,24 @@ public class GUI extends JFrame{
 	 */
 	private static final long serialVersionUID = 7101648530122179966L;
 
-	public GUI() throws IOException{
+	public GUI(){
 		super("Drawing interface");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		Container principal = this.getContentPane();
 		principal.setLayout(new BorderLayout());
-		principal.add(createLeftPart(), BorderLayout.WEST);
-		principal.add(createRightPart(), BorderLayout.CENTER);
+		principal.add(createCentralPanel(), BorderLayout.SOUTH);
 		this.pack();		
 	}
-	/*
-	 * the right part contains the image display
-	 */
-	public JPanel createRightPart() throws IOException {
-
-		JPanel right = new JPanel();
-		right.setLayout(new BorderLayout());
-		right.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
-
-		//display the image
-		BufferedImage image = ImageIO.read(new File("files"+File.separator+"image.png"));
-		JLabel lab = new JLabel(new ImageIcon(image));
-
-		right.add(lab, BorderLayout.CENTER) ;
-		return right;
-	}
 
 	/*
-	 * the left part contains the tool box and the console area
+	 * this part contains the tool box and the console area
 	 */
-	public JPanel createLeftPart() {
+	public JPanel createCentralPanel() {
 		JPanel left = new JPanel();
 		left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
 
-		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, createToolBox(), createConsole());		
+		//JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, createToolBox(), createConsole());		
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, createToolBox(), createConsole());
 		left.add(splitPane);
 		//add the tool box to the panel
 //		left.add(createToolBox()) ;
@@ -70,7 +50,7 @@ public class GUI extends JFrame{
 		JPanel toolbox = new JPanel();
 		JScrollPane scrollPane = new JScrollPane(toolbox);
 		scrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(250,400));
+		scrollPane.setPreferredSize(new Dimension(350,400));
 
 		toolbox.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
@@ -363,7 +343,7 @@ public class GUI extends JFrame{
 		//textArea.setSize(100, 1);
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(100,200));
+		scrollPane.setPreferredSize(new Dimension(200,200));
 
 		consoleArea.add(scrollPane);
 		JButton pencil = new JButton("Run");
@@ -378,7 +358,7 @@ public class GUI extends JFrame{
 		return consoleArea;		
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		GUI gui = new GUI();
 		gui.setVisible(true);
 	}
