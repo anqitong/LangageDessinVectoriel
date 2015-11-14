@@ -35,6 +35,11 @@ public class AWTRectangle implements ShapeState {
 
     @Override
     public void setShape(Shape shape) throws Exception {
-
+        if(shape instanceof Rectangle){
+            this.rectangle = (Rectangle) shape;
+        }
+        else{
+            throw new Exception("The shape is not of the right type");
+        }
     }
 }

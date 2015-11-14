@@ -30,6 +30,11 @@ public class AWTLine implements ShapeState {
 
     @Override
     public void setShape(Shape shape) throws Exception {
-
+        if(shape instanceof Line){
+            this.line = (Line) shape;
+        }
+        else{
+            throw new Exception("The shape is not of the right type");
+        }
     }
 }
