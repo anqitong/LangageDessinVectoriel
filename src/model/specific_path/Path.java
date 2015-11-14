@@ -7,26 +7,61 @@ import model.Shape;
 import model.ShapeName;
 
 public class Path extends Shape {
-
+	
 	/************************************
 	 *	Attributes
 	 ************************************/	
-	private ArrayList<Point> points;
+	private Point start;
+	private ArrayList<PathPart> parts;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
+	public Path(Point start, ArrayList<PathPart> parts) {
+		this.start = start;
+		this.parts = parts;
+	}
+	
+	public Path(){
+		this.start = new Point(0,0);
+		this.parts = new ArrayList<PathPart>();
+	}
+	
+	
+	/************************************
+	 *	Getters and Setters
+	 ************************************/	
+	public Point getStart() {
+		return start;
+	}
 
+	public void setStart(Point start) {
+		this.start = start;
+	}
+
+	public ArrayList<PathPart> getParts() {
+		return parts;
+	}
+
+	public void setParts(ArrayList<PathPart> parts) {
+		this.parts = parts;
+	}
+	
+	/************************************
+	 *	Methods
+	 ************************************/	
 	@Override
 	public ShapeName getName() {
 		return ShapeName.Path;
 	}
 	
-	/************************************
-	 *	Methods
-	 ************************************/
-	@Override
+	/**
+	 * Looks if the first point (start) is the same as the last one (last point of the last part)
+	 * @return boolean
+	 */
+	//@Override
 	public boolean isFillable() {
-		return false;
+		return this.getStart().equals(this.getParts().get(this.getParts().size()-1).getPoints().get(this.getParts().get(this.getParts().size()-1).getPoints().size()-1));
 	}
+	
 }
