@@ -36,7 +36,7 @@ public class TextXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing() {
-		return "<text x=\""+this.getText().getX()+"\" y=\""+this.getText().getY()+"\" "+this.delegate.getPencilXML(this.text.getPencil())+"\">"+this.getText().getText()+"</text>";
+		return "<text x=\""+this.getText().getX()+"\" y=\""+this.getText().getY()+"\" "+this.delegate.getPencilXML(this.text.getPencil())+">"+this.getText().getText()+"</text>";
 	}
 	
 	@Override
