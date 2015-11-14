@@ -91,6 +91,12 @@ public class GUI extends JFrame{
 		JLabel shapes = new JLabel("Shapes");
 		shapes.setFont(new Font("Label.font",Font.BOLD,15));
 		toolbox.add(shapes, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 3;
+		JButton addShape = new JButton("Add");
+		addShape.setPreferredSize(new Dimension(10,10));
+		toolbox.add(addShape, gc);
 
 		//Circle  : center and radius values
 		gc.gridx = 0;
