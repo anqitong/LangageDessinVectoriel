@@ -21,8 +21,7 @@ public class SVGFile implements Presentation, StateDelegate {
 	private String xmlcontent;
 	private ArrayList<Object> shapes = new ArrayList<Object>();
 	private Canvas canvas;
-
-	public static File file;
+	public File file;
 	private static BufferedWriter out;
 	
 	/*
@@ -84,7 +83,15 @@ public class SVGFile implements Presentation, StateDelegate {
 	/************************************
 	 *	Methods
 	 ************************************/
-	
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
 	/*
 	 * save SVG file into files
 	 */
