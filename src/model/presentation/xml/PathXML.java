@@ -6,7 +6,6 @@ import model.Shape;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 public class PathXML implements ShapeState {
@@ -15,11 +14,13 @@ public class PathXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Path path;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PathXML(Path path) {
+	public PathXML(Path path, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.path = path;
 	}
 	
@@ -39,7 +40,7 @@ public class PathXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
+	public String getDrawing() {
 		String xml = "M "+this.getPath().getStart().x+" "+this.getPath().getStart().y;
 		for(PathPart pathpart:this.getPath().getParts()){
 			try {
@@ -58,7 +59,7 @@ public class PathXML implements ShapeState {
 		else{
 			xml = "<path d=\""+xml+"\" fill=\"none\"";
 		}
-		xml = xml +" "+pencil.getDrawing()+" />";
+		xml = xml +" "+this.delegate.getPencilXML(this.path.getPencil())+" />";
 		return xml;
 	}
 	

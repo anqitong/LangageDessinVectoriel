@@ -2,7 +2,6 @@ package model.presentation.xml;
 
 import model.Shape;
 import model.specific_path.Text;
-import model.presentation.PencilState;
 import model.presentation.ShapeState;
 
 public class TextXML implements ShapeState {
@@ -11,11 +10,13 @@ public class TextXML implements ShapeState {
 	 *	Attributes
 	 ************************************/	
 	private Text text;
+	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public TextXML(Text text) {
+	public TextXML(Text text, StateDelegate delegate) {
+		this.delegate = delegate;
 		this.text = text;
 	}
 	
@@ -34,8 +35,8 @@ public class TextXML implements ShapeState {
 	 *	Methods
 	 ************************************/
 	@Override
-	public String getDrawing(PencilState pencil) {
-		return "<text x=\""+this.getText().getX()+"\" y=\""+this.getText().getY()+"\" "+pencil.getDrawing()+"\">"+this.getText().getText()+"</text>";
+	public String getDrawing() {
+		return "<text x=\""+this.getText().getX()+"\" y=\""+this.getText().getY()+"\" "+this.delegate.getPencilXML(this.text.getPencil())+">"+this.getText().getText()+"</text>";
 	}
 	
 	@Override
