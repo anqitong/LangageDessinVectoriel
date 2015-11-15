@@ -106,36 +106,53 @@ public class GUI extends JFrame{
 		JLabel circleX = new JLabel("Center X : ");
 		toolbox.add(circleX, gc);
 
+		//hide before click
+		circleX.setVisible(false);
+
 		gc.gridx = 1;
 		gc.gridy = 5;
 		JTextField centerX = new JTextField(3);
 		toolbox.add(centerX, gc);
+		
+		//hide before click
+		centerX.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 6;
 		JLabel circleY = new JLabel("Center Y : ");
 		toolbox.add(circleY, gc);
+		
+		//hide before click
+		circleY.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 6;
 		JTextField centerY = new JTextField(3);
 		toolbox.add(centerY, gc);
+		
+		//hide before click
+		centerY.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 7;
 		JLabel circleRadius = new JLabel("Circle radius : ");
 		toolbox.add(circleRadius, gc);
+		
+		//hide before click
+		circleRadius.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 7;
 		JTextField radiusValue = new JTextField(3);
 		toolbox.add(radiusValue, gc);
+		
+		//hide before click
+		radiusValue.setVisible(false);
 
 
 		//Ellipse : center and radius values
 		gc.gridx = 0;
 		gc.gridy = 8;
-//		JButton ellipse = new JButton("Ellipse");
 		JRadioButton ellipse = new JRadioButton("Ellipse");
 		shapeBtns.add(ellipse);
 		ellipse.setPreferredSize(new Dimension(10,10));
@@ -145,41 +162,65 @@ public class GUI extends JFrame{
 		gc.gridy = 9;
 		JLabel ellipseCenterX = new JLabel("Ellipse center X : ");
 		toolbox.add(ellipseCenterX, gc);
+		
+		//hide before click
+		ellipseCenterX.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 9;
 		JTextField ellipseCenterValueX =  new JTextField(5);
 		toolbox.add(ellipseCenterValueX, gc);
+		
+		//hide before click
+		ellipseCenterValueX.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 10;
 		JLabel ellipseCenterY = new JLabel("Ellipse center Y : ");
 		toolbox.add(ellipseCenterY, gc);
+		
+		//hide before click
+		ellipseCenterY.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 10;
 		JTextField ellipseCenterValueY =  new JTextField(5);
 		toolbox.add(ellipseCenterValueY, gc);
+		
+		//hide before click
+		ellipseCenterValueY.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 11;
 		JLabel ellipseRadiusX = new JLabel("Ellipse radius X : ");
 		toolbox.add(ellipseRadiusX, gc);
+		
+		//hide before click
+		ellipseRadiusX.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 11;
 		JTextField ellipseRadiusValueX =  new JTextField(5);
 		toolbox.add(ellipseRadiusValueX, gc);
+		
+		//hide before click
+		ellipseRadiusValueX.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 12;
 		JLabel ellipseRadiusY = new JLabel("Ellipse radius Y : ");
 		toolbox.add(ellipseRadiusY, gc);
+		
+		//hide before click
+		ellipseRadiusY.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 12;
 		JTextField ellipseRadiusValueY =  new JTextField(5);
 		toolbox.add(ellipseRadiusValueY, gc);
+		
+		//hide before click
+		ellipseRadiusValueY.setVisible(false);
 
 		//Line and its points
 		gc.gridx = 0;
@@ -194,41 +235,64 @@ public class GUI extends JFrame{
 		gc.gridy = 14;
 		JLabel x1 = new JLabel("x1 : ");
 		toolbox.add(x1, gc);
+		
+		//hide before click
+		x1.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 14;
 		JTextField x1Value = new JTextField(5);
 		toolbox.add(x1Value, gc);
+		
+		//hide before click
+		x1Value.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 15;
 		JLabel y1 = new JLabel("y1 : ");
 		toolbox.add(y1, gc);
+		
+		//hide before click
+		y1.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 15;
 		JTextField y1Value = new JTextField(5);
 		toolbox.add(y1Value, gc);
+		
+		//hide before click
+		y1Value.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 16;
 		JLabel x2 = new JLabel("x2 : ");
 		toolbox.add(x2, gc);
+		
+		//hide before click
+		x2.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 16;
 		JTextField x2Value = new JTextField(5);
 		toolbox.add(x2Value, gc);
+		
+		//hide before click
+		x2Value.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 17;
 		JLabel y2 = new JLabel("y2 : ");
 		toolbox.add(y2, gc);
+		
+		//hide before click
+		y2.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 17;
 		JTextField y2Value = new JTextField(5);
 		toolbox.add(y2Value, gc);
+		
+		y2Value.setVisible(false);
 
 
 		//Polygone
@@ -262,41 +326,65 @@ public class GUI extends JFrame{
 		gc.gridy = 21;
 		JLabel rectX = new JLabel("Rectangle X : ");
 		toolbox.add(rectX, gc);
+		
+		//hide before click
+		rectX.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 21;
 		JTextField rectValueX = new JTextField(10);
 		toolbox.add(rectValueX, gc);
+		
+		//hide before click
+		rectValueX.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 22;
 		JLabel rectY = new JLabel("Rectangle Y : ");
 		toolbox.add(rectY, gc);
+		
+		//hide before click
+		rectY.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 22;
 		JTextField rectValueY = new JTextField(10);
 		toolbox.add(rectValueY, gc);
+		
+		//hide before click
+		rectValueY.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 23;
 		JLabel rectWidth = new JLabel("Rectangle width : ");
 		toolbox.add(rectWidth, gc);
+		
+		//hide before click
+		rectWidth.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 23;
 		JTextField rectWidthValue = new JTextField(10);
 		toolbox.add(rectWidthValue, gc);
+		
+		//hide before click
+		rectWidthValue.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 24;
 		JLabel rectHeight = new JLabel("Rectangle height : ");
 		toolbox.add(rectHeight, gc);
+		
+		//hide before click
+		rectHeight.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 24;
 		JTextField rectHeightValue = new JTextField(10);
 		toolbox.add(rectHeightValue, gc);
+		
+		//hide before click
+		rectHeightValue.setVisible(false);
 
 		//Text and its values
 		gc.gridx = 0;
@@ -311,31 +399,49 @@ public class GUI extends JFrame{
 		gc.gridy = 26;
 		JLabel textX = new JLabel("Text X : ");
 		toolbox.add(textX, gc);
+		
+		//hide before click
+		textX.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 26;
 		JTextField textValueX = new JTextField(10);
 		toolbox.add(textValueX, gc);
+		
+		//hide before click
+		textValueX.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 27;
 		JLabel textY = new JLabel("Text Y : ");
 		toolbox.add(textY, gc);
+		
+		//hide before click
+		textY.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 27;
 		JTextField textValueY = new JTextField(10);
 		toolbox.add(textValueY, gc);
+		
+		//hide before click
+		textValueY.setVisible(false);
 
 		gc.gridx = 0;
 		gc.gridy = 28;
 		JLabel textValueLabel = new JLabel("Text value : ");
 		toolbox.add(textValueLabel, gc);
 
+		//hide before click
+		textValueLabel.setVisible(false);
+		
 		gc.gridx = 1;
 		gc.gridy = 28;
 		JTextField textValue = new JTextField(10);
 		toolbox.add(textValue, gc);
+		
+		//hide before click
+		textValue.setVisible(false);
 		
 		/* Fill when possible */
 		gc.gridx = 0;
@@ -358,17 +464,24 @@ public class GUI extends JFrame{
 		JRadioButton noToFill = new JRadioButton("No");
 		fillChoices.add(noToFill);
 		toolbox.add(noToFill, gc);
+		noToFill.setSelected(true);
 		
 		//the color for the fill function in case of yes
 		gc.gridx = 0;
 		gc.gridy = 31;
 		JLabel fillColor = new JLabel("Fill color : ");
 		toolbox.add(fillColor, gc);
+		
+		//hide before click
+		fillColor.setVisible(false);
 
 		gc.gridx = 1;
 		gc.gridy = 31;
 		JTextField fillColorValue = new JTextField(10);
 		toolbox.add(fillColorValue, gc);
+		
+		//hide before click
+		fillColorValue.setVisible(false);
 		
 		gc.gridx = 0;
 		gc.gridy = 32;
