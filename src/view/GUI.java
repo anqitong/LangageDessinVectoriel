@@ -3,10 +3,15 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+import controller.guiController.ControlCircleRadioBtn;
+import model.specific_path.Circle;
+
 /*
  * this class creates the graphical user interface for the svg drawing
  */
 public class GUI extends JFrame{
+	
+	private Circle circleModele;
 
 
 	/**
@@ -17,9 +22,15 @@ public class GUI extends JFrame{
 	public GUI(){
 		super("Drawing interface");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//modeles
+		this.circleModele = new Circle();
+		
+		
 		Container principal = this.getContentPane();
 		principal.setLayout(new BorderLayout());
 		principal.add(createCentralPanel(), BorderLayout.SOUTH);
+		
 		this.pack();		
 	}
 
@@ -100,6 +111,8 @@ public class GUI extends JFrame{
 		shapeBtns.add(circle);
 		circle.setPreferredSize(new Dimension(10,10));
 		toolbox.add(circle, gc);
+		
+		
 
 		gc.gridx = 0;
 		gc.gridy = 5;
@@ -149,6 +162,16 @@ public class GUI extends JFrame{
 		//hide before click
 		radiusValue.setVisible(false);
 
+		
+		//circle's listener
+
+		ControlCircleRadioBtn circleController = new ControlCircleRadioBtn(new Circle(),
+				circleX, centerX, 
+				circleY, centerY, 
+				circleRadius, radiusValue);
+		circle.addActionListener(circleController);
+		circleModele.addObserver(circleController);
+		
 
 		//Ellipse : center and radius values
 		gc.gridx = 0;
