@@ -27,7 +27,6 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 	private	JLabel circleRadius;
 	private	JTextField radiusValue;
 	
-//	private ArrayList<String> list;
 	
 	private GUI gui;
 	
@@ -44,13 +43,6 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 		this.circleRadius = circleRadius;
 		this.radiusValue = radiusValue;
 		this.gui = gui;
-//		this.list = new ArrayList<String>();
-//		this.list.add("circleX");
-//		this.list.add("centerX");
-//		this.list.add("circleY");
-//		this.list.add("centerY");
-//		this.list.add("circleRadius");
-//		this.list.add("radiusValue");
 	}
 	
 	@Override
@@ -64,26 +56,6 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 		this.centerY.setVisible(true);
 		this.circleRadius.setVisible(true);
 		this.radiusValue.setVisible(true);
-//		this.gui.setToHide(list);
-		
-		
-		/*
-		
-		HashMap<String, JComponent> map = this.gui.getMap();
-		//remove these components from the map
-		map.remove("circleX");
-		map.remove("centerX");
-		map.remove("circleY");
-		map.remove("centerY");
-		map.remove("circleRadius");
-		map.remove("radiusValue");
-		
-		//all the other label and text fields are set invisible
-		Iterator<Map.Entry<String,JComponent>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Map.Entry<String, JComponent> entry = iterator.next();
-			entry.getValue().setVisible(false);
-		}*/
 	}
 
 	@Override

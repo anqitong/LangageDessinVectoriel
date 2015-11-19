@@ -10,8 +10,12 @@ import javax.swing.*;
 
 import controller.guiController.ControlCircleRadioBtn;
 import controller.guiController.ControlEllipseRadioBtn;
+import controller.guiController.ControlLineRadioBtn;
+import controller.guiController.ControlRectangleRadioBtn;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
+import model.specific_path.Line;
+import model.specific_path.Rectangle;
 
 /*
  * this class creates the graphical user interface for the svg drawing
@@ -20,6 +24,9 @@ public class GUI extends JFrame{
 
 	private Circle circleModele;
 	private Ellipse ellipseModele;
+	private Line lineModele;
+	private Rectangle rectangleModele;
+
 
 	private ArrayList<JComponent> toHide = new ArrayList<JComponent>();
 
@@ -36,6 +43,8 @@ public class GUI extends JFrame{
 		//modeles
 		this.circleModele = new Circle();
 		this.ellipseModele = new Ellipse();
+		this.lineModele = new Line();
+		this.rectangleModele = new Rectangle();
 
 
 		Container principal = this.getContentPane();
@@ -152,17 +161,17 @@ public class GUI extends JFrame{
 		toHide.add(y2);
 		JTextField y2Value = new JTextField(5);
 		toHide.add(y2Value);
-		
+
 		//Polygone
 		JRadioButton polygone = new JRadioButton("Polygone");
 		shapeBtns.add(polygone);
 		polygone.setPreferredSize(new Dimension(10,10));
-		
+
 		//Polyline
-		JRadioButton polyline = new JRadioButton("Polylint");
+		JRadioButton polyline = new JRadioButton("Polyline");
 		shapeBtns.add(polyline);
 		polyline.setPreferredSize(new Dimension(10,10));
-		
+
 		//Rectangle and its values
 		JRadioButton rectangle = new JRadioButton("Rectangle");
 		shapeBtns.add(rectangle);
@@ -183,7 +192,7 @@ public class GUI extends JFrame{
 		toHide.add(rectHeight);
 		JTextField rectHeightValue = new JTextField(10);
 		toHide.add(rectHeightValue);
-		
+
 		//Text and its values
 		JRadioButton text = new JRadioButton("Text");
 		shapeBtns.add(text);
@@ -200,7 +209,7 @@ public class GUI extends JFrame{
 		toHide.add(textValueLabel);
 		JTextField textValue = new JTextField(10);
 		toHide.add(textValue);
-		
+
 		//Fill when possible
 		JLabel fill = new JLabel("Fill");
 		fill.setFont(new Font("Label.font",Font.BOLD,15));
@@ -215,8 +224,8 @@ public class GUI extends JFrame{
 		JTextField fillColorValue = new JTextField(10);
 		JButton addShape = new JButton("Add");
 		addShape.setPreferredSize(new Dimension(10,10));
-		
-		
+
+
 		/* ----------------- Putting the components in the Gridlayout --------- */
 
 		//putting circle elements in the gridlayout
@@ -416,7 +425,7 @@ public class GUI extends JFrame{
 		//hide before click
 		rectHeightValue.setVisible(false);
 
-		
+
 		//putting text elements in the gridlayout
 		gc.gridx = 0;
 		gc.gridy = 25;
@@ -477,10 +486,10 @@ public class GUI extends JFrame{
 		gc.gridy = 32;
 		toolbox.add(addShape, gc);
 
-		
-		
+
+
 		/* -------------------- Listeners ------------------------------	 */
-		
+
 		//circle's listener
 		ControlCircleRadioBtn circleController = new ControlCircleRadioBtn(new Circle(),
 				circleX, centerX, 
@@ -488,15 +497,29 @@ public class GUI extends JFrame{
 				circleRadius, radiusValue,this);
 		circle.addActionListener(circleController);
 		circleModele.addObserver(circleController);
-		
+
+		//ellipse's listener
 		ControlEllipseRadioBtn ellipseController = new ControlEllipseRadioBtn(ellipseModele,ellipseCenterX, 
 				ellipseCenterValueX,ellipseCenterY, ellipseCenterValueY, ellipseRadiusX,
 				ellipseRadiusValueX, ellipseRadiusY, ellipseRadiusValueY,this);
 		ellipse.addActionListener(ellipseController);
 		ellipseModele.addObserver(ellipseController);
+
+		//line's listener
+		ControlLineRadioBtn lineController = new ControlLineRadioBtn(lineModele,x1,x1Value, 
+				y1,y1Value,x2, x2Value, y2,  y2Value, this);
+		line.addActionListener(lineController);
+		lineModele.addObserver(lineController);
 		
-		
-		
+		//rectangle's listener
+		ControlRectangleRadioBtn rectangleController =  new ControlRectangleRadioBtn(rectangleModele,rectX, rectValueX, 
+				rectY, rectValueY,rectWidth, rectWidthValue,rectHeight,
+				rectHeightValue, this);
+		rectangle.addActionListener(rectangleController);
+		rectangleModele.addObserver(rectangleController);
+
+
+
 		return scrollPane;
 	}
 
@@ -529,7 +552,7 @@ public class GUI extends JFrame{
 
 		return consoleArea;		
 	}
-	
+
 	public void hideComponents(){
 		for(int i=0;i<toHide.size();i++){
 			toHide.get(i).setVisible(false);
@@ -542,7 +565,7 @@ public class GUI extends JFrame{
 	}
 
 
-	
-	
+
+
 
 }
