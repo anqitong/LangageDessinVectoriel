@@ -1,12 +1,17 @@
 package view;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.swing.*;
 
 import controller.guiController.ControlCircleRadioBtn;
+import controller.guiController.ControlEllipseRadioBtn;
 import model.specific_path.Circle;
+import model.specific_path.Ellipse;
 
 /*
  * this class creates the graphical user interface for the svg drawing
@@ -14,7 +19,9 @@ import model.specific_path.Circle;
 public class GUI extends JFrame{
 
 	private Circle circleModele;
-	private HashMap<String, JComponent> maps = new HashMap<String,JComponent>();
+	private Ellipse ellipseModele;
+
+	private ArrayList<JComponent> toHide = new ArrayList<JComponent>();
 
 
 	/**
@@ -28,6 +35,7 @@ public class GUI extends JFrame{
 
 		//modeles
 		this.circleModele = new Circle();
+		this.ellipseModele = new Ellipse();
 
 
 		Container principal = this.getContentPane();
@@ -91,37 +99,59 @@ public class GUI extends JFrame{
 		shapeBtns.add(circle);
 		circle.setPreferredSize(new Dimension(10,10));
 		JLabel circleX = new JLabel("Center X : ");
+		toHide.add(circleX);
 		JTextField centerX = new JTextField(3);
+		toHide.add(centerX);
 		JLabel circleY = new JLabel("Center Y : ");
+		toHide.add(circleY);
 		JTextField centerY = new JTextField(3);
+		toHide.add(centerY);
 		JLabel circleRadius = new JLabel("Circle radius : ");
+		toHide.add(circleRadius);
 		JTextField radiusValue = new JTextField(3);
+		toHide.add(radiusValue);
 
 		//Ellipse : center and radius values
 		JRadioButton ellipse = new JRadioButton("Ellipse");
 		shapeBtns.add(ellipse);
 		ellipse.setPreferredSize(new Dimension(10,10));
 		JLabel ellipseCenterX = new JLabel("Ellipse center X : ");
+		toHide.add(ellipseCenterX);
 		JTextField ellipseCenterValueX =  new JTextField(5);
+		toHide.add(ellipseCenterValueX);
 		JLabel ellipseCenterY = new JLabel("Ellipse center Y : ");
+		toHide.add(ellipseCenterY);
 		JTextField ellipseCenterValueY =  new JTextField(5);
+		toHide.add(ellipseCenterValueY);
 		JLabel ellipseRadiusX = new JLabel("Ellipse radius X : ");
+		toHide.add(ellipseRadiusX);
 		JTextField ellipseRadiusValueX =  new JTextField(5);
+		toHide.add(ellipseRadiusValueX);
 		JLabel ellipseRadiusY = new JLabel("Ellipse radius Y : ");
+		toHide.add(ellipseRadiusY);
 		JTextField ellipseRadiusValueY =  new JTextField(5);
+		toHide.add(ellipseRadiusValueY);
 
 		//Line and its points
 		JRadioButton line = new JRadioButton("Line");
 		shapeBtns.add(line);
 		line.setPreferredSize(new Dimension(10,10));
 		JLabel x1 = new JLabel("x1 : ");
+		toHide.add(x1);
 		JTextField x1Value = new JTextField(5);
+		toHide.add(x1Value);
 		JLabel y1 = new JLabel("y1 : ");
+		toHide.add(y1);
 		JTextField y1Value = new JTextField(5);
+		toHide.add(y1Value);
 		JLabel x2 = new JLabel("x2 : ");
+		toHide.add(x2);
 		JTextField x2Value = new JTextField(5);
+		toHide.add(x2Value);
 		JLabel y2 = new JLabel("y2 : ");
+		toHide.add(y2);
 		JTextField y2Value = new JTextField(5);
+		toHide.add(y2Value);
 		
 		//Polygone
 		JRadioButton polygone = new JRadioButton("Polygone");
@@ -138,24 +168,38 @@ public class GUI extends JFrame{
 		shapeBtns.add(rectangle);
 		rectangle.setPreferredSize(new Dimension(10,10));
 		JLabel rectX = new JLabel("Rectangle X : ");
+		toHide.add(rectX);
 		JTextField rectValueX = new JTextField(10);
+		toHide.add(rectValueX);
 		JLabel rectY = new JLabel("Rectangle Y : ");
+		toHide.add(rectY);
 		JTextField rectValueY = new JTextField(10);
+		toHide.add(rectValueY);
 		JLabel rectWidth = new JLabel("Rectangle width : ");
+		toHide.add(rectWidth);
 		JTextField rectWidthValue = new JTextField(10);
+		toHide.add(rectWidthValue);
 		JLabel rectHeight = new JLabel("Rectangle height : ");
+		toHide.add(rectHeight);
 		JTextField rectHeightValue = new JTextField(10);
+		toHide.add(rectHeightValue);
 		
 		//Text and its values
 		JRadioButton text = new JRadioButton("Text");
 		shapeBtns.add(text);
 		text.setPreferredSize(new Dimension(10,10));
 		JLabel textX = new JLabel("Text X : ");
+		toHide.add(textX);
 		JTextField textValueX = new JTextField(10);
+		toHide.add(textValueX);
 		JLabel textY = new JLabel("Text Y : ");
+		toHide.add(textY);
 		JTextField textValueY = new JTextField(10);
+		toHide.add(textValueY);
 		JLabel textValueLabel = new JLabel("Text value : ");
+		toHide.add(textValueLabel);
 		JTextField textValue = new JTextField(10);
+		toHide.add(textValue);
 		
 		//Fill when possible
 		JLabel fill = new JLabel("Fill");
@@ -441,9 +485,15 @@ public class GUI extends JFrame{
 		ControlCircleRadioBtn circleController = new ControlCircleRadioBtn(new Circle(),
 				circleX, centerX, 
 				circleY, centerY, 
-				circleRadius, radiusValue);
+				circleRadius, radiusValue,this);
 		circle.addActionListener(circleController);
 		circleModele.addObserver(circleController);
+		
+		ControlEllipseRadioBtn ellipseController = new ControlEllipseRadioBtn(ellipseModele,ellipseCenterX, 
+				ellipseCenterValueX,ellipseCenterY, ellipseCenterValueY, ellipseRadiusX,
+				ellipseRadiusValueX, ellipseRadiusY, ellipseRadiusValueY,this);
+		ellipse.addActionListener(ellipseController);
+		ellipseModele.addObserver(ellipseController);
 		
 		
 		
@@ -479,10 +529,20 @@ public class GUI extends JFrame{
 
 		return consoleArea;		
 	}
+	
+	public void hideComponents(){
+		for(int i=0;i<toHide.size();i++){
+			toHide.get(i).setVisible(false);
+		}
+	}
 
 	public static void main(String[] args) {
 		GUI gui = new GUI();
 		gui.setVisible(true);
 	}
+
+
+	
+	
 
 }
