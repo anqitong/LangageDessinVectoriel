@@ -11,11 +11,17 @@ import javax.swing.*;
 import controller.guiController.ControlCircleRadioBtn;
 import controller.guiController.ControlEllipseRadioBtn;
 import controller.guiController.ControlLineRadioBtn;
+import controller.guiController.ControlPolygoneRadioBtn;
+import controller.guiController.ControlPolylineRadioBtn;
 import controller.guiController.ControlRectangleRadioBtn;
+import controller.guiController.ControlTextRadioBtn;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
+import model.specific_path.Polygone;
+import model.specific_path.Polyline;
 import model.specific_path.Rectangle;
+import model.specific_path.Text;
 
 /*
  * this class creates the graphical user interface for the svg drawing
@@ -25,32 +31,32 @@ public class GUI extends JFrame{
 	private Circle circleModele;
 	private Ellipse ellipseModele;
 	private Line lineModele;
+	private Polygone polygoneModele;
+	private Polyline polylineModele;
 	private Rectangle rectangleModele;
-
-
+	private Text textModele;
+	
 	private ArrayList<JComponent> toHide = new ArrayList<JComponent>();
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7101648530122179966L;
 
 	public GUI(){
 		super("Drawing interface");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		//modeles
+		//create the models
 		this.circleModele = new Circle();
 		this.ellipseModele = new Ellipse();
 		this.lineModele = new Line();
+		this.polygoneModele = new Polygone();
+		this.polylineModele = new Polyline();
 		this.rectangleModele = new Rectangle();
+		this.textModele = new Text();
 
 
 		Container principal = this.getContentPane();
 		principal.setLayout(new BorderLayout());
 		principal.add(createCentralPanel(), BorderLayout.SOUTH);
-
 		this.pack();		
 	}
 
@@ -166,12 +172,32 @@ public class GUI extends JFrame{
 		JRadioButton polygone = new JRadioButton("Polygone");
 		shapeBtns.add(polygone);
 		polygone.setPreferredSize(new Dimension(10,10));
+		JLabel xListPolygone = new JLabel("List of x : ");
+		JLabel xListPolygoneValues = new JLabel("");
+		JLabel yListPolygone = new JLabel("List of y : ");
+		JLabel yListPolygoneValues = new JLabel("");
+		JLabel xInputPolygone = new JLabel("Value of x : ");
+		JTextField xInputPolygoneValue  =new JTextField("");
+		JLabel yInputPolygone = new JLabel("Value of y : ");
+		JTextField yInputPolygoneValue  =new JTextField("");
+		JButton addPointPolygone = new JButton("Add point");
+		addPointPolygone.setPreferredSize(new Dimension(10,10));
 
 		//Polyline
 		JRadioButton polyline = new JRadioButton("Polyline");
 		shapeBtns.add(polyline);
 		polyline.setPreferredSize(new Dimension(10,10));
-
+		JLabel xListPolyline = new JLabel("List of x : ");
+		JLabel xListPolylineValues = new JLabel("");
+		JLabel yListPolyline = new JLabel("List of y : ");
+		JLabel yListPolylineValues = new JLabel("");
+		JLabel xInputPolyline = new JLabel("Value of x : ");
+		JTextField xInputPolylineValue  =new JTextField("");
+		JLabel yInputPolyline = new JLabel("Value of y : ");
+		JTextField yInputPolylineValue  =new JTextField("");
+		JButton addPointPolyline = new JButton("Add point");
+		addPointPolyline.setPreferredSize(new Dimension(10,10));
+		
 		//Rectangle and its values
 		JRadioButton rectangle = new JRadioButton("Rectangle");
 		shapeBtns.add(rectangle);
@@ -374,53 +400,113 @@ public class GUI extends JFrame{
 		gc.gridx = 0;
 		gc.gridy = 18;
 		toolbox.add(polygone, gc);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(xListPolygone, gc);
+		xListPolygone.setVisible(false);
+		gc.gridx++;
+		toolbox.add(xListPolygoneValues, gc);
+		xListPolygoneValues.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(yListPolygone, gc);
+		yListPolygone.setVisible(false);
+		gc.gridx++;
+		toolbox.add(yListPolygoneValues, gc);
+		yListPolygoneValues.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(xInputPolygone, gc);
+		xInputPolygone.setVisible(false);
+		gc.gridx++;
+		toolbox.add(xInputPolygoneValue, gc);
+		xInputPolygoneValue.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(yInputPolygone, gc);
+		yInputPolygone.setVisible(false);
+		gc.gridx++;
+		toolbox.add(yInputPolygoneValue, gc);
+		yInputPolygoneValue.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(addPointPolygone, gc);
+		addPointPolygone.setVisible(false);
 
 		//putting polyline elements in the gridlayout
 		gc.gridx = 0;
-		gc.gridy = 19;
+		gc.gridy++;
 		toolbox.add(polyline, gc);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(xListPolyline, gc);
+		xListPolyline.setVisible(false);
+		gc.gridx++;
+		toolbox.add(xListPolylineValues, gc);
+		xListPolylineValues.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(yListPolyline, gc);
+		yListPolyline.setVisible(false);
+		gc.gridx++;
+		toolbox.add(yListPolylineValues, gc);
+		yListPolylineValues.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(xInputPolyline, gc);
+		xInputPolyline.setVisible(false);
+		gc.gridx++;
+		toolbox.add(xInputPolylineValue, gc);
+		xInputPolylineValue.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(yInputPolyline, gc);
+		yInputPolyline.setVisible(false);
+		gc.gridx++;
+		toolbox.add(yInputPolylineValue, gc);
+		yInputPolylineValue.setVisible(false);
+		gc.gridx = 0;
+		gc.gridy++;
+		toolbox.add(addPointPolyline, gc);
+		addPointPolyline.setVisible(false);
 
 		//putting rectangle elements in the gridlayout
 		gc.gridx = 0;
-		gc.gridy = 20;
+		gc.gridy++;
 		toolbox.add(rectangle, gc);
 		gc.gridx = 0;
-		gc.gridy = 21;
+		gc.gridy++;
 		toolbox.add(rectX, gc);
 		//hide before click
 		rectX.setVisible(false);
 		gc.gridx = 1;
-		gc.gridy = 21;
 		toolbox.add(rectValueX, gc);
 		//hide before click
 		rectValueX.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 22;
+		gc.gridy++;
 		toolbox.add(rectY, gc);
 		//hide before click
 		rectY.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 22;
+		gc.gridx++;
 		toolbox.add(rectValueY, gc);
 		//hide before click
 		rectValueY.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 23;
+		gc.gridy++;
 		toolbox.add(rectWidth, gc);
 		//hide before click
 		rectWidth.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 23;
+		gc.gridx++;
 		toolbox.add(rectWidthValue, gc);
 		//hide before click
 		rectWidthValue.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 24;
+		gc.gridy++;
 		toolbox.add(rectHeight, gc);
 		//hide before click
 		rectHeight.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 24;
+		gc.gridx++;
 		toolbox.add(rectHeightValue, gc);
 		//hide before click
 		rectHeightValue.setVisible(false);
@@ -428,62 +514,57 @@ public class GUI extends JFrame{
 
 		//putting text elements in the gridlayout
 		gc.gridx = 0;
-		gc.gridy = 25;
+		gc.gridy++;
 		toolbox.add(text, gc);
 		gc.gridx = 0;
-		gc.gridy = 26;
+		gc.gridy++;
 		toolbox.add(textX, gc);
 		//hide before click
 		textX.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 26;
+		gc.gridx++;
 		toolbox.add(textValueX, gc);
 		//hide before click
 		textValueX.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 27;
+		gc.gridy++;
 		toolbox.add(textY, gc);
 		//hide before click
 		textY.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 27;
+		gc.gridx++;
 		toolbox.add(textValueY, gc);
 		//hide before click
 		textValueY.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 28;
+		gc.gridy++;
 		toolbox.add(textValueLabel, gc);
 		//hide before click
 		textValueLabel.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 28;
+		gc.gridx++;
 		toolbox.add(textValue, gc);
 		//hide before click
 		textValue.setVisible(false);
 
 		/* Fill when possible */
 		gc.gridx = 0;
-		gc.gridy = 29;
+		gc.gridy++;
 		toolbox.add(fill, gc);
 		gc.gridx = 0;
-		gc.gridy = 30;
+		gc.gridy++;
 		toolbox.add(yesToFill, gc);
-		gc.gridx = 1;
-		gc.gridy = 30;
+		gc.gridx++;
 		toolbox.add(noToFill, gc);
 		noToFill.setSelected(true);
 		gc.gridx = 0;
-		gc.gridy = 31;
+		gc.gridy++;
 		toolbox.add(fillColor, gc);
 		//hide before click
 		fillColor.setVisible(false);
-		gc.gridx = 1;
-		gc.gridy = 31;
+		gc.gridx++;
 		toolbox.add(fillColorValue, gc);
 		//hide before click
 		fillColorValue.setVisible(false);
 		gc.gridx = 0;
-		gc.gridy = 32;
+		gc.gridy++;
 		toolbox.add(addShape, gc);
 
 
@@ -511,12 +592,34 @@ public class GUI extends JFrame{
 		line.addActionListener(lineController);
 		lineModele.addObserver(lineController);
 		
+		//polygone's listener
+		ControlPolygoneRadioBtn polygoneController = new ControlPolygoneRadioBtn(polygoneModele, 
+				xListPolygone, xListPolygoneValues,yListPolygone, yListPolygoneValues, 
+				xInputPolygone, xInputPolygoneValue, yInputPolygone, yInputPolygoneValue,
+				addPointPolygone, this);
+		polygone.addActionListener(polygoneController);
+		polygoneModele.addObserver(polygoneController);
+		
+		//polyline's listener
+		ControlPolylineRadioBtn polylineController = new ControlPolylineRadioBtn(polylineModele, 
+				xListPolyline, xListPolylineValues, yListPolyline, yListPolylineValues, 
+				xInputPolyline, xInputPolylineValue, yInputPolyline, yInputPolylineValue,
+				addPointPolyline, this);
+		polyline.addActionListener(polylineController);
+		polylineModele.addObserver(polylineController);
+		
 		//rectangle's listener
 		ControlRectangleRadioBtn rectangleController =  new ControlRectangleRadioBtn(rectangleModele,rectX, rectValueX, 
 				rectY, rectValueY,rectWidth, rectWidthValue,rectHeight,
 				rectHeightValue, this);
 		rectangle.addActionListener(rectangleController);
 		rectangleModele.addObserver(rectangleController);
+		
+		//text's listener
+		ControlTextRadioBtn textController = new ControlTextRadioBtn(textModele, textX, textValueX, 
+				textY, textValueY, textValueLabel, textValue, this);
+		text.addActionListener(textController);
+		textModele.addObserver(textController);
 
 
 

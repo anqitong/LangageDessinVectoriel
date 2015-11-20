@@ -13,8 +13,6 @@ import view.GUI;
 
 public class ControlLineRadioBtn implements Observer, ActionListener{
 
-	
-
 	private Line modele;
 	private JLabel x1;
 	private JTextField x1Value;
