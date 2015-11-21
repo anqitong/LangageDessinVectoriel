@@ -1,9 +1,11 @@
-package model.presentation.awt;
+package output.awt;
 
 import model.Shape;
-import model.presentation.ShapeState;
 import model.specific_path.Text;
+
 import org.junit.Test;
+
+import output.ShapeState;
 
 import java.awt.*;
 

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
+import output.xml.SVGFile;
 import model.ColorSVG;
 import model.Pencil;
 import model.Shape;
-import model.presentation.xml.SVGFile;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;

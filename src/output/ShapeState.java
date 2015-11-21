@@ -1,4 +1,4 @@
-package model.presentation;
+package output;
 
 import model.Shape;
 

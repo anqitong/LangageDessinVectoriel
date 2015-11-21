@@ -4,13 +4,13 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import output.xml.SVGFile;
 import model.*;
 import model.specific_path.Circle;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
 import model.specific_path.Rectangle;
-import model.presentation.xml.SVGFile;
 
 public class Draw {
 

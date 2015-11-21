@@ -1,12 +1,12 @@
-package model.presentation.xml;
+package output.xml;
 
 import java.awt.Point;
 
+import output.ShapeState;
 import model.Shape;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
-import model.presentation.ShapeState;
 
 public class PathXML implements ShapeState {
 	

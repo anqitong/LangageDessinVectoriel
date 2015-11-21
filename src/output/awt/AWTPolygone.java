@@ -1,11 +1,12 @@
-package model.presentation.awt;
+package output.awt;
 
 import model.Shape;
-import model.presentation.ShapeState;
 import model.specific_path.Polygone;
 
 import java.awt.*;
 import java.util.ArrayList;
+
+import output.ShapeState;
 
 /**
  * Created by Xiaxing SHI on 11/11/15.
