@@ -9,6 +9,11 @@ import java.awt.Color;
  * Created by Xiaxing SHI on 21/11/15.
  */
 public class Painting implements DrawingTask {
+    /**
+     * Edit this method to draw whatever you want!
+     * But you should only the parameter p.
+     * @param p
+     */
     @Override
     public void draw(Painter p) {
         p.setName("Painting with language");

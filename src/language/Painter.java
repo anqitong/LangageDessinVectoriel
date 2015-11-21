@@ -1,9 +1,11 @@
 package language;
 
 import model.specific_path.LineType;
-
 import java.awt.*;
 
+/**
+ * This defined what a user can do for drawing things
+ */
 public interface Painter {
     void setName(String name);
     void stroke(int width, Color color);

@@ -7,6 +7,9 @@ import model.presentation.xml.SVGFile;
 import language.BasicPainter;
 
 /**
+ * This could be the final main class in the project. It read user's drawing task and draw it. Then it shows the
+ * painting in JFrame and in a SVG file.
+ *
  * Created by Xiaxing SHI on 21/11/15.
  */
 public class TestLanguage {
