@@ -43,7 +43,7 @@ public class PolylineXML implements ShapeState {
 		for(Point point:this.getPolyline().getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polyline points=\""+xml+"\" "+this.delegate.getPencilXML(this.polyline.getPencil())+" />";
+		return "<polyline points=\""+xml+"\" fill=\"none\" "+this.delegate.getPencilXML(this.polyline.getPencil())+" />";
 	}
 
 	@Override

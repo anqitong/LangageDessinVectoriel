@@ -38,7 +38,7 @@ public class EllipseXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing() {
-		return "<circle cx=\""+this.getEllipse().getCenter_x()+"\" cy=\""+this.getEllipse().getCenter_y()+"\" rx=\""+this.getEllipse().getRadius_x()+"\" ry=\""+this.getEllipse().getRadius_y()+"\" fill=\""+this.getEllipse().getColor()+"\" "+this.delegate.getPencilXML(this.ellipse.getPencil())+" />";
+		return "<ellipse cx=\""+this.getEllipse().getCenter_x()+"\" cy=\""+this.getEllipse().getCenter_y()+"\" rx=\""+this.getEllipse().getRadius_x()+"\" ry=\""+this.getEllipse().getRadius_y()+"\" fill=\""+this.getEllipse().getColor()+"\" "+this.delegate.getPencilXML(this.ellipse.getPencil())+" />";
 	}
 	
 	@Override
