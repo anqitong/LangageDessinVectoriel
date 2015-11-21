@@ -8,6 +8,7 @@ import java.awt.*;
  */
 public interface Painter {
     void setName(String name);
+    void setCanvasSize(int width, int height);
     void stroke(int width, Color color);
     void fill(Color color);
     void circle(int x, int y, int r);

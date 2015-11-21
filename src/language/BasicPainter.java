@@ -1,7 +1,7 @@
 package language;
 
-import model.ColorSVG;
-import model.Pencil;
+import model.*;
+import model.Canvas;
 import model.Shape;
 import model.specific_path.*;
 import model.specific_path.Rectangle;
@@ -16,12 +16,19 @@ public class BasicPainter implements Painter, DrawingSource {
     private String name = "My Painting";
     private ColorSVG color = new ColorSVG(Color.BLACK.getRGB());
     private Pencil pencil = new Pencil(1, color);
+    private Canvas canvas = new Canvas(1024, 1024);
 
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     @Override
     public void setName(String name) {
         if (name != null)
             this.name = name;
+    }
+
+    @Override
+    public void setCanvasSize(int width, int height) {
+        this.canvas.setWidth(width);
+        this.canvas.setHeight(height);
     }
 
     @Override
@@ -118,6 +125,11 @@ public class BasicPainter implements Painter, DrawingSource {
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public Canvas getCanvas() {
+        return this.canvas;
     }
 
     @Override

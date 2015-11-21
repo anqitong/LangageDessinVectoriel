@@ -1,5 +1,6 @@
 package language;
 
+import model.Canvas;
 import model.Shape;
 
 import java.util.ArrayList;
@@ -11,5 +12,6 @@ import java.util.ArrayList;
  */
 public interface DrawingSource {
     String getName();
+    Canvas getCanvas();
     ArrayList<Shape> getShapes();
 }

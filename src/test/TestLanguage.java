@@ -20,13 +20,13 @@ public class TestLanguage {
         painting.draw(painter);
 
         // Create an awt presentation to draw
-        AWTFrame awt = new AWTFrame(painter.getName(), new Canvas(600, 600));
+        AWTFrame awt = new AWTFrame(painter.getName(), painter.getCanvas());
         awt.addShapes(painter.getShapes());
         awt.createDrawing();
 
         // all presentation should also work, so we test them
         SVGFile svg = new SVGFile(painter.getName());
-        svg.setCanvas(new Canvas(600, 600));
+        svg.setCanvas(painter.getCanvas());
         svg.addShapes(painter.getShapes());
         svg.createDrawing();
         svg.writeSVGFile();

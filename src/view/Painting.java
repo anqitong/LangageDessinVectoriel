@@ -17,6 +17,7 @@ public class Painting implements DrawingTask {
     @Override
     public void draw(Painter p) {
         p.setName("Painting with language");
+        p.setCanvasSize(600, 600);
 
         p.stroke(1, Color.blue);
         p.fill(Color.red);
