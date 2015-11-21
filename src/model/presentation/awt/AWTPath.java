@@ -86,6 +86,7 @@ public class AWTPath implements ShapeState {
                     }
                     break;
                 case Arc:
+                    // TODO
                     break;
                 default:
             }
