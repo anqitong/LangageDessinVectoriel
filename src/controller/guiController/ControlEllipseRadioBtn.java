@@ -9,6 +9,7 @@ import javax.swing.*;
 import model.specific_path.Ellipse;
 import view.GUI;
 
+//controller for the ellipse radio button
 public class ControlEllipseRadioBtn implements Observer, ActionListener{
 
 	private Ellipse modele;
@@ -42,7 +43,10 @@ public class ControlEllipseRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide the input fields of the all radio buttons
 		this.gui.hideComponents();
+		
+		//set visible the input fields for ellipse
 		this.ellipseCenterX.setVisible(true);
 		this.ellipseCenterValueX.setVisible(true);
 		this.ellipseCenterY.setVisible(true);
@@ -55,23 +59,5 @@ public class ControlEllipseRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(this.ellipseCenterValueX.getText()!=null){
-			Integer x = Integer.parseInt(this.ellipseCenterValueX.getText().trim());
-			this.modele.setCenter_x(x);
-		}
-		if(this.ellipseCenterValueY.getText()!=null){
-			Integer y =Integer.parseInt(this.ellipseCenterValueY.getText().trim());
-			this.modele.setCenter_y(y);
-		}
-		if(this.ellipseRadiusValueX.getText()!=null){
-			Integer r_x = Integer.parseInt(this.ellipseRadiusValueX.getText().trim());
-			this.modele.setRadius_x(r_x);
-		}
-		if(this.ellipseRadiusValueY.getText()!=null){
-			Integer r_y = Integer.parseInt(this.ellipseRadiusValueY.getText().trim());
-			this.modele.setRadius_y(r_y);
-		}
 	}
-
-
 }

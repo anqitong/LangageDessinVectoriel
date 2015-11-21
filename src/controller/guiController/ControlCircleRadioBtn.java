@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import model.specific_path.Circle;
 import view.GUI;
 
+//controller for the radio button "circle3
 public class ControlCircleRadioBtn implements Observer, ActionListener {
 
 	private Circle modele;
@@ -48,7 +49,9 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		//hide the fields under the other radio buttons
 		this.gui.hideComponents();
+
 		//set visible the fields associated with Circle
 		this.circleX.setVisible(true);
 		this.centerX.setVisible(true);
@@ -60,16 +63,6 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(centerX.getText()!=null) {
-			this.modele.setCenter_x(Integer.parseInt(centerX.getText().trim()));
-		}
-		if(centerY.getText()!=null) {
-			this.modele.setCenter_y(Integer.parseInt(centerY.getText().trim()));
-		}
-		if(radiusValue.getText()!=null){
-			this.modele.setRadius(Integer.parseInt(radiusValue.getText().trim()));
-		}
-		
 	}
 
 }

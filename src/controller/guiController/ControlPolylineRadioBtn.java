@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import model.specific_path.Polyline;
 import view.GUI;
 
+//controller for the "Polyline" radio button
 public class ControlPolylineRadioBtn implements Observer, ActionListener{
 
 	private Polyline modele;
@@ -47,7 +48,10 @@ public class ControlPolylineRadioBtn implements Observer, ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide the input fields of all the shape elements
 		this.gui.hideComponents();
+		
+		//set visible input fields for Poyline
 		this.xListPolyline.setVisible(true);
 		this.xListPolylineValues.setVisible(true);
 		this.xListPolylineValues.setVisible(true);
@@ -62,17 +66,17 @@ public class ControlPolylineRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		ArrayList<Point> liste = this.modele.getPoints();
-		if(liste!=null && liste.size()>0){
-			String xList = "";
-			String yList = "";
-			for(int i = 0;i<liste.size();i++){
-				xList+=liste.get(i).getX()+";";
-				yList+=liste.get(i).getY()+";";
-			}
-			this.xListPolylineValues.setText(xList);
-			this.yListPolylineValues.setText(yList);
-		}
+//		ArrayList<Point> liste = this.modele.getPoints();
+//		if(liste!=null && liste.size()>0){
+//			String xList = "";
+//			String yList = "";
+//			for(int i = 0;i<liste.size();i++){
+//				xList+=liste.get(i).getX()+";";
+//				yList+=liste.get(i).getY()+";";
+//			}
+//			this.xListPolylineValues.setText(xList);
+//			this.yListPolylineValues.setText(yList);
+//		}
 	}
 
 }

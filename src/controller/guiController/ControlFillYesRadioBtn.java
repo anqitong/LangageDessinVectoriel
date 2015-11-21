@@ -8,6 +8,7 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+//controller for the "yes" radio button under the fill color section
 public class ControlFillYesRadioBtn implements Observer, ActionListener{
 
 
@@ -31,6 +32,8 @@ public class ControlFillYesRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//set visible the input fields for the fill color
 		fillRed.setVisible(true);
 		fillRedValue.setVisible(true);
 		fillGreen.setVisible(true);

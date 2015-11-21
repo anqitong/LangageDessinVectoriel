@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import model.specific_path.Polygone;
 import view.GUI;
 
+//controller for the "Polygone" radio button
 public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 	
 	private Polygone modele;
@@ -47,7 +48,10 @@ public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide all the input fields of all the shapes
 		this.gui.hideComponents();
+		
+		//set visibles the input fields of Polygone
 		this.xListPolygone.setVisible(true);
 		this.xListPolygoneValues.setVisible(true);
 		this.yListPolygone.setVisible(true);

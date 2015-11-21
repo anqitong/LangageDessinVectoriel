@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import model.specific_path.Rectangle;
 import view.GUI;
 
+//controller for "Rectangle" radio button
 public class ControlRectangleRadioBtn implements Observer, ActionListener{
 	
 
@@ -43,8 +44,10 @@ public class ControlRectangleRadioBtn implements Observer, ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide all the input fields in shape section
 		this.gui.hideComponents();
 		
+		//set visible input fields for rectangle
 		rectX.setVisible(true);
 		rectValueX.setVisible(true);
 		rectY.setVisible(true);

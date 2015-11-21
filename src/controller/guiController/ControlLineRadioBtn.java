@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import model.specific_path.Line;
 import view.GUI;
 
+//controller for the "Line" radio button in shapes section
 public class ControlLineRadioBtn implements Observer, ActionListener{
 
 	private Line modele;
@@ -27,7 +28,6 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 	
 	public ControlLineRadioBtn(Line modele, JLabel x1, JTextField x1Value, JLabel y1, JTextField y1Value, JLabel x2,
 			JTextField x2Value, JLabel y2, JTextField y2Value, GUI gui) {
-		super();
 		this.modele = modele;
 		this.x1 = x1;
 		this.x1Value = x1Value;
@@ -42,8 +42,10 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide the input fields of all the shapes
 		this.gui.hideComponents();
 		
+		//set visibles input fields for Line
 		this.x1.setVisible(true);
 		this.x1Value.setVisible(true);
 		this.y1.setVisible(true);
@@ -57,19 +59,6 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(this.x1Value.getText()!=null){
-			this.modele.setX1(Integer.parseInt(x1Value.getText().trim()));
-		}
-		if(this.y1Value.getText()!=null){
-			this.modele.setY1(Integer.parseInt(y1Value.getText().trim()));
-		}
-		if(this.x2Value.getText()!=null){
-			this.modele.setX2(Integer.parseInt(x2Value.getText().trim()));
-		}
-		if(this.y2Value.getText()!=null){
-			this.modele.setY2(Integer.parseInt(y2Value.getText().trim()));
-		}
-		
 	}
 
 }

@@ -8,6 +8,7 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+//controller for the "No" radio button in Fill Color section
 public class ControlFillNoRadioBtn implements Observer, ActionListener{
 
 
@@ -31,6 +32,8 @@ public class ControlFillNoRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//set invisible the input fields
 		fillRed.setVisible(false);
 		fillRedValue.setVisible(false);
 		fillGreen.setVisible(false);

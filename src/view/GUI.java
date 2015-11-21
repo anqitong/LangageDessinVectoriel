@@ -1,8 +1,17 @@
 package view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Point;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import controller.guiController.AddToConsoleController;
 import controller.guiController.ControlAddPointPolygone;
@@ -15,9 +24,11 @@ import controller.guiController.ControlLineRadioBtn;
 import controller.guiController.ControlPolygoneRadioBtn;
 import controller.guiController.ControlPolylineRadioBtn;
 import controller.guiController.ControlRectangleRadioBtn;
+import controller.guiController.ControlRunGUI;
 import controller.guiController.ControlTextRadioBtn;
 import model.ColorSVG;
 import model.Pencil;
+import model.Shape;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
@@ -44,6 +55,7 @@ public class GUI extends JFrame{
 	private Pencil pencil;
 	
 	private ArrayList<JComponent> toHide = new ArrayList<JComponent>();
+	private ArrayList<Shape> shapeList = new ArrayList<Shape>();
 
 	private static final long serialVersionUID = 7101648530122179966L;
 
@@ -82,7 +94,7 @@ public class GUI extends JFrame{
 		/* ---------------- create console area ------------------- */
 		JPanel consoleArea = new JPanel();
 		consoleArea.setLayout(new BoxLayout(consoleArea,BoxLayout.Y_AXIS));
-		JTextArea textArea = new JTextArea("Some commands ....");
+		JTextArea textArea = new JTextArea("");
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		JScrollPane consolePane = new JScrollPane(textArea);
@@ -686,16 +698,25 @@ public class GUI extends JFrame{
 				centerX, centerY, radiusValue, ellipseModele,
 				ellipseCenterValueX, ellipseCenterValueY,ellipseRadiusValueX,
 				ellipseRadiusValueY, lineModele, x1Value, y1Value, x2Value, y2Value,
-				polygoneModele, polylineModele, rectangleModele, rectValueX, rectValueY,
-				rectWidthValue, rectHeightValue, textModele, textValueX, textValueY,
-				textValue);
+				polygoneModele, xListPolygone, xListPolygoneValues, yListPolygone, yListPolygoneValues, 
+				xInputPolygone, xInputPolygoneValue,yInputPolygone, yInputPolygoneValue, 
+				polylineModele, xListPolyline, xListPolylineValues, yListPolyline, yListPolylineValues, 
+				xInputPolyline, xInputPolylineValue,yInputPolyline, yInputPolylineValue, 
+				rectangleModele, rectValueX, rectValueY,
+				rectWidthValue, rectHeightValue, textModele, textValueX, textValueY, 
+				textValue, textArea, shapeList);
 		addShape.addActionListener(addController);
 		pencil.addObserver(addController);
+		
+		//run button's listener
+		ControlRunGUI runController = new ControlRunGUI(shapeList);
+		runBtn.addActionListener(runController);
 		
 		
 		/* Create JSplitPane for the layout */
 		JPanel left = new JPanel();
 		left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
+		left.setBorder(new EmptyBorder(5,5,5,5));
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, toolbox, consoleArea);
 		left.add(splitPane);

@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import model.specific_path.Text;
 import view.GUI;
 
+//controller for the "text" radio button
 public class ControlTextRadioBtn implements Observer, ActionListener{
 
 	private Text modele;
@@ -37,7 +38,10 @@ public class ControlTextRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//hide the input fields of all the shape elements
 		this.gui.hideComponents();
+
+		//set visible the input fields for text
 		this.textX.setVisible(true);
 		this.textValueX.setVisible(true);
 		this.textY.setVisible(true);

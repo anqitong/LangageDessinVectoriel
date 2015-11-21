@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import model.specific_path.Polyline;
 
+//controller for the "Add point" button under Polyline
 public class ControlAddPointPolyline implements Observer, ActionListener{
 
 	
@@ -34,10 +35,13 @@ public class ControlAddPointPolyline implements Observer, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(!this.xInputPolylineValues.getText().equals("") && !this.yInputPolylineValues.equals("")){
+			//fetch the new point
 			Integer x = Integer.parseInt(xInputPolylineValues.getText().trim());
 			Integer y = Integer.parseInt(yInputPolylineValues.getText().trim());
 			Point point = new Point(x,y);
 			ArrayList<Point> listPoints = this.modele.getPoints();
+			
+			//add the new point to the existing list of points
 			listPoints.add(point);
 			modele.setPoints(listPoints);
 		}
@@ -52,6 +56,7 @@ public class ControlAddPointPolyline implements Observer, ActionListener{
 			String listY = this.yListPolylineValues.getText();
 			listX+=x+";";
 			listY+=y+";";
+			//update the disply in the labels for the list of existing points
 			this.xListPolylineValues.setText(listX);
 			this.yListPolylineValues.setText(listY);
 		}
