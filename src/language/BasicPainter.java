@@ -43,13 +43,13 @@ public class BasicPainter implements Painter, DrawingSource {
 
     @Override
     public void circle(int x, int y, int r) {
-        Circle c = new Circle(30,30,30);
+        Circle c = new Circle(x, y, r);
         addToShapes(c);
     }
 
     @Override
     public void ellipse(int x, int y, int rx, int ry) {
-        Ellipse e = new Ellipse(100, 30, 40, 20);
+        Ellipse e = new Ellipse(x, y, rx, ry);
         addToShapes(e);
     }
 
