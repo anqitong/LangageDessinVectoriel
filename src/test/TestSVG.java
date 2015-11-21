@@ -26,7 +26,7 @@ public class TestSVG {
 	public void createSVG_success() {
 		SVGFile svg = new SVGFile("test","some content");
 		Assert.assertEquals(true, svg.writeSVGFile());
-		svg.getFile().delete();
+		svg.delete();
 	}
 	
 	/*
@@ -41,6 +41,16 @@ public class TestSVG {
 		SVGFile f2 = new SVGFile("testFile","some content");
 		Assert.assertEquals(false, f2.writeSVGFile());
 		f1.getFile().delete();
+	}
+	
+	/*
+	 * Test the deletion method 
+	 */
+	@Test
+	public void delete_svg() {
+		SVGFile svg = new SVGFile("test","some content");
+		svg.writeSVGFile();
+		Assert.assertTrue(svg.delete());
 	}
 	
 	/************************************

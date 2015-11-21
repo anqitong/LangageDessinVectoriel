@@ -168,6 +168,10 @@ public class SVGFile implements Presentation, StateDelegate {
 		return this.getXmlcontent();
 	}
 	
+	/**
+	 * Open the default browser to preview the svg file create
+	 * Exception will be thrown if no svg file has been created previously
+	 */
 	public void view() {
 		File svgFile = new File(String.format(filepath, this.getFileName()));
 		try {
@@ -175,6 +179,13 @@ public class SVGFile implements Presentation, StateDelegate {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Delete the file that has been created
+	 */
+	public boolean delete(){
+			return this.getFile().delete();
 	}
 
 	@Override
