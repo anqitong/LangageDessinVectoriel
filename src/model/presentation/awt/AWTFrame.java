@@ -75,7 +75,7 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
                 state = new AWTLine((Line)shape, this);
                 break;
             case Path:
-                // TODO: Implement Class AWTPath
+                state = new AWTPath((Path)shape, this);
                 break;
             case Polygone:
                 state = new AWTPolygone((Polygone)shape, this);
