@@ -133,6 +133,23 @@ public class TestAWT {
         curve.setParts(parts);
         shapes.add(curve);
 
+        // Quadratic Bezier
+        Path qb = new Path();
+        qb.setPencil(p);
+        qb.setStart(new Point(10, 80));
+        parts = new ArrayList<PathPart>();
+        pPoints = new ArrayList<Point>();
+        pPoints.add(new Point(52, 10));
+        pPoints.add(new Point(95, 80));
+        part = new PathPart(pPoints, LineType.QuadricBezier);
+        parts.add(part);
+        pPoints = new ArrayList<Point>();
+        pPoints.add(new Point(180, 80));
+        part = new PathPart(pPoints, LineType.SmoothBezier);
+        parts.add(part);
+        qb.setParts(parts);
+        shapes.add(qb);
+
         // Create an awt presentation to draw
         awt = new AWTFrame("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);

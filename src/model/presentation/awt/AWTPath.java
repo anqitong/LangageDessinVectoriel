@@ -31,7 +31,7 @@ public class AWTPath implements ShapeState {
         Path2D.Double p2d = new Path2D.Double();
         p2d.moveTo(this.path.getStart().x, this.path.getStart().y);
 
-        Point lastEnd = this.path.getStart(), lastReflect = null;
+        Point lastEnd = this.path.getStart(), lastReflect = null, lastControl = null;
 
         for (PathPart part : this.path.getParts()) {
             ArrayList<Point> pts = part.getPoints();
@@ -41,6 +41,7 @@ public class AWTPath implements ShapeState {
                         p2d.lineTo(part.getPoints().get(0).x, part.getPoints().get(0).y);
                         lastEnd = part.getPoints().get(0);
                         lastReflect = null;
+                        lastControl = null;
                     }
                     break;
                 case QuadricBezier:
@@ -48,12 +49,15 @@ public class AWTPath implements ShapeState {
                         p2d.quadTo(pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         lastEnd = part.getPoints().get(1);
                         lastReflect = null;
+                        lastControl = pts.get(0);
                     }
                     break;
                 case SmoothBezier:
-                    if (pts.size() == 2) {
-                        p2d.quadTo(pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
-                        lastEnd = part.getPoints().get(1);
+                    if (pts.size() == 1) {
+                        lastControl = new Point(lastEnd.x - (lastControl.x - lastEnd.x), lastEnd.y - (lastControl.y - lastEnd.y));
+                        p2d.quadTo(lastControl.x, lastControl.y, pts.get(0).x, pts.get(0).y);
+
+                        lastEnd = part.getPoints().get(0);
                         lastReflect = null;
                     }
                     break;
@@ -62,6 +66,7 @@ public class AWTPath implements ShapeState {
                         p2d.curveTo(pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y, pts.get(2).x, pts.get(2).y);
                         lastEnd = part.getPoints().get(2);
                         lastReflect = part.getPoints().get(1);
+                        lastControl = null;
                     }
                     break;
                 case SmoothCurveto:
@@ -70,11 +75,14 @@ public class AWTPath implements ShapeState {
                             double[] reflect = this.calculateReflectPoint(new double[]{lastEnd.x, lastEnd.y}
                                     , new double[]{pts.get(1).x, pts.get(1).y}
                                     , new double[]{pts.get(0).x, pts.get(0).y});
+                            lastReflect = new Point((int) reflect[0], (int)reflect[1]);
                             p2d.curveTo(reflect[0], reflect[1], pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         } else {
                             lastReflect = new Point(lastEnd.x - (lastReflect.x - lastEnd.x), lastEnd.y - (lastReflect.y - lastEnd.y));
                             p2d.curveTo(lastReflect.x, lastReflect.y, pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         }
+                        lastEnd = pts.get(1);
+                        lastControl = null;
                     }
                     break;
                 case Arc:
