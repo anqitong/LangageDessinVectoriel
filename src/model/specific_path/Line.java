@@ -39,6 +39,8 @@ public class Line extends Shape {
 
 	public void setX1(int x1) {
 		this.x1 = x1;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getY1() {
@@ -47,6 +49,8 @@ public class Line extends Shape {
 
 	public void setY1(int y1) {
 		this.y1 = y1;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getX2() {
@@ -55,6 +59,8 @@ public class Line extends Shape {
 
 	public void setX2(int x2) {
 		this.x2 = x2;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getY2() {
@@ -63,6 +69,8 @@ public class Line extends Shape {
 
 	public void setY2(int y2) {
 		this.y2 = y2;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override

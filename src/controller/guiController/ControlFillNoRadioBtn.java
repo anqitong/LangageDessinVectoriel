@@ -8,7 +8,7 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class ControlFillYesRadioBtn implements Observer, ActionListener{
+public class ControlFillNoRadioBtn implements Observer, ActionListener{
 
 
 	private JLabel fillRed;
@@ -18,7 +18,7 @@ public class ControlFillYesRadioBtn implements Observer, ActionListener{
 	private JLabel fillBlue;
 	private JTextField fillBlueValue;
 	
-	public ControlFillYesRadioBtn(JLabel fillRed, JTextField fillRedValue, JLabel fillGreen, JTextField fillGreenValue,
+	public ControlFillNoRadioBtn(JLabel fillRed, JTextField fillRedValue, JLabel fillGreen, JTextField fillGreenValue,
 			JLabel fillBlue, JTextField fillBlueValue) {
 		this.fillRed = fillRed;
 		this.fillRedValue = fillRedValue;
@@ -31,12 +31,12 @@ public class ControlFillYesRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		fillRed.setVisible(true);
-		fillRedValue.setVisible(true);
-		fillGreen.setVisible(true);
-		fillGreenValue.setVisible(true);
-		fillBlue.setVisible(true);
-		fillBlueValue.setVisible(true);
+		fillRed.setVisible(false);
+		fillRedValue.setVisible(false);
+		fillGreen.setVisible(false);
+		fillGreenValue.setVisible(false);
+		fillBlue.setVisible(false);
+		fillBlueValue.setVisible(false);
 	}
 
 	@Override

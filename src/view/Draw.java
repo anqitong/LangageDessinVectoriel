@@ -10,6 +10,7 @@ import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
 import model.specific_path.Rectangle;
+import model.specific_path.Text;
 import model.presentation.xml.SVGFile;
 
 public class Draw {
@@ -41,10 +42,18 @@ public class Draw {
 		// Fill it
 		r.setColor(new ColorSVG(Color.green.getRGB()));
 
+		
+		/* Create Text */
+		Text text = new Text(40, 40, "BLABLABLA");
+		text.setPencil(p);
+		text.setColor(new ColorSVG(Color.BLACK.getRGB()));
+		
+		
 		// Gather all the shapes
 		ArrayList<Shape> shapes = new ArrayList<Shape>();
 		shapes.add(c);
 		shapes.add(r);
+		shapes.add(text);
 
 		// Create the drawing (named test) (empty here)
 		SVGFile svg = new SVGFile("test");
@@ -61,6 +70,8 @@ public class Draw {
 		
 		// Open it in your defaul browser
 		svg.view();	
+		
+		
 		
 		
 		/************************************

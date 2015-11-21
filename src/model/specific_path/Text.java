@@ -36,6 +36,8 @@ public class Text extends Shape {
 
 	public void setX(int x) {
 		this.x = x;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getY() {
@@ -44,6 +46,8 @@ public class Text extends Shape {
 
 	public void setY(int y) {
 		this.y = y;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public String getText() {
@@ -52,6 +56,8 @@ public class Text extends Shape {
 
 	public void setText(String text) {
 		this.text = text;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override

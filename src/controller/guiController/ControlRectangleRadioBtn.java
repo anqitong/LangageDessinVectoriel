@@ -57,18 +57,27 @@ public class ControlRectangleRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(rectValueX.getText()!=null){
-			this.modele.setX(Integer.parseInt(rectValueX.getText().trim()));
-		}
-		if(rectValueY.getText()!=null){
-			this.modele.setY(Integer.parseInt(rectValueY.getText().trim()));
-		}
-		if(rectWidthValue.getText()!=null){
-			this.modele.setWidth(Integer.parseInt(rectWidthValue.getText().trim()));
-		}
-		if(rectHeightValue.getText()!=null){
-			this.modele.setHeight(Integer.parseInt(rectHeightValue.getText().trim()));
-		}
+		this.gui.hideComponents();
+		rectX.setVisible(true);
+		rectValueX.setVisible(true);
+		rectY.setVisible(true);
+		rectValueY.setVisible(true);
+		rectWidth.setVisible(true);
+		rectWidthValue.setVisible(true);
+		rectHeight.setVisible(true);
+		rectHeightValue.setVisible(true);
+//		if(rectValueX.getText()!=null){
+//			this.modele.setX(Integer.parseInt(rectValueX.getText().trim()));
+//		}
+//		if(rectValueY.getText()!=null){
+//			this.modele.setY(Integer.parseInt(rectValueY.getText().trim()));
+//		}
+//		if(rectWidthValue.getText()!=null){
+//			this.modele.setWidth(Integer.parseInt(rectWidthValue.getText().trim()));
+//		}
+//		if(rectHeightValue.getText()!=null){
+//			this.modele.setHeight(Integer.parseInt(rectHeightValue.getText().trim()));
+//		}
 	}
 
 }

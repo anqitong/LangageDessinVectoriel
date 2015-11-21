@@ -48,14 +48,15 @@ public class ControlTextRadioBtn implements Observer, ActionListener{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(this.textValueX.getText()!=null){
-			this.modele.setX(Integer.parseInt(this.textValueX.getText().trim()));
-		}
-		if(this.textValueY.getText()!=null){
-			this.modele.setY(Integer.parseInt(this.textValueY.getText().trim()));
-		}
-		if(this.textValue.getText()!=null){
-			this.modele.setText(this.textValue.getText());
-		}
+//		if(this.textValueX.getText()!=null){
+//			this.modele.setX(Integer.parseInt(this.textValueX.getText().trim()));
+//		}
+//		if(this.textValueY.getText()!=null){
+//			this.modele.setY(Integer.parseInt(this.textValueY.getText().trim()));
+//		}
+//		if(this.textValue.getText()!=null){
+//			this.modele.setText(this.textValue.getText());
+//		}
+		
 	}
 }

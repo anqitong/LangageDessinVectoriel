@@ -37,6 +37,7 @@ public class Circle extends Shape {
 
 	public void setCenter_x(int center_x) {
 		this.center_x = center_x;
+		this.setChanged();
 		this.notifyObservers();
 	}
 
@@ -46,6 +47,7 @@ public class Circle extends Shape {
 
 	public void setCenter_y(int center_y) {
 		this.center_y = center_y;
+		this.setChanged();
 		this.notifyObservers();
 	}
 
@@ -55,6 +57,7 @@ public class Circle extends Shape {
 
 	public void setRadius(int radius) {
 		this.radius = radius;
+		this.setChanged();
 		this.notifyObservers();
 	}
 
