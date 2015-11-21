@@ -27,94 +27,111 @@ public class TestAWT {
         // pencil and color styles that would be used
         Pencil p = new Pencil(4, new ColorSVG(Color.red.getRGB()));
         ColorSVG blue = new ColorSVG(Color.blue.getRGB());
-        // Draw a circle
-        Circle c = new Circle(30,30,30);
-        c.setColor(blue);
-        c.setPencil(p);
-        shapes.add(c);
-        // Draw an ellipse
-        Ellipse e = new Ellipse(100, 30, 40, 20);
-        e.setColor(blue);
-        e.setPencil(p);
-        shapes.add(e);
-        // Draw a line
-        Line l = new Line(5, 60, 15, 100);
-        l.setPencil(p);
-        shapes.add(l);
-        // Draw a polygone
-        Polygone polygone = new Polygone();
-        ArrayList<Point> points = new ArrayList<Point>();
-        points.add(new Point(100, 100));
-        points.add(new Point(200, 200));
-        points.add(new Point(100, 200));
-        polygone.setPoints(points);
-        polygone.setColor(blue);
-        polygone.setPencil(p);
-        shapes.add(polygone);
-        // Draw a polyline
-        Polyline polyline = new Polyline();
-        points = new ArrayList<Point>();
-        points.add(new Point(250, 100));
-        points.add(new Point(100, 300));
-        points.add(new Point(20, 300));
-        points.add(new Point(250, 200));
-        polyline.setPoints(points);
-        polyline.setPencil(p);
-        shapes.add(polyline);
-        // Draw a rectangle
-        Rectangle r = new Rectangle(300, 50, 100, 150);
-        r.setPencil(p);
-        r.setColor(blue);
-        shapes.add(r);
-        // Draw some words
-        Text t = new Text(500, 50, "Hello, World!");
-        t.setPencil(p);
-        shapes.add(t);
+//        // Draw a circle
+//        Circle c = new Circle(30,30,30);
+//        c.setColor(blue);
+//        c.setPencil(p);
+//        shapes.add(c);
+//        // Draw an ellipse
+//        Ellipse e = new Ellipse(100, 30, 40, 20);
+//        e.setColor(blue);
+//        e.setPencil(p);
+//        shapes.add(e);
+//        // Draw a line
+//        Line l = new Line(5, 60, 15, 100);
+//        l.setPencil(p);
+//        shapes.add(l);
+//        // Draw a polygone
+//        Polygone polygone = new Polygone();
+//        ArrayList<Point> points = new ArrayList<Point>();
+//        points.add(new Point(100, 100));
+//        points.add(new Point(200, 200));
+//        points.add(new Point(100, 200));
+//        polygone.setPoints(points);
+//        polygone.setColor(blue);
+//        polygone.setPencil(p);
+//        shapes.add(polygone);
+//        // Draw a polyline
+//        Polyline polyline = new Polyline();
+//        points = new ArrayList<Point>();
+//        points.add(new Point(250, 100));
+//        points.add(new Point(100, 300));
+//        points.add(new Point(20, 300));
+//        points.add(new Point(250, 200));
+//        polyline.setPoints(points);
+//        polyline.setPencil(p);
+//        shapes.add(polyline);
+//        // Draw a rectangle
+//        Rectangle r = new Rectangle(300, 50, 100, 150);
+//        r.setPencil(p);
+//        r.setColor(blue);
+//        shapes.add(r);
+//        // Draw some words
+//        Text t = new Text(500, 50, "Hello, World!");
+//        t.setPencil(p);
+//        shapes.add(t);
 
         // Path
         Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
 
         // Create a red line
-        Path path2 = new Path();
-        path2.setStart(new Point(100, 550));
-        path2.setPencil(pred);
-        ArrayList<PathPart> parts2 = new ArrayList<PathPart>();
-        parts2.add(new PathPart(new Point(250, 250), LineType.Line));
-        path2.setParts(parts2);
+        Path path = new Path();
+        path.setStart(new Point(100, 550));
+        path.setPencil(pred);
+        ArrayList<PathPart> parts = new ArrayList<PathPart>();
+        parts.add(new PathPart(new Point(250, 250), LineType.Line));
+        path.setParts(parts);
+        shapes.add(path);
 
         // Create another red line that touch the first one
-        Path path3 = new Path();
-        path3.setStart(new Point(250, 250));
-        path3.setPencil(pred);
-        ArrayList<PathPart> parts3 = new ArrayList<PathPart>();
-        parts3.add(new PathPart(new Point(400, 550), LineType.Line));
-        path3.setParts(parts3);
+        path = new Path();
+        path.setStart(new Point(250, 250));
+        path.setPencil(pred);
+        parts = new ArrayList<PathPart>();
+        parts.add(new PathPart(new Point(400, 550), LineType.Line));
+        path.setParts(parts);
+        shapes.add(path);
 
         Pencil pgreen = new Pencil(3, new ColorSVG(Color.green.getRGB()));
         // Create a horizontal green line
-        Path path4 = new Path();
-        path4.setStart(new Point(175, 400));
-        path4.setPencil(pgreen);
-        ArrayList<PathPart> parts4 = new ArrayList<PathPart>();
-        parts4.add(new PathPart(new Point(325, 400), LineType.Line));
-        path4.setParts(parts4);
+        path = new Path();
+        path.setStart(new Point(175, 400));
+        path.setPencil(pgreen);
+        parts = new ArrayList<PathPart>();
+        parts.add(new PathPart(new Point(325, 400), LineType.Line));
+        path.setParts(parts);
+        shapes.add(path);
 
         Pencil pblue = new Pencil(3, new ColorSVG(Color.blue.getRGB()));
         // Create a bezier blue line
-        Path path5 = new Path();
-        path5.setStart(new Point(100, 550));
-        path5.setPencil(pblue);
-        ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
+        path = new Path();
+        path.setStart(new Point(100, 550));
+        path.setPencil(pblue);
+        parts = new ArrayList<PathPart>();
         PathPart bez = new PathPart(new Point(250, 250), LineType.QuadricBezier);
         bez.getPoints().add(new Point(400, 550));
-        parts5.add(bez);
-        path5.setParts(parts5);
+        parts.add(bez);
+        path.setParts(parts);
+        shapes.add(path);
 
-        //Add all the lines together
-        shapes.add(path2);
-        shapes.add(path3);
-        shapes.add(path4);
-        shapes.add(path5);
+        // Curve
+        Path curve = new Path();
+        curve.setPencil(p);
+        curve.setStart(new Point(10, 80));
+        parts = new ArrayList<PathPart>();
+        ArrayList<Point> pPoints = new ArrayList<Point>();
+        pPoints.add(new Point(40, 10));
+        pPoints.add(new Point(65, 10));
+        pPoints.add(new Point(95, 80));
+        PathPart part = new PathPart(pPoints, LineType.Curveto);
+        parts.add(part);
+        pPoints = new ArrayList<Point>();
+        pPoints.add(new Point(150, 150));
+        pPoints.add(new Point(180, 100));
+        part = new PathPart(pPoints, LineType.SmoothCurveto);
+        parts.add(part);
+        curve.setParts(parts);
+        shapes.add(curve);
 
         // Create an awt presentation to draw
         awt = new AWTFrame("new awt", new Canvas(600, 600));
