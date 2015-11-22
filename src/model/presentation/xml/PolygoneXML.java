@@ -38,11 +38,16 @@ public class PolygoneXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing() {
+		String color = "none";
+		if(this.getPolygone().getColor()!=null){
+			color = this.getPolygone().getColor().toString();
+		}
+		
 		String xml = "";
 		for(Point point:this.getPolygone().getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polygon points=\""+xml+"\" fill=\""+this.getPolygone().getColor()+"\" "+this.delegate.getPencilXML(this.polygone.getPencil())+" />";
+		return "<polygon points=\""+xml+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.polygone.getPencil())+" />";
 	}
 	
 	@Override

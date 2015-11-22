@@ -25,8 +25,8 @@ public class TestAWT {
     public void awt() {
         ArrayList<model.Shape> shapes = new ArrayList<model.Shape>(); // array for all shapes to draw
         // pencil and color styles that would be used
-        Pencil p = new Pencil(3, new ColorSVG(Color.red.getRGB()));
-        ColorSVG blue = new ColorSVG(Color.blue.getRGB());
+        Pencil p = new Pencil(3, new ColorRBG(Color.red.getRGB()));
+        ColorRBG blue = new ColorRBG(Color.blue.getRGB());
         // Draw a circle
         Circle c = new Circle(30,30,30);
         c.setColor(blue);
@@ -75,7 +75,7 @@ public class TestAWT {
         shapes.add(bt);
 
         // Path
-        Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
+        Pencil pred = new Pencil(3, new ColorRBG(Color.red.getRGB()));
 
         // Create a red line
         Path path = new Path();
@@ -95,7 +95,7 @@ public class TestAWT {
         path.setParts(parts);
         shapes.add(path);
 
-        Pencil pgreen = new Pencil(3, new ColorSVG(Color.green.getRGB()));
+        Pencil pgreen = new Pencil(3, new ColorRBG(Color.green.getRGB()));
         // Create a horizontal green line
         path = new Path();
         path.setStart(new Point(175, 400));
@@ -105,7 +105,7 @@ public class TestAWT {
         path.setParts(parts);
         shapes.add(path);
 
-        Pencil pblue = new Pencil(3, new ColorSVG(Color.blue.getRGB()));
+        Pencil pblue = new Pencil(3, new ColorRBG(Color.blue.getRGB()));
         // Create a bezier blue line
         path = new Path();
         path.setStart(new Point(100, 550));
