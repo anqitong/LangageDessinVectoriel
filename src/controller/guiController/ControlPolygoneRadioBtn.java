@@ -12,13 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import model.specific_path.Polygone;
+import model.specific_path.Polygon;
 import view.GUI;
 
 //controller for the "Polygone" radio button
 public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 	
-	private Polygone modele;
+	private Polygon modele;
 	private JLabel xListPolygone;
 	private JLabel xListPolygoneValues;
 	private JLabel yListPolygone;
@@ -33,7 +33,7 @@ public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 	private JRadioButton noToFill;
 	
 	
-	public ControlPolygoneRadioBtn(Polygone modele, JLabel xListPolygone, JLabel xListPolygoneValues,
+	public ControlPolygoneRadioBtn(Polygon modele, JLabel xListPolygone, JLabel xListPolygoneValues,
 			JLabel yListPolygone, JLabel yListPolygoneValues, JLabel xInputPolygone, JTextField xInputPolygoneValue,
 			JLabel yInputPolygone, JTextField yInputPolygoneValue, JButton addPointPolygone,GUI gui, 
 			JRadioButton yesToFill, JRadioButton noToFill) {

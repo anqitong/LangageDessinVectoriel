@@ -18,7 +18,7 @@ import model.Shape;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
-import model.specific_path.Polygone;
+import model.specific_path.Polygon;
 import model.specific_path.Polyline;
 import model.specific_path.Rectangle;
 import model.specific_path.Text;
@@ -33,7 +33,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 			JTextField centerX, JTextField centerY, JTextField radiusValue, Ellipse ellipse,
 			JTextField ellipseCenterValueX, JTextField ellipseCenterValueY, JTextField ellipseRadiusValueX,
 			JTextField ellipseRadiusValueY, Line line, JTextField x1Value, JTextField y1Value, JTextField x2Value,
-			JTextField y2Value, Polygone polygone, JLabel xListPolygoneValues,
+			JTextField y2Value, Polygon polygone, JLabel xListPolygoneValues,
 			JLabel yListPolygoneValues, JTextField xInputPolygoneValue,
 			JTextField yInputPolygoneValue, Polyline polyline,
 			JLabel xListPolylineValues, JLabel yListPolylineValues, 
@@ -123,7 +123,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 	private JTextField y2Value;
 	
 	//Polygone and its inputs
-	private Polygone polygone;
+	private Polygon polygone;
 	private JLabel xListPolygoneValues;
 	private JLabel yListPolygoneValues;
 	private JTextField xInputPolygoneValue;
@@ -268,7 +268,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 		
 		//check if polygone has points and add pencil and color
 		if(polygone.getPoints()!=null && polygone.getPoints().size()>0){
-			Polygone pol = new Polygone();
+			Polygon pol = new Polygon();
 			
 			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);

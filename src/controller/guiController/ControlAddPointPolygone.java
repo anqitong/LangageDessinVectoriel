@@ -10,18 +10,18 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import model.specific_path.Polygone;
+import model.specific_path.Polygon;
 
 public class ControlAddPointPolygone implements Observer, ActionListener{
 	
-	private Polygone modele;
+	private Polygon modele;
 	private JLabel xListPolygoneValues;
 	private JLabel yListPolygoneValues; 
 	private JTextField xInputPolygoneValues;
 	private JTextField yInputPolygoneValues;
 	
 	//controller for the "Add point" button under Polygone
-	public ControlAddPointPolygone(Polygone modele, JLabel xListPolygoneValues, JLabel yListPolygoneValues,
+	public ControlAddPointPolygone(Polygon modele, JLabel xListPolygoneValues, JLabel yListPolygoneValues,
 			JTextField xInputPolygoneValues, JTextField yInputPolygoneValues) {
 		this.modele = modele;
 		this.xListPolygoneValues = xListPolygoneValues;

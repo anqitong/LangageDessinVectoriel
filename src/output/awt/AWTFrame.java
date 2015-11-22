@@ -4,14 +4,15 @@ import model.Canvas;
 import model.Shape;
 import model.specific_path.*;
 
-import java.awt.Frame;
-import java.awt.Graphics2D;
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.specific_path.Polygon;
+import model.specific_path.Rectangle;
 import output.Presentation;
 import output.ShapeState;
 
@@ -24,10 +25,35 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
     private Graphics2D g2d = null;
+    private JPanel canvasPanel; // Shapes are drawn in this panel
 
     public AWTFrame(String name, Canvas canvas) {
     	this.setCanvas(canvas);
         this.setName(name);
+
+        // Create the Panel that we used to draw things
+        canvasPanel = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Draw all shapes in the list
+                g2d = (Graphics2D) g;
+                for (Shape shape : shapes) {
+                    getShapeState(shape).getDrawing();
+                }
+            }
+
+            @Override
+            public Dimension getPreferredSize() {
+                Dimension preferredSize = super.getPreferredSize();
+                // Let's make sure that the window fits the painting
+                preferredSize.width = Math.max(preferredSize.width, canvas.getWidth());
+                preferredSize.height = Math.max(preferredSize.height, canvas.getHeight());
+                return preferredSize;
+            }
+        };
+        this.add(canvasPanel);
+        this.pack();
     }
 
     public AWTFrame(String name) {
@@ -45,6 +71,12 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
         this.canvas = canvas;
     }
 
+    /**
+     * When this method is called, it will set the size and title, and make itself visible. So canvasPanel will be
+     * painted too by calling its paintComponent method.
+     *
+     * @return this AWTFrame
+     */
     @Override
     public Object createDrawing() {
         this.setSize(canvas.getWidth(), canvas.getHeight());
@@ -75,10 +107,10 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
                 state = new AWTLine((Line)shape, this);
                 break;
             case Path:
-                // TODO: Implement Class AWTPath
+                state = new AWTPath((Path)shape, this);
                 break;
-            case Polygone:
-                state = new AWTPolygone((Polygone)shape, this);
+            case Polygon:
+                state = new AWTPolygon((Polygon)shape, this);
                 break;
             case Polyline:
                 state = new AWTPolyline((Polyline)shape, this);
@@ -92,14 +124,6 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
             default:
         }
         return state;
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        this.g2d = (Graphics2D) g;
-        for (Shape shape : shapes) {
-            this.getShapeState(shape).getDrawing();
-        }
     }
 
     public void setName(String name) {

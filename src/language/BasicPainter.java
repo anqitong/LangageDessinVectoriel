@@ -4,6 +4,7 @@ import model.*;
 import model.Canvas;
 import model.Shape;
 import model.specific_path.*;
+import model.specific_path.Polygon;
 import model.specific_path.Rectangle;
 
 import java.awt.*;
@@ -89,10 +90,28 @@ public class BasicPainter implements Painter, DrawingSource {
     }
 
     @Override
-    public void polygone(Point... points) {
+    public void path(Point start, LineType[] types, Point[][] points) {
+        if (types.length != points.length) {
+            return;
+        }
+
+        Path p = new Path();
+        p.setStart(start);
+
+        ArrayList<PathPart> parts = new ArrayList<PathPart>();
+        for (int i=0; i<types.length; ++i) {
+            parts.add(new PathPart(types[i], points[i]));
+        }
+        p.setParts(parts);
+
+        addToShapes(p);
+    }
+
+    @Override
+    public void polygon(Point... points) {
         ArrayList<Point> pts = new ArrayList<Point>(Arrays.asList(points));
 
-        Polygone p = new Polygone(pts);
+        Polygon p = new Polygon(pts);
         addToShapes(p);
     }
 

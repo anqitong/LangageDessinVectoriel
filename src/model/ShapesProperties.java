@@ -5,7 +5,7 @@ import java.awt.Color;
 /**
  * 
  * Figures taken from http://www.w3schools.com/svg/ for SVG files
- * Rectangle, Circle, Ellipse, Line, Polyline, Polygone, Path
+ * Rectangle, Circle, Ellipse, Line, Polyline, Polygon, Path
  *
  */
 public interface ShapesProperties {

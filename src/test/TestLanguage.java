@@ -25,7 +25,7 @@ public class TestLanguage {
         Assert.assertEquals("Painting with language", painter.getName());
         Assert.assertEquals(600, painter.getCanvas().getWidth());
         Assert.assertEquals(600, painter.getCanvas().getHeight());
-        Assert.assertEquals(7, painter.getShapes().size());
+        Assert.assertEquals(9, painter.getShapes().size());
         Assert.assertTrue(painter.getShapes().get(6) instanceof Text);
         Assert.assertEquals("Hello, World!", ((Text)painter.getShapes().get(6)).getText());
     }
@@ -43,12 +43,14 @@ public class TestLanguage {
         String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"600\" width=\"600\">\n" +
                 "\t<circle cx=\"30\" cy=\"30\" r=\"30\" fill=\"rgb(255,0,0)\" stroke=\"rgb(0,0,255)\" stroke-width=\"1\" />\n" +
-                "\t<circle cx=\"100\" cy=\"30\" rx=\"40\" ry=\"20\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
+                "\t<ellipse cx=\"100\" cy=\"30\" rx=\"40\" ry=\"20\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<line x1=\"5\" y1=\"60\" x2=\"15\" y2=\"100\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<polygon points=\" 100,100 200,200 100,200\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
-                "\t<polygon points=\" 250,100 100,300 20,300 250,200\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
+                "\t<polyline points=\" 250,100 100,300 20,300 250,200\" fill=\"none\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<rect x=\"300\" y=\"50\" width=\"100\" height=\"150\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<text x=\"500\" y=\"50\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\">Hello, World!</text>\n" +
+                "\t<path d=\"M 100 400 Q 200 550 300 400\" fill=\"none\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
+                "\t<path d=\"M 410 480 C 440 410 465 410 495 480 S 550 550 580 500\" fill=\"none\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "</svg>";
         Assert.assertEquals(xml, svg.getXmlcontent());
     }

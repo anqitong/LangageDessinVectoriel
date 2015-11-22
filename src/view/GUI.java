@@ -33,7 +33,7 @@ import model.Shape;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
-import model.specific_path.Polygone;
+import model.specific_path.Polygon;
 import model.specific_path.Polyline;
 import model.specific_path.Rectangle;
 import model.specific_path.Text;
@@ -46,7 +46,7 @@ public class GUI extends JFrame{
 	private Circle circleModele;
 	private Ellipse ellipseModele;
 	private Line lineModele;
-	private Polygone polygoneModele;
+	private Polygon polygoneModele;
 	private Polyline polylineModele;
 	private Rectangle rectangleModele;
 	private Text textModele;
@@ -68,7 +68,7 @@ public class GUI extends JFrame{
 		this.circleModele = new Circle();
 		this.ellipseModele = new Ellipse();
 		this.lineModele = new Line();
-		this.polygoneModele = new Polygone();
+		this.polygoneModele = new Polygon();
 		this.polygoneModele.setPoints(new ArrayList<Point>());
 		this.polylineModele = new Polyline();
 		this.polylineModele.setPoints(new ArrayList<Point>());
