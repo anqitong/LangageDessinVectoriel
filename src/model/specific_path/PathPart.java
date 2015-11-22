@@ -2,7 +2,7 @@ package model.specific_path;
 
 import java.awt.Point;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 public class PathPart {
@@ -10,7 +10,7 @@ public class PathPart {
 	/************************************
 	 *	Attributes
 	 ************************************/
-	private ArrayList<Point> points = new ArrayList<Point>();;
+	private ArrayList<Point> points = new ArrayList<Point>();
 	private LineType type;
 	
 	/************************************
@@ -41,9 +41,7 @@ public class PathPart {
 	
 	public PathPart(LineType type, Point... points) {
 		super();
-		for(Point p: points){
-			this.points.add(p);
-		}
+		this.points = new ArrayList<Point>(Arrays.asList(points)); // more efficient than for loop
 		this.type = type;
 		try {
 			this.checkPoints();

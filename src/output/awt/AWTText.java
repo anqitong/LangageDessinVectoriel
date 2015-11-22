@@ -13,6 +13,8 @@ import java.awt.*;
  * Created by Xiaxing SHI on 11/11/15.
  */
 public class AWTText implements ShapeState {
+    public static final int WIDTH_FOR_BOLD = 3;
+    public static final int SIZE = 14;
     private Text text;
     private StateDelegate delegate;
 
@@ -26,7 +28,11 @@ public class AWTText implements ShapeState {
         Graphics2D g = delegate.getGraphics2D();
 
         g.setColor(this.text.getPencil().getColor());
-        g.setStroke(new BasicStroke(this.text.getPencil().getWidth()));
+        if (this.text.getPencil().getWidth() > WIDTH_FOR_BOLD) {
+            g.setFont(new Font("Sanserif", Font.BOLD, SIZE));
+        } else {
+            g.setFont(new Font("Sanserif", Font.PLAIN, SIZE));
+        }
         g.drawString(this.text.getText(), this.text.getX(), this.text.getY());
 
         return this;

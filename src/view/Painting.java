@@ -3,6 +3,7 @@ package view;
 import language.BasicPainter;
 import language.DrawingTask;
 import language.Painter;
+import model.specific_path.LineType;
 import output.awt.AWTFrame;
 import output.xml.SVGFile;
 
@@ -31,13 +32,22 @@ public class Painting implements DrawingTask {
 
         p.line(5, 60, 15, 100);
 
-        p.polygone(new Point(100, 100), new Point(200, 200), new Point(100, 200));
+        p.polygon(new Point(100, 100), new Point(200, 200), new Point(100, 200));
 
         p.polyline(new Point(250, 100), new Point(100, 300), new Point(20, 300), new Point(250, 200));
 
         p.rectangle(300, 50, 100, 150);
 
         p.text(500, 50, "Hello, World!");
+
+        p.path(LineType.QuadricBezier, new Point(100, 400), new Point(200, 550), new Point(300, 400));
+
+        p.path(new Point(410, 480)
+                , new LineType[]{LineType.Curveto, LineType.SmoothCurveto}
+                , new Point[][]{
+                        new Point[]{new Point(440, 410), new Point(465, 410), new Point(495, 480)},
+                        new Point[]{new Point(550, 550), new Point(580, 500)}
+                });
     }
 
     public static void main(String[] args) {

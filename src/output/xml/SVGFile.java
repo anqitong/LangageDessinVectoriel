@@ -206,8 +206,8 @@ public class SVGFile implements Presentation, StateDelegate {
 			case Path:
 				state = new PathXML((Path)shape, this);
 				break;
-			case Polygone:
-				state = new PolygoneXML((Polygone)shape, this);
+			case Polygon:
+				state = new PolygonXML((Polygon)shape, this);
 				break;
 			case Polyline:
 				state = new PolylineXML((Polyline)shape, this);

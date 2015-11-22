@@ -24,11 +24,11 @@ public class AWTCircle implements ShapeState {
         Graphics2D g = delegate.getGraphics2D();
 
         g.setColor(this.circle.getColor());
-        g.fillOval(this.circle.getCenter_x(), this.circle.getCenter_y(), this.circle.getRadius()*2, this.circle.getRadius()*2);
+        g.fillOval(this.circle.getCenter_x()-this.circle.getRadius(), this.circle.getCenter_y()-this.circle.getRadius(), this.circle.getRadius()*2, this.circle.getRadius()*2);
 
         g.setColor(this.circle.getPencil().getColor());
         g.setStroke(new BasicStroke(this.circle.getPencil().getWidth()));
-        g.drawOval(this.circle.getCenter_x(), this.circle.getCenter_y(), this.circle.getRadius()*2, this.circle.getRadius()*2);
+        g.drawOval(this.circle.getCenter_x()-this.circle.getRadius(), this.circle.getCenter_y()-this.circle.getRadius(), this.circle.getRadius()*2, this.circle.getRadius()*2);
 
         return this;
     }
