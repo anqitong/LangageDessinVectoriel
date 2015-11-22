@@ -204,6 +204,11 @@ public class AddToConsoleController implements Observer, ActionListener{
 			int green = Integer.parseInt(fillGreen.trim());
 			int blue = Integer.parseInt(fillBlue.trim());
 			int rgb = red;
+			
+			//left shift : <<
+			/* The left operands value is moved left by the number
+			 *  of bits specified by the right operand
+			 */
 			rgb = (rgb << 8) + green;
 			rgb = (rgb << 8) + blue;
 			fillColor = new ColorRBG(rgb);
