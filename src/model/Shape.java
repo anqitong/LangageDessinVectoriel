@@ -6,7 +6,7 @@ public abstract class Shape implements ShapesProperties {
 	/************************************
 	 * 	Attributes
 	 ************************************/
-	private ColorSVG color;
+	private ColorRBG color;
 	private Pencil pencil;
 	
 	/************************************
@@ -18,11 +18,11 @@ public abstract class Shape implements ShapesProperties {
 	 *	Methods
 	 ************************************/
 	
-	public ColorSVG getColor(){
+	public ColorRBG getColor(){
 		return (this.color!=null) ? this.color : null;
 	}
 	
-	public void setColor(ColorSVG color){
+	public void setColor(ColorRBG color){
 		this.color = color;
 	}
 

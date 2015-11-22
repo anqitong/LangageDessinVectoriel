@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class BasicPainter implements Painter, DrawingSource {
     private String name = "My Painting";
-    private ColorSVG color = new ColorSVG(Color.BLACK.getRGB());
+    private ColorRBG color = new ColorRBG(Color.BLACK.getRGB());
     private Pencil pencil = new Pencil(1, color);
     private Canvas canvas = new Canvas(1024, 1024);
 
@@ -33,12 +33,12 @@ public class BasicPainter implements Painter, DrawingSource {
 
     @Override
     public void stroke(int width, Color color) {
-        this.pencil = new Pencil(width, new ColorSVG((color.getRGB())));
+        this.pencil = new Pencil(width, new ColorRBG((color.getRGB())));
     }
 
     @Override
     public void fill(Color color) {
-        this.color = new ColorSVG(color.getRGB());
+        this.color = new ColorRBG(color.getRGB());
     }
 
     @Override

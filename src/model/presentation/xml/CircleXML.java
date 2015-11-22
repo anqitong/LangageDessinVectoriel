@@ -38,7 +38,11 @@ public class CircleXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing() {
-		return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+this.getCircle().getColor()+"\" "+this.delegate.getPencilXML(this.circle.getPencil())+" />";
+		String color = "none";
+		if(this.getCircle().getColor()!=null){
+			color = this.getCircle().getColor().toString();
+		}
+		return "<circle cx=\""+this.getCircle().getCenter_x()+"\" cy=\""+this.getCircle().getCenter_y()+"\" r=\""+this.getCircle().getRadius()+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.circle.getPencil())+" />";
 	}
 
 	@Override

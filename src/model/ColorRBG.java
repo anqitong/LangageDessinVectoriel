@@ -2,14 +2,14 @@ package model;
 
 import java.awt.Color;
 
-public class ColorSVG extends Color {
+public class ColorRBG extends Color {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ColorSVG(int rgb) {
+	public ColorRBG(int rgb) {
 		super(rgb);
 	}
 	

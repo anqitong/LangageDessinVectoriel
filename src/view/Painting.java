@@ -1,7 +1,10 @@
 package view;
 
+import language.BasicPainter;
 import language.DrawingTask;
 import language.Painter;
+import model.presentation.awt.AWTFrame;
+import model.presentation.xml.SVGFile;
 
 import java.awt.Color;
 
@@ -35,5 +38,22 @@ public class Painting implements DrawingTask {
         p.rectangle(300, 50, 100, 150);
 
         p.text(500, 50, "Hello, World!");
+    }
+
+    public static void main(String[] args) {
+        BasicPainter painter = new BasicPainter();
+        Painting painting = new Painting();
+        painting.draw(painter);
+
+        AWTFrame awt = new AWTFrame(painter.getName(), painter.getCanvas());
+        awt.addShapes(painter.getShapes());
+        awt.createDrawing();
+
+        SVGFile svg = new SVGFile(painter.getName());
+        svg.setCanvas(painter.getCanvas());
+        svg.addShapes(painter.getShapes());
+        svg.createDrawing();
+        svg.writeSVGFile();
+        svg.view();
     }
 }
