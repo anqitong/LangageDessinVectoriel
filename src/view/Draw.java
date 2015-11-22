@@ -9,6 +9,7 @@ import model.specific_path.Circle;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
+import model.specific_path.Polygone;
 import model.specific_path.Rectangle;
 import model.specific_path.Text;
 import model.presentation.xml.SVGFile;
@@ -41,6 +42,15 @@ public class Draw {
 		
 		// Fill it
 		r.setColor(new ColorSVG(Color.green.getRGB()));
+		
+		//create a polygone
+		Polygone polygone = new Polygone(new ArrayList<Point>());
+		ArrayList<Point> listPoints = new ArrayList<Point>();
+		listPoints.add(new Point(3,4));
+		listPoints.add(new Point(4,5));
+		polygone.setPoints(listPoints);
+		polygone.setPencil(p);
+		polygone.setColor(new ColorSVG(Color.green.getRGB()));
 
 		
 		/* Create Text */
@@ -54,6 +64,7 @@ public class Draw {
 		shapes.add(c);
 		shapes.add(r);
 		shapes.add(text);
+		shapes.add(polygone);
 
 		// Create the drawing (named test) (empty here)
 		SVGFile svg = new SVGFile("test");

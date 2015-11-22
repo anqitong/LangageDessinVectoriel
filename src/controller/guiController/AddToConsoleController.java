@@ -32,11 +32,11 @@ public class AddToConsoleController implements Observer, ActionListener{
 			JTextField centerX, JTextField centerY, JTextField radiusValue, Ellipse ellipse,
 			JTextField ellipseCenterValueX, JTextField ellipseCenterValueY, JTextField ellipseRadiusValueX,
 			JTextField ellipseRadiusValueY, Line line, JTextField x1Value, JTextField y1Value, JTextField x2Value,
-			JTextField y2Value, Polygone polygone, JLabel xListPolygone, JLabel xListPolygoneValues,
-			JLabel yListPolygone, JLabel yListPolygoneValues, JLabel xInputPolygone, JTextField xInputPolygoneValue,
-			JLabel yInputPolygone, JTextField yInputPolygoneValue, Polyline polyline, JLabel xListPolyline,
-			JLabel xListPolylineValues, JLabel yListPolyline, JLabel yListPolylineValues, JLabel xInputPolyline,
-			JTextField xInputPolylineValue, JLabel yInputPolyline, JTextField yInputPolylineValue, Rectangle rectangle,
+			JTextField y2Value, Polygone polygone, JLabel xListPolygoneValues,
+			JLabel yListPolygoneValues, JTextField xInputPolygoneValue,
+			JTextField yInputPolygoneValue, Polyline polyline,
+			JLabel xListPolylineValues, JLabel yListPolylineValues, 
+			JTextField xInputPolylineValue, JTextField yInputPolylineValue, Rectangle rectangle,
 			JTextField rectValueX, JTextField rectValueY, JTextField rectWidthValue, JTextField rectHeightValue,
 			Text text, JTextField textValueX, JTextField textValueY, JTextField textValue, JTextArea textArea,
 			ArrayList<Shape> shapeList) {
@@ -65,22 +65,14 @@ public class AddToConsoleController implements Observer, ActionListener{
 		this.x2Value = x2Value;
 		this.y2Value = y2Value;
 		this.polygone = polygone;
-		this.xListPolygone = xListPolygone;
 		this.xListPolygoneValues = xListPolygoneValues;
-		this.yListPolygone = yListPolygone;
 		this.yListPolygoneValues = yListPolygoneValues;
-		this.xInputPolygone = xInputPolygone;
 		this.xInputPolygoneValue = xInputPolygoneValue;
-		this.yInputPolygone = yInputPolygone;
 		this.yInputPolygoneValue = yInputPolygoneValue;
 		this.polyline = polyline;
-		this.xListPolyline = xListPolyline;
 		this.xListPolylineValues = xListPolylineValues;
-		this.yListPolyline = yListPolyline;
 		this.yListPolylineValues = yListPolylineValues;
-		this.xInputPolyline = xInputPolyline;
 		this.xInputPolylineValue = xInputPolylineValue;
-		this.yInputPolyline = yInputPolyline;
 		this.yInputPolylineValue = yInputPolylineValue;
 		this.rectangle = rectangle;
 		this.rectValueX = rectValueX;
@@ -131,24 +123,16 @@ public class AddToConsoleController implements Observer, ActionListener{
 	
 	//Polygone and its inputs
 	private Polygone polygone;
-	private JLabel xListPolygone;
 	private JLabel xListPolygoneValues;
-	private JLabel yListPolygone;
 	private JLabel yListPolygoneValues;
-	private JLabel xInputPolygone;
 	private JTextField xInputPolygoneValue;
-	private JLabel yInputPolygone;
 	private JTextField yInputPolygoneValue ;
 	
 	//Polyline and its inputs
 	private Polyline polyline;
-	private JLabel xListPolyline;
 	private JLabel xListPolylineValues;
-	private JLabel yListPolyline;
 	private JLabel yListPolylineValues;
-	private JLabel xInputPolyline;
 	private JTextField xInputPolylineValue;
-	private JLabel yInputPolyline;
 	private JTextField yInputPolylineValue ;
 	
 	//Rectangle and its inputs
@@ -230,8 +214,13 @@ public class AddToConsoleController implements Observer, ActionListener{
 			circle.setCenter_x(Integer.parseInt(centerX.getText().trim()));
 			circle.setCenter_y(Integer.parseInt(centerY.getText().trim()));
 			circle.setRadius(Integer.parseInt(radiusValue.getText().trim()));
-			circle.setPencil(pencil);
-			circle.setColor(fillColor);
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			circle.setPencil(pen);
+			circle.setColor(fillingColor);
 			shapeList.add(circle);
 		}
 		
@@ -243,8 +232,13 @@ public class AddToConsoleController implements Observer, ActionListener{
 			ellipse.setCenter_y(Integer.parseInt(ellipseCenterValueY.getText().trim()));
 			ellipse.setRadius_x(Integer.parseInt(ellipseRadiusValueX.getText().trim()));
 			ellipse.setRadius_y(Integer.parseInt(ellipseRadiusValueY.getText().trim()));
-			ellipse.setPencil(pencil);
-			ellipse.setColor(fillColor);
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			ellipse.setPencil(pen);
+			ellipse.setColor(fillingColor);
 			shapeList.add(ellipse);
 		}
 		
@@ -256,27 +250,44 @@ public class AddToConsoleController implements Observer, ActionListener{
 			line.setY1(Integer.parseInt(y1Value.getText().trim()));
 			line.setX2(Integer.parseInt(x2Value.getText().trim()));
 			line.setY2(Integer.parseInt(y2Value.getText().trim()));
-			line.setColor(fillColor);
-			line.setPencil(pencil);
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			line.setColor(fillingColor);
+			line.setPencil(pen);
 			shapeList.add(line);
 		}
 		
 		//check if polygone has points and add pencil and color
 		if(polygone.getPoints()!=null && polygone.getPoints().size()>0){
-			polygone = new Polygone();
+			Polygone pol = new Polygone();
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			pol.setPencil(pen);
+			pol.setColor(fillingColor);
+			pol.setPoints(polygone.getPoints());
+			shapeList.add(pol);
 			polygone.setPoints(new ArrayList<Point>());
-			polygone.setColor(fillColor);
-			polygone.setPencil(pencil);
-			shapeList.add(polygone);
 		}
 		
 		//check if polyline has points and add pencil and color
 		if(polyline.getPoints()!=null && polyline.getPoints().size()>0){
-			polyline = new Polyline();
+			
+			Polyline pol = new Polyline();
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			pol.setPencil(pen);
+			pol.setColor(fillingColor);
+			pol.setPoints(polyline.getPoints());
+			shapeList.add(pol);
 			polyline.setPoints(new ArrayList<Point>());
-			polyline.setColor(fillColor);
-			polyline.setPencil(pencil);
-			shapeList.add(polyline);
 		}
 		
 		//get rectangle input values and set parameters for rectangle
@@ -287,8 +298,13 @@ public class AddToConsoleController implements Observer, ActionListener{
 			rectangle.setY(Integer.parseInt(rectValueY.getText().trim()));
 			rectangle.setWidth(Integer.parseInt(rectWidthValue.getText().trim()));
 			rectangle.setHeight(Integer.parseInt(rectHeightValue.getText().trim()));
-			rectangle.setColor(fillColor);
-			rectangle.setPencil(pencil);
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			rectangle.setColor(fillingColor);
+			rectangle.setPencil(pen);
 			shapeList.add(rectangle);
 		}
 		
@@ -299,8 +315,13 @@ public class AddToConsoleController implements Observer, ActionListener{
 			text.setX(Integer.parseInt(textValueX.getText().trim()));
 			text.setY(Integer.parseInt(textValueY.getText().trim()));
 			text.setText(textValue.getText());
-			text.setColor(fillColor);
-			text.setPencil(pencil);
+			
+			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			Pencil pen = new Pencil(pencil.getWidth(),penColor);
+			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			
+			text.setColor(fillingColor);
+			text.setPencil(pen);
 			shapeList.add(text);
 		}
 		
@@ -308,6 +329,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 		if(shapeList!=null && shapeList.size()>0){
 			SVGFile svg = new SVGFile("testGUI");
 			svg.addShapes(shapeList);
+			//svg.createDrawing();
 			String textRes = svg.getXmlcontent();
 			this.textArea.setText(textRes);
 		}
@@ -346,23 +368,15 @@ public class AddToConsoleController implements Observer, ActionListener{
 		y2Value.setText("");
 		
 		//polygone inputs
-		xListPolygone.setText("");
 		xListPolygoneValues.setText("");
-		yListPolygone.setText("");
 		yListPolygoneValues.setText("");
-		xInputPolygone.setText("");
 		xInputPolygoneValue.setText("");
-		yInputPolygone.setText("");
 		yInputPolygoneValue.setText("");
 		
 		//polyline inputs
-		xListPolyline.setText("");
 		xListPolylineValues.setText("");
-		yListPolyline.setText("");
 		yListPolylineValues.setText("");
-		xInputPolyline.setText("");
 		xInputPolylineValue.setText("");
-		yInputPolyline.setText("");
 		yInputPolylineValue.setText("");
 		
 		//rectangle inputs
