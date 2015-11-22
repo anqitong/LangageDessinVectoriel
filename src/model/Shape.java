@@ -1,7 +1,8 @@
 package model;
 
+import java.util.Observable;
 
-public abstract class Shape implements ShapesProperties {
+public abstract class Shape extends Observable implements ShapesProperties {
 	
 	/************************************
 	 * 	Attributes

@@ -35,6 +35,28 @@ public class Draw {
 		
 		// Fill it
 		r.setColor(new ColorRBG(Color.green.getRGB()));
+
+		// Gather all the shapes
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		shapes.add(c);
+		shapes.add(r);
+
+		// Create the drawing (named test) (empty here)
+		SVGFile svg = new SVGFile("test");
+		
+		// Add the shapes to draw
+		svg.addShapes(shapes);
+		
+		// Create the drawing in the object
+		svg.createDrawing();
+		System.out.println(svg.getXmlcontent());
+		
+		// Create a svg file with the drawing
+		svg.writeSVGFile();
+		
+		// Open it in your defaul browser
+		svg.view();	
+
 		
 		
 		/************************************

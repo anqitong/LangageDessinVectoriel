@@ -36,6 +36,8 @@ public class Polyline extends Shape {
 
 	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override

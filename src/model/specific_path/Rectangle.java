@@ -39,6 +39,8 @@ public class Rectangle extends Shape {
 
 	public void setX(int x) {
 		this.x = x;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getY() {
@@ -47,6 +49,8 @@ public class Rectangle extends Shape {
 
 	public void setY(int y) {
 		this.y = y;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getHeight() {
@@ -55,6 +59,8 @@ public class Rectangle extends Shape {
 
 	public void setHeight(int height) {
 		this.height = height;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getWidth() {
@@ -63,6 +69,8 @@ public class Rectangle extends Shape {
 
 	public void setWidth(int width) {
 		this.width = width;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override

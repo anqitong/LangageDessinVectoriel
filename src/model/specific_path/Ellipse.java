@@ -39,6 +39,8 @@ public class Ellipse extends Shape {
 
 	public void setCenter_x(int center_x) {
 		this.center_x = center_x;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getCenter_y() {
@@ -47,6 +49,8 @@ public class Ellipse extends Shape {
 
 	public void setCenter_y(int center_y) {
 		this.center_y = center_y;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getRadius_x() {
@@ -55,6 +59,8 @@ public class Ellipse extends Shape {
 
 	public void setRadius_x(int radius_x) {
 		this.radius_x = radius_x;
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	public int getRadius_y() {
@@ -63,6 +69,8 @@ public class Ellipse extends Shape {
 
 	public void setRadius_y(int radius_y) {
 		this.radius_y = radius_y;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override
