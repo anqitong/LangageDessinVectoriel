@@ -25,8 +25,9 @@ import controller.guiController.ControlPolygoneRadioBtn;
 import controller.guiController.ControlPolylineRadioBtn;
 import controller.guiController.ControlRectangleRadioBtn;
 import controller.guiController.ControlRunGUI;
+import controller.guiController.ControlSaveSVGImg;
 import controller.guiController.ControlTextRadioBtn;
-import model.ColorSVG;
+import model.ColorRBG;
 import model.Pencil;
 import model.Shape;
 import model.specific_path.Circle;
@@ -50,8 +51,8 @@ public class GUI extends JFrame{
 	private Rectangle rectangleModele;
 	private Text textModele;
 	
-	private ColorSVG pencilColor;
-	private ColorSVG fillColor;
+	private ColorRBG pencilColor;
+	private ColorRBG fillColor;
 	private Pencil pencil;
 	
 	private ArrayList<JComponent> toHide = new ArrayList<JComponent>();
@@ -75,8 +76,8 @@ public class GUI extends JFrame{
 		this.textModele = new Text();
 		
 		//style
-		this.pencilColor = new ColorSVG(Color.BLACK.getRGB());
-		this.fillColor = new ColorSVG(Color.WHITE.getRGB());
+		this.pencilColor = new ColorRBG(Color.BLACK.getRGB());
+		this.fillColor = new ColorRBG(Color.WHITE.getRGB());
 		//default values for the pencil : black and width 4
 		this.pencil = new Pencil(4,pencilColor);
 		
@@ -711,9 +712,13 @@ public class GUI extends JFrame{
 		addShape.addActionListener(addController);
 		pencil.addObserver(addController);
 		
-		//run button's listener
+		//run button's listener : display the AWT
 		ControlRunGUI runController = new ControlRunGUI(shapeList);
 		runBtn.addActionListener(runController);
+		
+		//save image's listener
+		ControlSaveSVGImg saveImgController = new ControlSaveSVGImg(shapeList, imgNameInput);
+		saveImg.addActionListener(saveImgController);
 		
 		
 		/* Create JSplitPane for the layout */

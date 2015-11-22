@@ -36,7 +36,11 @@ public class RectangleXML implements ShapeState {
 	 ************************************/
 	@Override
 	public String getDrawing() {
-		return "<rect x=\""+this.getRectangle().getX()+"\" y=\""+this.getRectangle().getY()+"\" width=\""+this.getRectangle().getWidth()+"\" height=\""+this.getRectangle().getHeight()+"\" fill=\""+this.getRectangle().getColor()+"\" "+this.delegate.getPencilXML(this.rectangle.getPencil())+" />";
+		String color = "none";
+		if(this.getRectangle().getColor()!=null){
+			color = this.getRectangle().getColor().toString();
+		}
+		return "<rect x=\""+this.getRectangle().getX()+"\" y=\""+this.getRectangle().getY()+"\" width=\""+this.getRectangle().getWidth()+"\" height=\""+this.getRectangle().getHeight()+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.rectangle.getPencil())+" />";
 	}
 	
 	@Override

@@ -9,9 +9,7 @@ import model.specific_path.Circle;
 import model.specific_path.LineType;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
-import model.specific_path.Polygone;
 import model.specific_path.Rectangle;
-import model.specific_path.Text;
 import model.presentation.xml.SVGFile;
 
 public class Draw {
@@ -23,13 +21,13 @@ public class Draw {
 		 ************************************/
 		
 		// Create a new black pencil
-		Pencil p = new Pencil(4, new ColorSVG(Color.black.getRGB()));
+		Pencil p = new Pencil(4, new ColorRBG(Color.black.getRGB()));
 		
 		// Create a Cirle with a radius of 30 with the center in (50,40)
 		Circle c = new Circle(50,40,30);
 		
 		// Fill the center of the circle in blue
-		c.setColor(new ColorSVG(Color.blue.getRGB()));
+		c.setColor(new ColorRBG(Color.blue.getRGB()));
 		
 		// Add the pencil to the Circle
 		c.setPencil(p);
@@ -41,30 +39,12 @@ public class Draw {
 		r.setPencil(p);
 		
 		// Fill it
-		r.setColor(new ColorSVG(Color.green.getRGB()));
-		
-		//create a polygone
-		Polygone polygone = new Polygone(new ArrayList<Point>());
-		ArrayList<Point> listPoints = new ArrayList<Point>();
-		listPoints.add(new Point(3,4));
-		listPoints.add(new Point(4,5));
-		polygone.setPoints(listPoints);
-		polygone.setPencil(p);
-		polygone.setColor(new ColorSVG(Color.green.getRGB()));
+		r.setColor(new ColorRBG(Color.green.getRGB()));
 
-		
-		/* Create Text */
-		Text text = new Text(40, 40, "BLABLABLA");
-		text.setPencil(p);
-		text.setColor(new ColorSVG(Color.BLACK.getRGB()));
-		
-		
 		// Gather all the shapes
 		ArrayList<Shape> shapes = new ArrayList<Shape>();
 		shapes.add(c);
 		shapes.add(r);
-		shapes.add(text);
-		shapes.add(polygone);
 
 		// Create the drawing (named test) (empty here)
 		SVGFile svg = new SVGFile("test");
@@ -81,8 +61,6 @@ public class Draw {
 		
 		// Open it in your defaul browser
 		svg.view();	
-		
-		
 		
 		
 		/************************************
@@ -108,7 +86,7 @@ public class Draw {
 		path.setParts(parts);
 		
 		// Fill the shape with blue
-		path.setColor(new ColorSVG(Color.blue.getRGB()));
+		path.setColor(new ColorRBG(Color.blue.getRGB()));
 		ArrayList<Shape> shapes2 = new ArrayList<Shape>();
 		shapes2.add(path);
 		
@@ -131,7 +109,7 @@ public class Draw {
 		 ************************************/
 		
 		// Create a red Pencil
-		Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
+		Pencil pred = new Pencil(3, new ColorRBG(Color.red.getRGB()));
 		
 		// Create a new Path (a red line that goes up)
 		Path path2 = new Path();
@@ -150,7 +128,7 @@ public class Draw {
 		path3.setParts(parts3);
 		
 		// Create a Path (horizontal green line)
-		Pencil pgreen = new Pencil(3, new ColorSVG(Color.green.getRGB()));
+		Pencil pgreen = new Pencil(3, new ColorRBG(Color.green.getRGB()));
 		Path path4 = new Path();
 		path4.setStart(new Point(175, 200));
 		path4.setPencil(pgreen);
@@ -159,13 +137,12 @@ public class Draw {
 		path4.setParts(parts4);
 		
 		// Create a Path (Bezier blue line)
-		Pencil pblue = new Pencil(3, new ColorSVG(Color.blue.getRGB()));
+		Pencil pblue = new Pencil(3, new ColorRBG(Color.blue.getRGB()));
 		Path path5 = new Path();
 		path5.setStart(new Point(100, 350));
 		path5.setPencil(pblue);
 		ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
-		PathPart bez = new PathPart(new Point(250, 50), LineType.QuadricBezier);
-		bez.addPoint(new Point(400, 350));
+		PathPart bez = new PathPart(LineType.QuadricBezier, new Point(250, 50), new Point(400, 350));
 		parts5.add(bez);
 		path5.setParts(parts5);
 		

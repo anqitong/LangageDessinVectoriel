@@ -23,8 +23,8 @@ public class TestAWT {
     public void awt() {
         ArrayList<model.Shape> shapes = new ArrayList<model.Shape>(); // array for all shapes to draw
         // pencil and color styles that would be used
-        Pencil p = new Pencil(4, new ColorSVG(Color.red.getRGB()));
-        ColorSVG blue = new ColorSVG(Color.blue.getRGB());
+        Pencil p = new Pencil(4, new ColorRBG(Color.red.getRGB()));
+        ColorRBG blue = new ColorRBG(Color.blue.getRGB());
         // Draw a circle
         Circle c = new Circle(30,30,30);
         c.setColor(blue);
@@ -72,14 +72,14 @@ public class TestAWT {
         awt = new AWTFrame("new awt", new Canvas(600, 600));
         awt.addShapes(shapes);
         awt.createDrawing();
-
+        
         // all presentation should also work, so we test them
-        SVGFile svg = new SVGFile("svgAndAwt");
-        svg.setCanvas(new Canvas(600, 600));
-        svg.addShapes(shapes);
-        svg.createDrawing();
-        svg.writeSVGFile();
-        svg.view();
+//        SVGFile svg = new SVGFile("svgAndAwt");
+//        svg.setCanvas(new Canvas(600, 600));
+//        svg.addShapes(shapes);
+//        svg.createDrawing();
+//        svg.writeSVGFile();
+//        svg.view();
 
         Thread thread = new Thread() {
             public void run() {

@@ -11,7 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import model.ColorSVG;
+
+import model.ColorRBG;
 import model.Pencil;
 import model.Shape;
 import model.presentation.xml.SVGFile;
@@ -26,8 +27,8 @@ import model.specific_path.Text;
 public class AddToConsoleController implements Observer, ActionListener{
 
 
-	public AddToConsoleController(ColorSVG fillColor, JTextField fillRedValue, JTextField fillGreenValue,
-			JTextField fillBlueValue, Pencil pencil, ColorSVG pencilColor, JTextField thicknessValue,
+	public AddToConsoleController(ColorRBG fillColor, JTextField fillRedValue, JTextField fillGreenValue,
+			JTextField fillBlueValue, Pencil pencil, ColorRBG pencilColor, JTextField thicknessValue,
 			JTextField pencilRedValue, JTextField pencilGreenValue, JTextField pencilBlueValue, Circle circle,
 			JTextField centerX, JTextField centerY, JTextField radiusValue, Ellipse ellipse,
 			JTextField ellipseCenterValueX, JTextField ellipseCenterValueY, JTextField ellipseRadiusValueX,
@@ -88,14 +89,14 @@ public class AddToConsoleController implements Observer, ActionListener{
 	}
 
 	//Fill color and its inputs
-	private ColorSVG fillColor;
+	private ColorRBG fillColor;
 	private JTextField fillRedValue;
 	private JTextField fillGreenValue;
 	private JTextField fillBlueValue;
 
 	//Pencil and its inputs
 	private Pencil pencil;
-	private ColorSVG pencilColor;
+	private ColorRBG pencilColor;
 	private JTextField thicknessValue;
 	private JTextField pencilRedValue;
 	private JTextField pencilGreenValue;
@@ -184,7 +185,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 			int rgb = red;
 			rgb = (rgb << 8) + green;
 			rgb = (rgb << 8) + blue;
-			pencilColor = new ColorSVG(rgb);
+			pencilColor = new ColorRBG(rgb);
 			pencil.setColor(pencilColor);
 		}else{
 			//display warning for default color values
@@ -205,7 +206,7 @@ public class AddToConsoleController implements Observer, ActionListener{
 			int rgb = red;
 			rgb = (rgb << 8) + green;
 			rgb = (rgb << 8) + blue;
-			fillColor = new ColorSVG(rgb);
+			fillColor = new ColorRBG(rgb);
 		}
 		
 		//get circle input values and set parameters
@@ -215,9 +216,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			circle.setCenter_y(Integer.parseInt(centerY.getText().trim()));
 			circle.setRadius(Integer.parseInt(radiusValue.getText().trim()));
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			circle.setPencil(pen);
 			circle.setColor(fillingColor);
@@ -233,9 +234,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			ellipse.setRadius_x(Integer.parseInt(ellipseRadiusValueX.getText().trim()));
 			ellipse.setRadius_y(Integer.parseInt(ellipseRadiusValueY.getText().trim()));
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			ellipse.setPencil(pen);
 			ellipse.setColor(fillingColor);
@@ -251,9 +252,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			line.setX2(Integer.parseInt(x2Value.getText().trim()));
 			line.setY2(Integer.parseInt(y2Value.getText().trim()));
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			line.setColor(fillingColor);
 			line.setPencil(pen);
@@ -264,9 +265,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 		if(polygone.getPoints()!=null && polygone.getPoints().size()>0){
 			Polygone pol = new Polygone();
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			pol.setPencil(pen);
 			pol.setColor(fillingColor);
@@ -279,9 +280,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 		if(polyline.getPoints()!=null && polyline.getPoints().size()>0){
 			
 			Polyline pol = new Polyline();
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			pol.setPencil(pen);
 			pol.setColor(fillingColor);
@@ -299,9 +300,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			rectangle.setWidth(Integer.parseInt(rectWidthValue.getText().trim()));
 			rectangle.setHeight(Integer.parseInt(rectHeightValue.getText().trim()));
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			rectangle.setColor(fillingColor);
 			rectangle.setPencil(pen);
@@ -316,9 +317,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			text.setY(Integer.parseInt(textValueY.getText().trim()));
 			text.setText(textValue.getText());
 			
-			ColorSVG penColor = new ColorSVG(pencilColor.getRGB());
+			ColorRBG penColor = new ColorRBG(pencilColor.getRGB());
 			Pencil pen = new Pencil(pencil.getWidth(),penColor);
-			ColorSVG fillingColor = new ColorSVG(fillColor.getRGB());
+			ColorRBG fillingColor = new ColorRBG(fillColor.getRGB());
 			
 			text.setColor(fillingColor);
 			text.setPencil(pen);
