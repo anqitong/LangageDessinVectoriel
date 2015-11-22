@@ -1,13 +1,13 @@
 package test;
 
 import model.Canvas;
-import model.presentation.awt.*;
+
 import model.specific_path.*;
 import model.specific_path.Rectangle;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.awt.*;
+import output.awt.*;
 
 /**
  * Created by Xiaxing SHI on 09/11/15.

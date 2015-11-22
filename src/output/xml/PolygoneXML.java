@@ -1,60 +1,66 @@
-package model.presentation.xml;
+package output.xml;
 
 import model.Shape;
-import model.specific_path.Polyline;
-import model.presentation.ShapeState;
+import model.specific_path.Polygone;
 
 import java.awt.*;
 
-public class PolylineXML implements ShapeState {
-	
+import output.ShapeState;
+
+public class PolygoneXML implements ShapeState {
+
 	/************************************
 	 *	Attributes
 	 ************************************/	
-	private Polyline polyline;
+	private Polygone polygone;
 	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public PolylineXML(Polyline polyline, StateDelegate delegate) {
+	public PolygoneXML(Polygone polygone, StateDelegate delegate) {
 		this.delegate = delegate;
-		this.polyline = polyline;
+		this.polygone = polygone;
 	}
 	
 	/************************************
 	 *	Getters and Setters
 	 ************************************/	
-	public Polyline getPolyline() {
-		return polyline;
+	public Polygone getPolygone() {
+		return polygone;
 	}
 
-	public void setPoints(Polyline polyline) {
-		this.polyline = polyline;
+	public void setPoints(Polygone polygone) {
+		this.polygone = polygone;
 	}
-	
 	
 	/************************************
 	 *	Methods
 	 ************************************/
 	@Override
 	public String getDrawing() {
+		String color = "none";
+		if(this.getPolygone().getColor()!=null){
+			color = this.getPolygone().getColor().toString();
+		}
+		
 		String xml = "";
-		for(Point point:this.getPolyline().getPoints()){
+		for(Point point:this.getPolygone().getPoints()){
 			xml = xml+" "+point.x+","+point.y;
 		}
-		return "<polyline points=\""+xml+"\" fill=\"none\" "+this.delegate.getPencilXML(this.polyline.getPencil())+" />";
+		return "<polygon points=\""+xml+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.polygone.getPencil())+" />";
 	}
-
+	
 	@Override
 	public void setShape(Shape shape) throws Exception {
-		if(shape instanceof Polyline){
-			this.polyline = (Polyline) shape;
+		if(shape instanceof Polygone){
+			this.polygone = (Polygone) shape;
 		}
 		else{
 			throw new Exception("The shape is not of the right type");
 		}
 		
 	}
+
 
 }

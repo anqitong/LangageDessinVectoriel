@@ -2,8 +2,8 @@ package view;
 
 import model.*;
 import model.Shape;
-import model.presentation.awt.AWTFrame;
-import model.presentation.xml.SVGFile;
+import output.awt.AWTFrame;
+import output.xml.SVGFile;
 import model.specific_path.*;
 
 import java.awt.Color;

@@ -1,10 +1,10 @@
-package model.presentation.awt;
+package output.awt;
 
 import model.Shape;
-import model.presentation.ShapeState;
-import model.specific_path.LineType;
+import output.ShapeState;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
+import output.awt.StateDelegate;
 
 import java.awt.*;
 import java.awt.geom.Path2D;
