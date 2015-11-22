@@ -12,7 +12,7 @@ In the package src/view, you will find 3 classes needed:
 
 - `view.GUI`: This is the entrance for our GUI.
 - `view.Painting`: Here is the "drawing language" that we defined. It is a script that you could modify to tell the software what it should draw.
-- `view.Draw`: This is the class that we run the software to draw contents defined in `view.Painting`.
+- `view.Draw`: // **TODO**.
 
 ## Using the GUI
 
@@ -63,7 +63,7 @@ Here is all methods in `p` that you can draw:
     void text(int x, int y, String text);
     
 ### Get result
-After finishing writing codes in the `Painting` object, you can get the result by running  `view.Draw`. The SVG file is saved in `files/` with the name of the painting.
+After finishing writing codes in the `Painting` object, you can get the result by running it's `main` method. The SVG file is saved in `files/` with the name of the painting.
 
 ## Team Members:
 
