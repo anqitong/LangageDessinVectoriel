@@ -8,6 +8,7 @@ import model.specific_path.Rectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Xiaxing SHI on 21/11/15.
@@ -61,50 +62,34 @@ public class BasicPainter implements Painter, DrawingSource {
     }
 
     @Override
-    public void path(LineType type, int[] xs, int[] ys) {
-        if (xs.length == 0 || xs.length != ys.length) {
+    public void path(LineType type, Point... points) {
+        if (points.length == 0) {
             return;
         }
 
-        Point start = new Point(xs[0], ys[0]);
+        Point start = points[0];
         ArrayList<PathPart> parts = new ArrayList<PathPart>();
-        ArrayList<Point> points = new ArrayList<Point>();
+        ArrayList<Point> pts = new ArrayList<Point>(Arrays.asList(points));
+        pts.remove(0); // Remove the start point
 
-        for (int i=1; i<xs.length; ++i) {
-            points.add(new Point(xs[i], ys[i]));
-        }
-        parts.add(new PathPart(points, type));
+        parts.add(new PathPart(pts, type));
         Path p = new Path(start, parts);
         addToShapes(p);
     }
 
     @Override
-    public void polygone(int[] xs, int[] ys) {
-        if (xs.length == 0 || xs.length != ys.length) {
-            return;
-        }
+    public void polygone(Point... points) {
+        ArrayList<Point> pts = new ArrayList<Point>(Arrays.asList(points));
 
-        ArrayList<Point> points = new ArrayList<Point>();
-
-        for (int i=0; i<xs.length; ++i) {
-            points.add(new Point(xs[i], ys[i]));
-        }
-        Polygone p = new Polygone(points);
+        Polygone p = new Polygone(pts);
         addToShapes(p);
     }
 
     @Override
-    public void polyline(int[] xs, int[] ys) {
-        if (xs.length == 0 || xs.length != ys.length) {
-            return;
-        }
+    public void polyline(Point... points) {
+        ArrayList<Point> pts = new ArrayList<Point>(Arrays.asList(points));
 
-        ArrayList<Point> points = new ArrayList<Point>();
-
-        for (int i=0; i<xs.length; ++i) {
-            points.add(new Point(xs[i], ys[i]));
-        }
-        Polyline p = new Polyline(points);
+        Polygone p = new Polygone(pts);
         addToShapes(p);
     }
 

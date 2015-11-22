@@ -6,7 +6,7 @@ import language.Painter;
 import model.presentation.awt.AWTFrame;
 import model.presentation.xml.SVGFile;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * Created by Xiaxing SHI on 21/11/15.
@@ -31,9 +31,9 @@ public class Painting implements DrawingTask {
 
         p.line(5, 60, 15, 100);
 
-        p.polygone(new int[]{100,200,100}, new int[]{100, 200, 200});
+        p.polygone(new Point(100, 100), new Point(200, 200), new Point(100, 200));
 
-        p.polyline(new int[]{250, 100, 20, 250}, new int[]{100, 300, 300, 200});
+        p.polyline(new Point(250, 100), new Point(100, 300), new Point(20, 300), new Point(250, 200));
 
         p.rectangle(300, 50, 100, 150);
 
