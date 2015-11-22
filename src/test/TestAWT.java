@@ -23,8 +23,8 @@ public class TestAWT {
     public void awt() {
         ArrayList<model.Shape> shapes = new ArrayList<model.Shape>(); // array for all shapes to draw
         // pencil and color styles that would be used
-        Pencil p = new Pencil(4, new ColorSVG(Color.red.getRGB()));
-        ColorSVG blue = new ColorSVG(Color.blue.getRGB());
+        Pencil p = new Pencil(4, new ColorRBG(Color.red.getRGB()));
+        ColorRBG blue = new ColorRBG(Color.blue.getRGB());
         // Draw a circle
         Circle c = new Circle(30,30,30);
         c.setColor(blue);
