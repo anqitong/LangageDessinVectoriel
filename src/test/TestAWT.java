@@ -2,11 +2,13 @@ package test;
 
 import model.*;
 import model.Canvas;
-import model.presentation.awt.AWTFrame;
-import model.presentation.xml.SVGFile;
 import model.specific_path.*;
 import model.specific_path.Rectangle;
+
 import org.junit.Test;
+
+import output.awt.AWTFrame;
+import output.xml.SVGFile;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

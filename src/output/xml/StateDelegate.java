@@ -1,4 +1,4 @@
-package model.presentation.xml;
+package output.xml;
 
 import model.Pencil;
 

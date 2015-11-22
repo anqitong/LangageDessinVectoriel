@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import model.Canvas;
 import model.Shape;
-import model.presentation.awt.AWTFrame;
+import output.awt.AWTFrame;
 
 public class ControlRunGUI implements ActionListener{
 

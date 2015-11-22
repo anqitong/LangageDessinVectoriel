@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 import model.ColorRBG;
 import model.Pencil;
 import model.Shape;
-import model.presentation.xml.SVGFile;
 import model.specific_path.Circle;
 import model.specific_path.Ellipse;
 import model.specific_path.Line;
@@ -23,6 +22,7 @@ import model.specific_path.Polygone;
 import model.specific_path.Polyline;
 import model.specific_path.Rectangle;
 import model.specific_path.Text;
+import output.xml.SVGFile;
 
 public class AddToConsoleController implements Observer, ActionListener{
 

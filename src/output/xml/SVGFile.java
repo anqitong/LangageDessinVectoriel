@@ -1,11 +1,9 @@
-package model.presentation.xml;
+package output.xml;
 
 import model.Canvas;
 import model.Pencil;
 import model.Shape;
 import model.specific_path.*;
-import model.presentation.Presentation;
-import model.presentation.ShapeState;
 
 import java.awt.Desktop;
 import java.io.BufferedWriter;
@@ -14,6 +12,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import output.Presentation;
+import output.ShapeState;
 
 public class SVGFile implements Presentation, StateDelegate {
 

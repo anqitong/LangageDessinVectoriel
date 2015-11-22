@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import model.Shape;
-import model.presentation.xml.SVGFile;
+import output.xml.SVGFile;
 
 
 public class ControlSaveSVGImg implements ActionListener{

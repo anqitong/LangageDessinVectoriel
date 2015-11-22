@@ -1,11 +1,8 @@
-package model.presentation.awt;
+package output.awt;
 
 import model.Canvas;
 import model.Shape;
-import model.presentation.Presentation;
-import model.presentation.ShapeState;
 import model.specific_path.*;
-import model.specific_path.Rectangle;
 
 import java.awt.Frame;
 import java.awt.Graphics2D;
@@ -14,6 +11,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+
+import output.Presentation;
+import output.ShapeState;
 
 /**
  * Created by Xiaxing SHI on 09/11/15.
