@@ -14,7 +14,7 @@ public interface ShapesProperties {
 	 * Fill the shape with a color. (ie "Remplir")
 	 * @param color
 	 */
-	public void setColor(ColorSVG color);
+	public void setColor(ColorRBG color);
 	public Color getColor();
 	public ShapeName getName();
 	public Pencil getPencil();

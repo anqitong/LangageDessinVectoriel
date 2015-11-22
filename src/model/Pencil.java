@@ -6,9 +6,9 @@ package model;
 public class Pencil {
 
 	private int width;
-	private ColorSVG color;
+	private ColorRBG color;
 	
-	public Pencil(int width, ColorSVG color) {
+	public Pencil(int width, ColorRBG color) {
 		super();
 		this.width = width;
 		this.color = color;
@@ -22,11 +22,11 @@ public class Pencil {
 		this.width = width;
 	}
 
-	public ColorSVG getColor() {
+	public ColorRBG getColor() {
 		return color;
 	}
 
-	public void setColor(ColorSVG color) {
+	public void setColor(ColorRBG color) {
 		this.color = color;
 	}
 	

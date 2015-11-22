@@ -231,6 +231,9 @@ public class SVGFile implements Presentation, StateDelegate {
 
 	@Override
 	public String getPencilXML(Pencil p) {
+		if(p.getColor()==null){
+			return "stroke=\"none\" stroke-width=\"" + p.getWidth() + "\"";
+		}
 		return "stroke=\"" + p.getColor() + "\" stroke-width=\"" + p.getWidth() + "\"";
 	}
 

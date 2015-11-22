@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import output.xml.SVGFile;
-import model.ColorSVG;
+import model.ColorRBG;
 import model.Pencil;
 import model.Shape;
 import model.specific_path.LineType;
@@ -58,7 +58,7 @@ public class TestSVG {
 	 ************************************/
 	@Test
 	public void create_open_path(){
-	Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
+	Pencil pred = new Pencil(3, new ColorRBG(Color.red.getRGB()));
 	
 	// Create a red line
 	Path path2 = new Path();
@@ -76,7 +76,7 @@ public class TestSVG {
 	parts3.add(new PathPart(new Point(400, 350), LineType.Line));
 	path3.setParts(parts3);
 	
-	Pencil pgreen = new Pencil(3, new ColorSVG(Color.green.getRGB()));
+	Pencil pgreen = new Pencil(3, new ColorRBG(Color.green.getRGB()));
 	// Create a horizontal green line
 	Path path4 = new Path();
 	path4.setStart(new Point(175, 200));
@@ -85,14 +85,13 @@ public class TestSVG {
 	parts4.add(new PathPart(new Point(325, 200), LineType.Line));
 	path4.setParts(parts4);
 	
-	Pencil pblue = new Pencil(3, new ColorSVG(Color.blue.getRGB()));
+	Pencil pblue = new Pencil(3, new ColorRBG(Color.blue.getRGB()));
 	// Create a bezier blue line
 	Path path5 = new Path();
 	path5.setStart(new Point(100, 350));
 	path5.setPencil(pblue);
 	ArrayList<PathPart> parts5 = new ArrayList<PathPart>();
-	PathPart bez = new PathPart(new Point(250, 50), LineType.QuadricBezier);
-	bez.getPoints().add(new Point(400, 350));
+	PathPart bez = new PathPart(LineType.QuadricBezier, new Point(250, 50), new Point(400, 350));
 	parts5.add(bez);
 	path5.setParts(parts5);
 	
@@ -127,13 +126,13 @@ public class TestSVG {
 	@Test
 	public void insert(){
 		
-		Pencil p = new Pencil(4, new ColorSVG(Color.black.getRGB()));
+		Pencil p = new Pencil(4, new ColorRBG(Color.black.getRGB()));
 		Circle c = new Circle(50,40,30);
-		c.setColor(new ColorSVG(Color.blue.getRGB()));
+		c.setColor(new ColorRBG(Color.blue.getRGB()));
 		c.setPencil(p);
 		Rectangle r = new Rectangle(55,45,50,50);
 		r.setPencil(p);
-		r.setColor(new ColorSVG(Color.green.getRGB()));
+		r.setColor(new ColorRBG(Color.green.getRGB()));
 
 		ArrayList<Shape> shapes = new ArrayList<Shape>();
 		shapes.add(c);
@@ -165,8 +164,7 @@ public class TestSVG {
 		// TODO see to change indent
 		xml+="\n\t<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 		xml+="\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"1024\" width=\"1024\">";
-		// TODO see to change null into None
-		xml+="\n\t<rect x=\"60\" y=\"60\" width=\"60\" height=\"60\" fill=\"null\" stroke=\"rgb(0,0,0)\" stroke-width=\"4\" />";
+		xml+="\n\t<rect x=\"60\" y=\"60\" width=\"60\" height=\"60\" fill=\"none\" stroke=\"rgb(0,0,0)\" stroke-width=\"4\" />";
 		xml+="\n</svg>";
 		xml+="\n</svg>";
 		

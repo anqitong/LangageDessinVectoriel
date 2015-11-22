@@ -93,7 +93,7 @@ public class PathXML implements ShapeState {
 			case SmoothBezier:
 				return absolute ? "T": "t";
 			case Curveto:
-				return absolute ? "C": "t";
+				return absolute ? "C": "c";
 			case SmoothCurveto:
 				return absolute ? "S": "s";
 			case Arc:
