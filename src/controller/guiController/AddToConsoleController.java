@@ -8,6 +8,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.ColorSVG;
@@ -175,12 +176,15 @@ public class AddToConsoleController implements Observer, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//get pencil input values and set width and color
-		if(thicknessValue.getText()!=null){
+		if(!thicknessValue.getText().equals("")){
 			/*
 			 * the function trim deletes empty spaces at the beginning and at the end
 			 * of the string
 			 */
 			pencil.setWidth(Integer.parseInt(thicknessValue.getText().trim()));
+		}else{
+			//display warning for the width
+			JOptionPane.showMessageDialog(null, "Warning : default value of the pencil width is 4 !");
 		}
 		String pencilRed = pencilRedValue.getText();
 		String pencilGreen = pencilGreenValue.getText();
@@ -198,6 +202,9 @@ public class AddToConsoleController implements Observer, ActionListener{
 			rgb = (rgb << 8) + blue;
 			pencilColor = new ColorSVG(rgb);
 			pencil.setColor(pencilColor);
+		}else{
+			//display warning for default color values
+			JOptionPane.showMessageDialog(null, "Warning : default color of the pencil is black !");
 		}
 		
 		//get red, green and blue input values and set fill color

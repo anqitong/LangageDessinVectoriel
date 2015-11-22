@@ -75,9 +75,10 @@ public class GUI extends JFrame{
 		this.textModele = new Text();
 		
 		//style
-		this.pencilColor = new ColorSVG(0);
+		this.pencilColor = new ColorSVG(Color.BLACK.getRGB());
 		this.fillColor = new ColorSVG(Color.WHITE.getRGB());
-		this.pencil = new Pencil(3,pencilColor);
+		//default values for the pencil : black and width 4
+		this.pencil = new Pencil(4,pencilColor);
 		
 		
 		Container principal = this.getContentPane();
