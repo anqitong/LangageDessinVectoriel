@@ -4,7 +4,6 @@ import model.Shape;
 import output.ShapeState;
 import model.specific_path.Path;
 import model.specific_path.PathPart;
-import output.awt.StateDelegate;
 
 import java.awt.*;
 import java.awt.geom.Path2D;
@@ -22,22 +21,29 @@ public class AWTPath implements ShapeState {
         this.path = path;
     }
 
+    // Here draw paths
     @Override
     public Object getDrawing() {
         Graphics2D g = delegate.getGraphics2D();
         g.setColor(this.path.getPencil().getColor());
         g.setStroke(new BasicStroke(this.path.getPencil().getWidth()));
 
+        // We use built-in class Path2D.Double to draw paths
         Path2D.Double p2d = new Path2D.Double();
         p2d.moveTo(this.path.getStart().x, this.path.getStart().y);
 
-        Point lastEnd = this.path.getStart(), lastReflect = null, lastControl = null;
+        // These are flags for drawing certain parts
+        Point lastEnd = this.path.getStart(); // last ending point drawn
+        Point lastReflect = null; // last control/reflect point for curves drawn
+        Point lastControl = null; // last control point for quadric beziers drawn
 
+        // Draw each part of the path
         for (PathPart part : this.path.getParts()) {
             ArrayList<Point> pts = part.getPoints();
             switch (part.getType()) {
                 case Line:
-                    if (!pts.isEmpty()) {
+                    if (pts.size() == 1) {
+                        // point 0 is the ending point
                         p2d.lineTo(part.getPoints().get(0).x, part.getPoints().get(0).y);
                         lastEnd = part.getPoints().get(0);
                         lastReflect = null;
@@ -46,14 +52,16 @@ public class AWTPath implements ShapeState {
                     break;
                 case QuadricBezier:
                     if (pts.size() == 2) {
+                        // point 0 is a control point, point 1 is the ending point
                         p2d.quadTo(pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         lastEnd = part.getPoints().get(1);
-                        lastReflect = null;
+                        lastReflect = pts.get(0);
                         lastControl = pts.get(0);
                     }
                     break;
                 case SmoothBezier:
-                    if (pts.size() == 1) {
+                    if (pts.size() == 1 && lastControl != null) {
+                        // point 0 is the ending point, and this control point is calculated by the last control point
                         lastControl = new Point(lastEnd.x - (lastControl.x - lastEnd.x), lastEnd.y - (lastControl.y - lastEnd.y));
                         p2d.quadTo(lastControl.x, lastControl.y, pts.get(0).x, pts.get(0).y);
 
@@ -63,6 +71,7 @@ public class AWTPath implements ShapeState {
                     break;
                 case Curveto:
                     if (pts.size() == 3) {
+                        // point 0 & 1 are control points, point 2 is the ending point
                         p2d.curveTo(pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y, pts.get(2).x, pts.get(2).y);
                         lastEnd = part.getPoints().get(2);
                         lastReflect = part.getPoints().get(1);
@@ -71,13 +80,17 @@ public class AWTPath implements ShapeState {
                     break;
                 case SmoothCurveto:
                     if (pts.size() == 2) {
+                        // point 0 is the 2nd control point, point 1 is the ending point
+                        // the 1st control point is calculated
                         if (lastReflect == null) {
+                            // calculate the 1st control point by the 2nd one
                             double[] reflect = this.calculateReflectPoint(new double[]{lastEnd.x, lastEnd.y}
                                     , new double[]{pts.get(1).x, pts.get(1).y}
                                     , new double[]{pts.get(0).x, pts.get(0).y});
                             lastReflect = new Point((int) reflect[0], (int)reflect[1]);
                             p2d.curveTo(reflect[0], reflect[1], pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         } else {
+                            // calculate the 1st control point by the last one
                             lastReflect = new Point(lastEnd.x - (lastReflect.x - lastEnd.x), lastEnd.y - (lastReflect.y - lastEnd.y));
                             p2d.curveTo(lastReflect.x, lastReflect.y, pts.get(0).x, pts.get(0).y, pts.get(1).x, pts.get(1).y);
                         }
@@ -86,6 +99,7 @@ public class AWTPath implements ShapeState {
                     }
                     break;
                 case Arc:
+                    // We can not implement this.
                     // TODO
                     break;
                 default:
@@ -157,6 +171,7 @@ public class AWTPath implements ShapeState {
         return Math.abs(dist);
     }
 
+    // Compute that missing control point for SmoothCurveto when there is not a curveto or QuadricBezier before.
     private double[] calculateReflectPoint(double[] pointA, double[] pointB, double[] pointC) {
         double[] result = new double[2];
 

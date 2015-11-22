@@ -24,15 +24,18 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
     private Graphics2D g2d = null;
-    private JPanel rs;
+    private JPanel canvasPanel; // Shapes are drawn in this panel
 
     public AWTFrame(String name, Canvas canvas) {
         this.setCanvas(canvas);
         this.setName(name);
-        rs = new JPanel(new BorderLayout()) {
+
+        // Create the Panel that we used to draw things
+        canvasPanel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                // Draw all shapes in the list
                 g2d = (Graphics2D) g;
                 for (Shape shape : shapes) {
                     getShapeState(shape).getDrawing();
@@ -42,13 +45,13 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
             @Override
             public Dimension getPreferredSize() {
                 Dimension preferredSize = super.getPreferredSize();
-                // Let's make sure that we have at least our little square size.
+                // Let's make sure that the window fits the painting
                 preferredSize.width = Math.max(preferredSize.width, canvas.getWidth());
                 preferredSize.height = Math.max(preferredSize.height, canvas.getHeight());
                 return preferredSize;
             }
         };
-        this.add(rs);
+        this.add(canvasPanel);
         this.pack();
     }
 
@@ -67,6 +70,12 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
         this.canvas = canvas;
     }
 
+    /**
+     * When this method is called, it will set the size and title, and make itself visible. So canvasPanel will be
+     * painted too by calling its paintComponent method.
+     *
+     * @return this AWTFrame
+     */
     @Override
     public Object createDrawing() {
         this.setSize(canvas.getWidth(), canvas.getHeight());
