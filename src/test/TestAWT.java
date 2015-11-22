@@ -43,7 +43,7 @@ public class TestAWT {
         Assert.assertTrue(awt.getShapeState(new Ellipse()) instanceof AWTEllipse);
         Assert.assertTrue(awt.getShapeState(new Line()) instanceof AWTLine);
         Assert.assertTrue(awt.getShapeState(new Path()) instanceof AWTPath);
-        Assert.assertTrue(awt.getShapeState(new Polygone()) instanceof AWTPolygone);
+        Assert.assertTrue(awt.getShapeState(new Polygon()) instanceof AWTPolygon);
         Assert.assertTrue(awt.getShapeState(new Polyline()) instanceof AWTPolyline);
         Assert.assertTrue(awt.getShapeState(new Rectangle()) instanceof AWTRectangle);
         Assert.assertTrue(awt.getShapeState(new Text()) instanceof AWTText);

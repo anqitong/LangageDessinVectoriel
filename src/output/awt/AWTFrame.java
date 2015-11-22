@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.specific_path.Polygon;
 import model.specific_path.Rectangle;
 import output.Presentation;
 import output.ShapeState;
@@ -108,8 +109,8 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
             case Path:
                 state = new AWTPath((Path)shape, this);
                 break;
-            case Polygone:
-                state = new AWTPolygone((Polygone)shape, this);
+            case Polygon:
+                state = new AWTPolygon((Polygon)shape, this);
                 break;
             case Polyline:
                 state = new AWTPolyline((Polyline)shape, this);

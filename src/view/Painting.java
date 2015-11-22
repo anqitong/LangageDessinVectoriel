@@ -9,8 +9,6 @@ import output.xml.SVGFile;
 
 import java.awt.*;
 
-import static model.specific_path.LineType.SmoothCurveto;
-
 /**
  * Created by Xiaxing SHI on 21/11/15.
  */
@@ -34,7 +32,7 @@ public class Painting implements DrawingTask {
 
         p.line(5, 60, 15, 100);
 
-        p.polygone(new Point(100, 100), new Point(200, 200), new Point(100, 200));
+        p.polygon(new Point(100, 100), new Point(200, 200), new Point(100, 200));
 
         p.polyline(new Point(250, 100), new Point(100, 300), new Point(20, 300), new Point(250, 200));
 

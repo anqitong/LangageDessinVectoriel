@@ -91,7 +91,7 @@ public interface Painter {
      * Draw a polygon
      * @param points points for apexes, DO NOT REPEAT the starting point at the end
      */
-    void polygone(Point... points);
+    void polygon(Point... points);
 
     /**
      * Draw a polyline

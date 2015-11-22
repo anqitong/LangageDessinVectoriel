@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.Shape;
 import model.ShapeName;
 
-public class Polygone extends Shape {
+public class Polygon extends Shape {
 
 	/************************************
 	 *	Attributes
@@ -16,11 +16,11 @@ public class Polygone extends Shape {
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public Polygone(ArrayList<Point> points) {
+	public Polygon(ArrayList<Point> points) {
 		this.points = points;
 	}
 	
-	public Polygone(){
+	public Polygon(){
 		ArrayList<Point> line = new ArrayList<Point>();
 		line.add(new Point(0,0));
 		line.add(new Point(0,5));
@@ -41,7 +41,7 @@ public class Polygone extends Shape {
 
 	@Override
 	public ShapeName getName() {
-		return ShapeName.Polygone;
+		return ShapeName.Polygon;
 	}
 
 	/************************************

@@ -33,16 +33,16 @@ public class DrawAndShowAWT {
         Line l = new Line(5, 60, 15, 100);
         l.setPencil(p);
         shapes.add(l);
-        // Draw a polygone
-        Polygone polygone = new Polygone();
+        // Draw a polygon
+        Polygon polygon = new Polygon();
         ArrayList<Point> points = new ArrayList<Point>();
         points.add(new Point(100, 100));
         points.add(new Point(200, 200));
         points.add(new Point(100, 200));
-        polygone.setPoints(points);
-        polygone.setColor(blue);
-        polygone.setPencil(p);
-        shapes.add(polygone);
+        polygon.setPoints(points);
+        polygon.setColor(blue);
+        polygon.setPencil(p);
+        shapes.add(polygon);
         // Draw a polyline
         Polyline polyline = new Polyline();
         points = new ArrayList<Point>();

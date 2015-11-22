@@ -231,14 +231,14 @@ public class GUI extends JFrame{
 		toolbox.add(y2Value, gc);
 
 
-		//Polygone
+		//Polygon
 		gc.gridx = 0;
 		gc.gridy = 18;
-//		JButton polygone = new JButton("Polygone");
-		JRadioButton polygone = new JRadioButton("Polygone");
-		shapeBtns.add(polygone);
-		polygone.setPreferredSize(new Dimension(10,10));
-		toolbox.add(polygone, gc);
+//		JButton polygon = new JButton("Polygon");
+		JRadioButton polygon = new JRadioButton("Polygon");
+		shapeBtns.add(polygon);
+		polygon.setPreferredSize(new Dimension(10,10));
+		toolbox.add(polygon, gc);
 
 		//Polyline
 		gc.gridx = 0;
