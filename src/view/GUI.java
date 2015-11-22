@@ -100,11 +100,17 @@ public class GUI extends JFrame{
 		textArea.setWrapStyleWord(true);
 		JScrollPane consolePane = new JScrollPane(textArea);
 		consolePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		consolePane.setPreferredSize(new Dimension(200,200));
+		consolePane.setPreferredSize(new Dimension(200,380));
 		consoleArea.add(consolePane);
-		JButton runBtn = new JButton("Run");
+		JButton runBtn = new JButton("Run preview");
 		runBtn.setAlignmentX(LEFT_ALIGNMENT);
 		consoleArea.add(runBtn);
+		JButton saveImg  =new JButton("Save image as (name) : ");
+		saveImg.setAlignmentX(LEFT_ALIGNMENT);
+		consoleArea.add(saveImg);
+		JTextField imgNameInput = new JTextField(10);
+		imgNameInput.setSize(10, 10);
+		consoleArea.add(imgNameInput);
 		JScrollPane consoleScrollPane = new JScrollPane(consoleArea);
 		consoleScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		

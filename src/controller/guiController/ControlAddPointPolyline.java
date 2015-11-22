@@ -59,6 +59,10 @@ public class ControlAddPointPolyline implements Observer, ActionListener{
 			//update the disply in the labels for the list of existing points
 			this.xListPolylineValues.setText(listX);
 			this.yListPolylineValues.setText(listY);
+			
+			//clear the fields
+			this.xInputPolylineValues.setText("");
+			this.yInputPolylineValues.setText("");
 		}
 	}
 

@@ -59,6 +59,11 @@ public class ControlAddPointPolygone implements Observer, ActionListener{
 			listY+=y+";";
 			this.xListPolygoneValues.setText(listX);
 			this.yListPolygoneValues.setText(listY);
+			
+			//clear the fields
+			this.xInputPolygoneValues.setText("");
+			this.yInputPolygoneValues.setText("");
+			
 		}
 	}
 
