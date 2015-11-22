@@ -25,7 +25,7 @@ public class TestAWT {
     public void awt() {
         ArrayList<model.Shape> shapes = new ArrayList<model.Shape>(); // array for all shapes to draw
         // pencil and color styles that would be used
-        Pencil p = new Pencil(4, new ColorSVG(Color.red.getRGB()));
+        Pencil p = new Pencil(3, new ColorSVG(Color.red.getRGB()));
         ColorSVG blue = new ColorSVG(Color.blue.getRGB());
         // Draw a circle
         Circle c = new Circle(30,30,30);
@@ -70,6 +70,9 @@ public class TestAWT {
         Text t = new Text(500, 50, "Hello, World!");
         t.setPencil(p);
         shapes.add(t);
+        Text bt = new Text(500, 65, "Hello, World!");
+        bt.setPencil(new Pencil(10, blue));
+        shapes.add(bt);
 
         // Path
         Pencil pred = new Pencil(3, new ColorSVG(Color.red.getRGB()));
@@ -161,7 +164,7 @@ public class TestAWT {
         svg.addShapes(shapes);
         svg.createDrawing();
         svg.writeSVGFile();
-        svg.view();
+//        svg.view();
 
         Thread thread = new Thread() {
             public void run() {
