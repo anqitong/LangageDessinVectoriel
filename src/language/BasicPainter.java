@@ -18,6 +18,7 @@ public class BasicPainter implements Painter, DrawingSource {
     private ColorRBG color = new ColorRBG(Color.BLACK.getRGB());
     private Pencil pencil = new Pencil(1, color);
     private Canvas canvas = new Canvas(1024, 1024);
+    private boolean isAWT = true, isSVG = true;
 
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     @Override
@@ -30,6 +31,16 @@ public class BasicPainter implements Painter, DrawingSource {
     public void setCanvasSize(int width, int height) {
         this.canvas.setWidth(width);
         this.canvas.setHeight(height);
+    }
+
+    @Override
+    public void setShowInWindow(boolean isWindow) {
+        this.isAWT = isWindow;
+    }
+
+    @Override
+    public void setSaveAsSVG(boolean isSvg) {
+        this.isSVG = isSvg;
     }
 
     @Override
@@ -120,6 +131,16 @@ public class BasicPainter implements Painter, DrawingSource {
     @Override
     public ArrayList<Shape> getShapes() {
         return this.shapes;
+    }
+
+    @Override
+    public boolean isShowInWindow() {
+        return this.isAWT;
+    }
+
+    @Override
+    public boolean isSaveAsSVG() {
+        return this.isSVG;
     }
 
     private void addToShapes(Shape shape) {

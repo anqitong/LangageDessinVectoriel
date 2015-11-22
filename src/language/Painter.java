@@ -9,6 +9,8 @@ import java.awt.*;
 public interface Painter {
     void setName(String name);
     void setCanvasSize(int width, int height);
+    void setShowInWindow(boolean isWindow);
+    void setSaveAsSVG(boolean isSvg);
     void stroke(int width, Color color);
     void fill(Color color);
     void circle(int x, int y, int r);
@@ -19,5 +21,4 @@ public interface Painter {
     void polyline(Point... points);
     void rectangle(int x, int y, int width, int height);
     void text(int x, int y, String text);
-
 }

@@ -45,15 +45,19 @@ public class Painting implements DrawingTask {
         Painting painting = new Painting();
         painting.draw(painter);
 
-        AWTFrame awt = new AWTFrame(painter.getName(), painter.getCanvas());
-        awt.addShapes(painter.getShapes());
-        awt.createDrawing();
+        if (painter.isShowInWindow()) {
+            AWTFrame awt = new AWTFrame(painter.getName(), painter.getCanvas());
+            awt.addShapes(painter.getShapes());
+            awt.createDrawing();
+        }
 
-        SVGFile svg = new SVGFile(painter.getName());
-        svg.setCanvas(painter.getCanvas());
-        svg.addShapes(painter.getShapes());
-        svg.createDrawing();
-        svg.writeSVGFile();
-        svg.view();
+        if (painter.isSaveAsSVG()) {
+            SVGFile svg = new SVGFile(painter.getName());
+            svg.setCanvas(painter.getCanvas());
+            svg.addShapes(painter.getShapes());
+            svg.createDrawing();
+            svg.writeSVGFile();
+            svg.view();
+        }
     }
 }

@@ -14,4 +14,6 @@ public interface DrawingSource {
     String getName();
     Canvas getCanvas();
     ArrayList<Shape> getShapes();
+    boolean isShowInWindow();
+    boolean isSaveAsSVG();
 }
