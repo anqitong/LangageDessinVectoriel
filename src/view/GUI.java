@@ -98,19 +98,21 @@ public class GUI extends JFrame{
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		JScrollPane consolePane = new JScrollPane(textArea);
-		consolePane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		consolePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		consolePane.setPreferredSize(new Dimension(200,200));
 		consoleArea.add(consolePane);
 		JButton runBtn = new JButton("Run");
 		runBtn.setAlignmentX(LEFT_ALIGNMENT);
 		consoleArea.add(runBtn);
+		JScrollPane consoleScrollPane = new JScrollPane(consoleArea);
+		consoleScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
 		/* ------------------------ create toolbox -------------------- */
 		JPanel toolbox = new JPanel();
-		JScrollPane scrollPane = new JScrollPane(toolbox);
-		scrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(350,400));
-
+		JScrollPane toolboxScrollPane = new JScrollPane(toolbox);
+		toolboxScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		toolboxScrollPane.setPreferredSize(new Dimension(350,400));
+		
 		toolbox.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.fill = GridBagConstraints.BOTH;
@@ -712,7 +714,7 @@ public class GUI extends JFrame{
 		left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
 		left.setBorder(new EmptyBorder(5,5,5,5));
 
-		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, toolbox, consoleArea);
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, toolboxScrollPane, consoleScrollPane);
 		left.add(splitPane);
 		return left;
 	}
