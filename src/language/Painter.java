@@ -4,7 +4,7 @@ import model.specific_path.LineType;
 import java.awt.*;
 
 /**
- * This defined what a user can do for drawing things
+ * This defines what a user can do for drawing things
  */
 public interface Painter {
     void setName(String name);
