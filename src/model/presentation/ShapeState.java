@@ -8,10 +8,9 @@ import model.Shape;
 public interface ShapeState {
 	/**
 	 * Render the shape
-	 * @param pencil the pencil to use to render the shape
 	 * @return render result like XML pieces
 	 */
-	Object getDrawing(PencilState pencil);
+	Object getDrawing();
 
 	/**
 	 * Set the shape to render
