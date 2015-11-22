@@ -1,10 +1,11 @@
-package model.presentation.awt;
+package output.awt;
 
 import model.Shape;
-import model.presentation.ShapeState;
 import model.specific_path.Circle;
 
 import java.awt.*;
+
+import output.ShapeState;
 
 /**
  * Created by Xiaxing SHI on 09/11/15.

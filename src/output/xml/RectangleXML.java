@@ -1,8 +1,8 @@
-package model.presentation.xml;
+package output.xml;
 
+import output.ShapeState;
 import model.Shape;
 import model.specific_path.Rectangle;
-import model.presentation.ShapeState;
 
 public class RectangleXML implements ShapeState {
 	
