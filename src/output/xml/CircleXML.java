@@ -1,8 +1,8 @@
-package model.presentation.xml;
+package output.xml;
 
+import output.ShapeState;
 import model.Shape;
 import model.specific_path.Circle;
-import model.presentation.ShapeState;
 
 public class CircleXML implements ShapeState {
 	

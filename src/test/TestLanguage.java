@@ -4,9 +4,8 @@ import model.specific_path.Text;
 import org.junit.Assert;
 import org.junit.Test;
 import view.Painting;
-import model.Canvas;
-import model.presentation.awt.AWTFrame;
-import model.presentation.xml.SVGFile;
+import output.awt.AWTFrame;
+import output.xml.SVGFile;
 import language.BasicPainter;
 
 /**
@@ -47,7 +46,7 @@ public class TestLanguage {
                 "\t<circle cx=\"100\" cy=\"30\" rx=\"40\" ry=\"20\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<line x1=\"5\" y1=\"60\" x2=\"15\" y2=\"100\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<polygon points=\" 100,100 200,200 100,200\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
-                "\t<polyline points=\" 250,100 100,300 20,300 250,200\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
+                "\t<polygon points=\" 250,100 100,300 20,300 250,200\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<rect x=\"300\" y=\"50\" width=\"100\" height=\"150\" fill=\"rgb(255,0,0)\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\" />\n" +
                 "\t<text x=\"500\" y=\"50\" stroke=\"rgb(64,64,64)\" stroke-width=\"2\">Hello, World!</text>\n" +
                 "</svg>";

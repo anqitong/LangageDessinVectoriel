@@ -1,4 +1,4 @@
-package model.presentation.awt;
+package output.awt;
 
 import java.awt.*;
 

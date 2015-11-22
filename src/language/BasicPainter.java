@@ -100,7 +100,7 @@ public class BasicPainter implements Painter, DrawingSource {
     public void polyline(Point... points) {
         ArrayList<Point> pts = new ArrayList<Point>(Arrays.asList(points));
 
-        Polygone p = new Polygone(pts);
+        Polyline p = new Polyline(pts);
         addToShapes(p);
     }
 

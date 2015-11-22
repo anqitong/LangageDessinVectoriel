@@ -3,8 +3,8 @@ package view;
 import language.BasicPainter;
 import language.DrawingTask;
 import language.Painter;
-import model.presentation.awt.AWTFrame;
-import model.presentation.xml.SVGFile;
+import output.awt.AWTFrame;
+import output.xml.SVGFile;
 
 import java.awt.*;
 

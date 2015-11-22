@@ -1,13 +1,12 @@
 package view;
 
 import model.*;
-import model.presentation.xml.SVGFile;
 import model.specific_path.*;
+import output.xml.SVGFile;
 
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
-
 public class Draw {
 
 	public static void main(String[] args) {

@@ -1,54 +1,54 @@
-package model.presentation.xml;
+package output.xml;
 
+import output.ShapeState;
 import model.Shape;
-import model.specific_path.Line;
-import model.presentation.ShapeState;
+import model.specific_path.Text;
 
-public class LineXML implements ShapeState {
-	
+public class TextXML implements ShapeState {
+
 	/************************************
 	 *	Attributes
 	 ************************************/	
-	private Line line;
+	private Text text;
 	private StateDelegate delegate;
 	
 	/************************************
 	 *	Constructors
 	 ************************************/	
-	public LineXML(Line line, StateDelegate delegate) {
+	public TextXML(Text text, StateDelegate delegate) {
 		this.delegate = delegate;
-		this.line = line;
+		this.text = text;
 	}
 	
 	/************************************
 	 *	Getters and Setters
 	 ************************************/	
-	public Line getLine() {
-		return line;
+	public Text getText() {
+		return text;
 	}
 
-	public void setLine(Line line) {
-		this.line = line;
+	public void setText(Text text) {
+		this.text = text;
 	}
-
 	
 	/************************************
 	 *	Methods
 	 ************************************/
 	@Override
 	public String getDrawing() {
-		return "<line x1=\""+this.getLine().getX1()+"\" y1=\""+this.getLine().getY1()+"\" x2=\""+this.getLine().getX2()+"\" y2=\""+this.getLine().getY2()+"\" "+this.delegate.getPencilXML(this.line.getPencil())+" />";
+		return "<text x=\""+this.getText().getX()+"\" y=\""+this.getText().getY()+"\" "+this.delegate.getPencilXML(this.text.getPencil())+">"+this.getText().getText()+"</text>";
 	}
 	
 	@Override
 	public void setShape(Shape shape) throws Exception {
-		if(shape instanceof Line){
-			this.line = (Line) shape;
+		if(shape instanceof Text){
+			this.text = (Text) shape;
 		}
 		else{
 			throw new Exception("The shape is not of the right type");
 		}
 		
 	}
+
 
 }
