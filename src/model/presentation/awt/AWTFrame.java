@@ -52,7 +52,6 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
         this.setTitle(name);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent){
-//                System.exit(0);
                 windowEvent.getWindow().dispose();
             }
         });

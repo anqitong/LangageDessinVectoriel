@@ -42,7 +42,7 @@ public class EllipseXML implements ShapeState {
 		if(this.getEllipse().getColor()!=null){
 			color = this.getEllipse().getColor().toString();
 		}
-		return "<circle cx=\""+this.getEllipse().getCenter_x()+"\" cy=\""+this.getEllipse().getCenter_y()+"\" rx=\""+this.getEllipse().getRadius_x()+"\" ry=\""+this.getEllipse().getRadius_y()+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.ellipse.getPencil())+" />";
+		return "<ellipse cx=\""+this.getEllipse().getCenter_x()+"\" cy=\""+this.getEllipse().getCenter_y()+"\" rx=\""+this.getEllipse().getRadius_x()+"\" ry=\""+this.getEllipse().getRadius_y()+"\" fill=\""+color+"\" "+this.delegate.getPencilXML(this.ellipse.getPencil())+" />";
 	}
 	
 	@Override
