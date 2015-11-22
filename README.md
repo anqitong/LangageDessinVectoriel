@@ -1,30 +1,80 @@
 # LangageDessinVectoriel
 
-This project aims to create SVG images through the command of a user.
+This project aims to create vector graphics through the command of a user. And created graphics could be show in a java frame and saved as a SVG file.
 
 The subject of the subject is described [here](http://www.grall.name/teaching/softwareArchitecture/2016/project_vectorGraphics.html) (in French)
 
-## How to use the software:
+## About the software:
 
-Once the project is retrieved, you can use it to create SVG files.
-In the package src/view, you have a file "Draw.java". This is the java class you'll have to use to run the software.
+Once the project is retrieved, you can use it to create graphics. With this project, you have two way to draw an image. Firstly, using the **GUI** to draw, which is easy to use; or you can use a **drawing language** based on Java, which is less intuitive but you gain more control from it.
 
-### Step 1:
-In the main method, you'll first need to create a Pencil (or some Pencils) to draw.
-`Pencil p = new Pencil(4, new ColorSVG(Color.black.getRGB()));`
-Pencil takes 2 arguments: the width of the line that will be drawn, and the color of that line (which uses a ColorSVG class, which takes an int as argument (RGB int)).
+In the package src/view, you will find 3 classes. And they are all you need:
 
-### Step 2:
-You'll then need some shapes to draw.
-The list of shapes are for now listed in src/model/ShapeName.
-Each type of shape has it's own attribute. So for now, you'll need to see what they are for each specific shapes.
-They are located in src/model/specific_path.
-As an example: `Circle c = new Circle(50,40,30);`
-You are encourage to add a color to your shape like that: `c.setColor(new ColorSVG(Color.blue.getRGB()));`
-As well as defining the pencil used to draw that shape, pencil you would already have created: `c.setPencil(p);`
+- `view.GUI`: This is the entrance for our GUI.
+- `view.Painting`: Here is the "drawing language" that we defined. It is a script that you could modify to tell the software what it should draw.
+- `view.Draw`: This is the class that we run the software to draw contents defined in `view.Painting`.
 
-You can reapeat the Step 2 as many times as you want.
+## Using the GUI
 
+// **TODO**
+
+## Using the drawing language
+
+The drawing language is clear and simple. And it's basicly a class that calls our well defined APIs. Here is an example: 
+
+	public class Painting implements DrawingTask {
+
+	    @Override
+	    public void draw(Painter p) {
+	        p.setName("Painting with language");
+	        p.setCanvasSize(600, 600);
+	
+	        p.stroke(1, Color.blue);
+	        p.fill(Color.red);
+	        p.circle(30, 30, 30);
+	
+	        p.stroke(2, Color.darkGray);
+	        p.ellipse(100, 30, 40, 20);	    }
+	}
+
+As you can see, all drawing tasks are finished by calling methods in the given object `p` in the `void draw(Painter p)` method.
+
+### Name & size:
+To create a vector graphics, we need to call `p.setName` and `p.setCanvasSize` to define it's name and size. But it is not required to do this before calling other APIs. These two methods could be call at anytime. If they are not be called, which a default setting would be used.
+
+### Stroke & filling color:
+You'll then need to decide the stroke and the filling color that would be used by calling these methods:
+
+- `p.stroke(int width, Color strokeColor);`
+- `p.fill(Color fillColor);`
+
+These setting would be used as long as you do not change them. So in the example, both the circle and the ellipse are filled with red color that defined that line 9: `p.fill(Color.red);`.
+
+### Shapes & text:
+Here is all methods in `p` that you can draw: 
+
+    void circle(int x, int y, int r);
+    void ellipse(int x, int y, int rx, int ry);
+    void line(int x1, int y1, int x2, int y2);
+    void path(LineType type, int[] xs, int[] ys);
+    void polygone(int[] xs, int[] ys);
+    void polyline(int[] xs, int[] ys);
+    void rectangle(int x, int y, int width, int height);
+    void text(int x, int y, String text);
+    
+### Get result
+After finish writing codes in the `Painting` object, you could get the result by running  `view.Draw`. The SVG file is saved in `files/` with the name of the painting.
+
+## Team Members:
+
+Anqi Tong
+
+Thomas Garesse
+
+Xiaxing Shi
+
+- - -
+## Sould be reused after defined insert in Painter
 ### Step 3:
 Gather your shapes to add them to a drawing:
 
@@ -57,12 +107,3 @@ If you want to open that file in your default browser, call the view() method:
 		svg.view();
 		
 The file must have been created for it to be displayed without error.
-
-
-## Team Members:
-
-Anqi Tong
-
-Thomas Garesse
-
-Xiaxing Shi
