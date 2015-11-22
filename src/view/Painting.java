@@ -3,10 +3,13 @@ package view;
 import language.BasicPainter;
 import language.DrawingTask;
 import language.Painter;
+import model.specific_path.LineType;
 import output.awt.AWTFrame;
 import output.xml.SVGFile;
 
 import java.awt.*;
+
+import static model.specific_path.LineType.SmoothCurveto;
 
 /**
  * Created by Xiaxing SHI on 21/11/15.
@@ -38,6 +41,15 @@ public class Painting implements DrawingTask {
         p.rectangle(300, 50, 100, 150);
 
         p.text(500, 50, "Hello, World!");
+
+        p.path(LineType.QuadricBezier, new Point(100, 400), new Point(200, 550), new Point(300, 400));
+
+        p.path(new Point(410, 480)
+                , new LineType[]{LineType.Curveto, LineType.SmoothCurveto}
+                , new Point[][]{
+                        new Point[]{new Point(440, 410), new Point(465, 410), new Point(495, 480)},
+                        new Point[]{new Point(550, 550), new Point(580, 500)}
+                });
     }
 
     public static void main(String[] args) {
