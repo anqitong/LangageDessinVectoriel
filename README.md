@@ -1,14 +1,14 @@
 # LangageDessinVectoriel
 
-This project aims to create vector graphics through the command of a user. And created graphics could be show in a java frame and saved as a SVG file.
+This project aims to create vector graphics through the command of user, and graphics that are created could be showed in a java frame and saved as a SVG file.
 
 The subject of the subject is described [here](http://www.grall.name/teaching/softwareArchitecture/2016/project_vectorGraphics.html) (in French)
 
 ## About the software:
 
-Once the project is retrieved, you can use it to create graphics. With this project, you have two way to draw an image. Firstly, using the **GUI** to draw, which is easy to use; or you can use a **drawing language** based on Java, which is less intuitive but you gain more control from it.
+Once the project is retrieved, you can use it to create graphics. With this project, you have two ways to draw an image. Firstly, using the **GUI** to draw, which is easy to use; or you can use a **drawing language** based on Java, which is less intuitive but you will gain more control from it.
 
-In the package src/view, you will find 3 classes. And they are all you need:
+In the package src/view, you will find 3 classes needed:
 
 - `view.GUI`: This is the entrance for our GUI.
 - `view.Painting`: Here is the "drawing language" that we defined. It is a script that you could modify to tell the software what it should draw.
@@ -20,7 +20,7 @@ In the package src/view, you will find 3 classes. And they are all you need:
 
 ## Using the drawing language
 
-The drawing language is clear and simple. And it's basicly a class that calls our well defined APIs. Here is an example: 
+The drawing language is clear and simple. And it's basically a class that calls our well defined APIs. Here is an example: 
 
 	public class Painting implements DrawingTask {
 
@@ -40,7 +40,7 @@ The drawing language is clear and simple. And it's basicly a class that calls ou
 As you can see, all drawing tasks are finished by calling methods in the given object `p` in the `void draw(Painter p)` method.
 
 ### Name & size:
-To create a vector graphics, we need to call `p.setName` and `p.setCanvasSize` to define it's name and size. But it is not required to do this before calling other APIs. These two methods could be call at anytime. If they are not be called, which a default setting would be used.
+To create a vector graphics, we need to call `p.setName` and `p.setCanvasSize` to define it's name and size. But it is not required to do this before calling other APIs. These two methods could be called at anytime. If they are not be called, a default setting would be used.
 
 ### Stroke & filling color:
 You'll then need to decide the stroke and the filling color that would be used by calling these methods:
@@ -48,7 +48,7 @@ You'll then need to decide the stroke and the filling color that would be used b
 - `p.stroke(int width, Color strokeColor);`
 - `p.fill(Color fillColor);`
 
-These setting would be used as long as you do not change them. So in the example, both the circle and the ellipse are filled with red color that defined that line 9: `p.fill(Color.red);`.
+These settings would be used as long as you do not change them. So in the example, both the circle and the ellipse are filled with red color that defined the line 9: `p.fill(Color.red);`.
 
 ### Shapes & text:
 Here is all methods in `p` that you can draw: 
@@ -63,7 +63,7 @@ Here is all methods in `p` that you can draw:
     void text(int x, int y, String text);
     
 ### Get result
-After finish writing codes in the `Painting` object, you could get the result by running  `view.Draw`. The SVG file is saved in `files/` with the name of the painting.
+After finishing writing codes in the `Painting` object, you can get the result by running  `view.Draw`. The SVG file is saved in `files/` with the name of the painting.
 
 ## Team Members:
 
