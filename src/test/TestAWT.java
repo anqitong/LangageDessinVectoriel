@@ -164,7 +164,7 @@ public class TestAWT {
         svg.addShapes(shapes);
         svg.createDrawing();
         svg.writeSVGFile();
-//        svg.view();
+        svg.view();
 
         Thread thread = new Thread() {
             public void run() {
