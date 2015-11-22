@@ -7,9 +7,8 @@ import model.presentation.ShapeState;
 import model.specific_path.*;
 import model.specific_path.Rectangle;
 
-import java.awt.Frame;
-import java.awt.Graphics2D;
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -24,10 +23,32 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Canvas canvas;
     private Graphics2D g2d = null;
+    private JPanel rs;
 
     public AWTFrame(String name, Canvas canvas) {
         this.setCanvas(canvas);
         this.setName(name);
+        rs = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g2d = (Graphics2D) g;
+                for (Shape shape : shapes) {
+                    getShapeState(shape).getDrawing();
+                }
+            }
+
+            @Override
+            public Dimension getPreferredSize() {
+                Dimension preferredSize = super.getPreferredSize();
+                // Let's make sure that we have at least our little square size.
+                preferredSize.width = Math.max(preferredSize.width, canvas.getWidth());
+                preferredSize.height = Math.max(preferredSize.height, canvas.getHeight());
+                return preferredSize;
+            }
+        };
+        this.add(rs);
+        this.pack();
     }
 
     public AWTFrame(String name) {
@@ -92,14 +113,6 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
             default:
         }
         return state;
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        this.g2d = (Graphics2D) g;
-        for (Shape shape : shapes) {
-            this.getShapeState(shape).getDrawing();
-        }
     }
 
     public void setName(String name) {

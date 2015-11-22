@@ -23,11 +23,17 @@ public class AWTEllipse implements ShapeState {
         Graphics2D g = delegate.getGraphics2D();
 
         g.setColor(this.ellipse.getColor());
-        g.fillOval(this.ellipse.getCenter_x(), this.ellipse.getCenter_y(), this.ellipse.getRadius_x()*2, this.ellipse.getRadius_y()*2);
+        g.fillOval(this.ellipse.getCenter_x()-this.ellipse.getRadius_x()
+                , this.ellipse.getCenter_y()-this.ellipse.getRadius_y()
+                , this.ellipse.getRadius_x()*2
+                , this.ellipse.getRadius_y()*2);
 
         g.setColor(this.ellipse.getPencil().getColor());
         g.setStroke(new BasicStroke(this.ellipse.getPencil().getWidth()));
-        g.drawOval(this.ellipse.getCenter_x(), this.ellipse.getCenter_y(), this.ellipse.getRadius_x()*2, this.ellipse.getRadius_y()*2);
+        g.drawOval(this.ellipse.getCenter_x()-this.ellipse.getRadius_x()
+                , this.ellipse.getCenter_y()-this.ellipse.getRadius_y()
+                , this.ellipse.getRadius_x()*2
+                , this.ellipse.getRadius_y()*2);
 
         return this;
     }
