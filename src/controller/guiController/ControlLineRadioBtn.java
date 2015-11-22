@@ -6,15 +6,14 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import model.specific_path.Line;
 import view.GUI;
 
 //controller for the "Line" radio button in shapes section
 public class ControlLineRadioBtn implements Observer, ActionListener{
 
-	private Line modele;
 	private JLabel x1;
 	private JTextField x1Value;
 	private JLabel y1;
@@ -23,12 +22,14 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 	private JTextField x2Value;
 	private JLabel y2;
 	private JTextField y2Value;
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 	
 	private GUI gui;
 	
-	public ControlLineRadioBtn(Line modele, JLabel x1, JTextField x1Value, JLabel y1, JTextField y1Value, JLabel x2,
-			JTextField x2Value, JLabel y2, JTextField y2Value, GUI gui) {
-		this.modele = modele;
+	public ControlLineRadioBtn(JLabel x1, JTextField x1Value, JLabel y1, JTextField y1Value, JLabel x2,
+			JTextField x2Value, JLabel y2, JTextField y2Value, GUI gui, JRadioButton yesToFill,
+			JRadioButton noToFill) {
 		this.x1 = x1;
 		this.x1Value = x1Value;
 		this.y1 = y1;
@@ -38,6 +39,8 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 		this.y2 = y2;
 		this.y2Value = y2Value;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 	
 	@Override
@@ -54,6 +57,10 @@ public class ControlLineRadioBtn implements Observer, ActionListener{
 		this.x2Value.setVisible(true);
 		this.y2.setVisible(true);
 		this.y2Value.setVisible(true);
+		
+		//disable radio buttons for fill color
+		this.yesToFill.setEnabled(false);
+		this.noToFill.setEnabled(false);
 		
 	}
 

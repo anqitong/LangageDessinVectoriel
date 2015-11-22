@@ -618,31 +618,29 @@ public class GUI extends JFrame{
 		/* -------------------- Listeners ------------------------------------- */
 
 		//circle's listener
-		ControlCircleRadioBtn circleController = new ControlCircleRadioBtn(new Circle(),
+		ControlCircleRadioBtn circleController = new ControlCircleRadioBtn(
 				circleX, centerX, 
 				circleY, centerY, 
-				circleRadius, radiusValue,this);
+				circleRadius, radiusValue,this, yesToFill, noToFill);
 		circle.addActionListener(circleController);
-		circleModele.addObserver(circleController);
 
 		//ellipse's listener
-		ControlEllipseRadioBtn ellipseController = new ControlEllipseRadioBtn(ellipseModele,ellipseCenterX, 
+		ControlEllipseRadioBtn ellipseController = new ControlEllipseRadioBtn(ellipseCenterX, 
 				ellipseCenterValueX,ellipseCenterY, ellipseCenterValueY, ellipseRadiusX,
-				ellipseRadiusValueX, ellipseRadiusY, ellipseRadiusValueY,this);
+				ellipseRadiusValueX, ellipseRadiusY, ellipseRadiusValueY,this, yesToFill,
+				noToFill);
 		ellipse.addActionListener(ellipseController);
-		ellipseModele.addObserver(ellipseController);
 
 		//line's listener
-		ControlLineRadioBtn lineController = new ControlLineRadioBtn(lineModele,x1,x1Value, 
-				y1,y1Value,x2, x2Value, y2,  y2Value, this);
+		ControlLineRadioBtn lineController = new ControlLineRadioBtn(x1,x1Value, 
+				y1,y1Value,x2, x2Value, y2,  y2Value, this, yesToFill, noToFill);
 		line.addActionListener(lineController);
-		lineModele.addObserver(lineController);
 
 		//polygone's listener
 		ControlPolygoneRadioBtn polygoneController = new ControlPolygoneRadioBtn(polygoneModele, 
 				xListPolygone, xListPolygoneValues,yListPolygone, yListPolygoneValues, 
 				xInputPolygone, xInputPolygoneValue, yInputPolygone, yInputPolygoneValue,
-				addPointPolygone, this);
+				addPointPolygone, this, yesToFill, noToFill);
 		polygone.addActionListener(polygoneController);
 //		polygoneModele.addObserver(polygoneController);
 
@@ -654,12 +652,10 @@ public class GUI extends JFrame{
 		polygoneModele.addObserver(addPointPolygoneController);
 
 		//polyline's listener
-		ControlPolylineRadioBtn polylineController = new ControlPolylineRadioBtn(polylineModele, 
-				xListPolyline, xListPolylineValues, yListPolyline, yListPolylineValues, 
-				xInputPolyline, xInputPolylineValue, yInputPolyline, yInputPolylineValue,
-				addPointPolyline, this);
+		ControlPolylineRadioBtn polylineController = new ControlPolylineRadioBtn(
+				xListPolyline, xListPolylineValues, yListPolyline, yListPolylineValues, xInputPolyline, xInputPolylineValue, yInputPolyline, yInputPolylineValue,
+				addPointPolyline, this , yesToFill, noToFill);
 		polyline.addActionListener(polylineController);
-//		polylineModele.addObserver(polylineController);
 
 		//Polyline's addPoint button listener
 		ControlAddPointPolyline addPointPolylineController = new ControlAddPointPolyline(polylineModele, 
@@ -670,17 +666,15 @@ public class GUI extends JFrame{
 		
 		
 		//rectangle's listener
-		ControlRectangleRadioBtn rectangleController =  new ControlRectangleRadioBtn(rectangleModele,rectX, rectValueX, 
+		ControlRectangleRadioBtn rectangleController =  new ControlRectangleRadioBtn(rectX, rectValueX, 
 				rectY, rectValueY,rectWidth, rectWidthValue,rectHeight,
-				rectHeightValue, this);
+				rectHeightValue, this, yesToFill, noToFill);
 		rectangle.addActionListener(rectangleController);
-		rectangleModele.addObserver(rectangleController);
 
 		//text's listener
-		ControlTextRadioBtn textController = new ControlTextRadioBtn(textModele, textX, textValueX, 
-				textY, textValueY, textValueLabel, textValue, this);
+		ControlTextRadioBtn textController = new ControlTextRadioBtn(textX, textValueX, 
+				textY, textValueY, textValueLabel, textValue, this, yesToFill, noToFill);
 		text.addActionListener(textController);
-		textModele.addObserver(textController);
 
 		// fill radio buttons' controllers
 		ControlFillYesRadioBtn fillYesController = new ControlFillYesRadioBtn(fillRed, 

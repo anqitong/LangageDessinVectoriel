@@ -6,15 +6,14 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import model.specific_path.Text;
 import view.GUI;
 
 //controller for the "text" radio button
 public class ControlTextRadioBtn implements Observer, ActionListener{
 
-	private Text modele;
 	private JLabel textX;
 	private JTextField textValueX;
 	private JLabel textY;
@@ -22,11 +21,14 @@ public class ControlTextRadioBtn implements Observer, ActionListener{
 	private JLabel textValueLabel;
 	private JTextField textValue;
 	private GUI gui;
+	
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 
 
-	public ControlTextRadioBtn(Text modele, JLabel textX, JTextField textValueX, JLabel textY, JTextField textValueY,
-			JLabel textValueLabel, JTextField textValue, GUI gui) {
-		this.modele = modele;
+	public ControlTextRadioBtn(JLabel textX, JTextField textValueX, JLabel textY, JTextField textValueY,
+			JLabel textValueLabel, JTextField textValue, GUI gui, JRadioButton yesToFill,
+			JRadioButton noToFill) {
 		this.textX = textX;
 		this.textValueX = textValueX;
 		this.textY = textY;
@@ -34,6 +36,8 @@ public class ControlTextRadioBtn implements Observer, ActionListener{
 		this.textValueLabel = textValueLabel;
 		this.textValue = textValue;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 
 	@Override
@@ -48,19 +52,13 @@ public class ControlTextRadioBtn implements Observer, ActionListener{
 		this.textValueY.setVisible(true);
 		this.textValueLabel.setVisible(true);
 		this.textValue.setVisible(true);
+		
+		//disable radio buttons for fill color
+		this.yesToFill.setEnabled(false);
+		this.noToFill.setEnabled(false);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-//		if(this.textValueX.getText()!=null){
-//			this.modele.setX(Integer.parseInt(this.textValueX.getText().trim()));
-//		}
-//		if(this.textValueY.getText()!=null){
-//			this.modele.setY(Integer.parseInt(this.textValueY.getText().trim()));
-//		}
-//		if(this.textValue.getText()!=null){
-//			this.modele.setText(this.textValue.getText());
-//		}
-		
 	}
 }

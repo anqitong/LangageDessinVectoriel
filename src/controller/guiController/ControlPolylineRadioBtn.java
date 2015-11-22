@@ -1,23 +1,20 @@
 package controller.guiController;
 
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import model.specific_path.Polyline;
 import view.GUI;
 
 //controller for the "Polyline" radio button
 public class ControlPolylineRadioBtn implements Observer, ActionListener{
 
-	private Polyline modele;
 	private JLabel xListPolyline;
 	private JLabel xListPolylineValues;
 	private JLabel yListPolyline;
@@ -28,12 +25,15 @@ public class ControlPolylineRadioBtn implements Observer, ActionListener{
 	private JTextField yInputPolylineValue;
 	private JButton addPointPolyline;
 	private GUI gui;
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 	
 	
-	public ControlPolylineRadioBtn(Polyline modele, JLabel xListPolyline, JLabel xListPolylineValues,
+	
+	public ControlPolylineRadioBtn(JLabel xListPolyline, JLabel xListPolylineValues,
 			JLabel yListPolyline, JLabel yListPolylineValues, JLabel xInputPolyline, JTextField xInputPolylineValue,
-			JLabel yInputPolyline, JTextField yInputPolylineValue, JButton addPointPolyline, GUI gui) {
-		this.modele = modele;
+			JLabel yInputPolyline, JTextField yInputPolylineValue, JButton addPointPolyline, GUI gui,
+			JRadioButton yesToFill, JRadioButton noToFill) {
 		this.xListPolyline = xListPolyline;
 		this.xListPolylineValues = xListPolylineValues;
 		this.yListPolyline = yListPolyline;
@@ -44,6 +44,8 @@ public class ControlPolylineRadioBtn implements Observer, ActionListener{
 		this.yInputPolylineValue = yInputPolylineValue;
 		this.addPointPolyline = addPointPolyline;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 	
 	@Override
@@ -62,21 +64,14 @@ public class ControlPolylineRadioBtn implements Observer, ActionListener{
 		this.yInputPolyline.setVisible(true);
 		this.yInputPolylineValue.setVisible(true);
 		this.addPointPolyline.setVisible(true);
+		
+		//disable radio buttons for fill color
+		this.yesToFill.setEnabled(false);
+		this.noToFill.setEnabled(false);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-//		ArrayList<Point> liste = this.modele.getPoints();
-//		if(liste!=null && liste.size()>0){
-//			String xList = "";
-//			String yList = "";
-//			for(int i = 0;i<liste.size();i++){
-//				xList+=liste.get(i).getX()+";";
-//				yList+=liste.get(i).getY()+";";
-//			}
-//			this.xListPolylineValues.setText(xList);
-//			this.yListPolylineValues.setText(yList);
-//		}
 	}
 
 }

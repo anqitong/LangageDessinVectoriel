@@ -6,6 +6,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import model.specific_path.Rectangle;
@@ -15,7 +16,6 @@ import view.GUI;
 public class ControlRectangleRadioBtn implements Observer, ActionListener{
 	
 
-	private Rectangle modele;
 	private GUI gui;
 	
 	private JLabel rectX;
@@ -26,11 +26,13 @@ public class ControlRectangleRadioBtn implements Observer, ActionListener{
 	private JTextField rectWidthValue;
 	private JLabel rectHeight;
 	private JTextField rectHeightValue;
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 	
-	public ControlRectangleRadioBtn(Rectangle modele, JLabel rectX, JTextField rectValueX, JLabel rectY,
+	public ControlRectangleRadioBtn(JLabel rectX, JTextField rectValueX, JLabel rectY,
 			JTextField rectValueY, JLabel rectWidth, JTextField rectWidthValue, JLabel rectHeight,
-			JTextField rectHeightValue, GUI gui) {
-		this.modele = modele;
+			JTextField rectHeightValue, GUI gui, JRadioButton yesToFill,
+			JRadioButton noToFill) {
 		this.rectX = rectX;
 		this.rectValueX = rectValueX;
 		this.rectY = rectY;
@@ -40,6 +42,8 @@ public class ControlRectangleRadioBtn implements Observer, ActionListener{
 		this.rectHeight = rectHeight;
 		this.rectHeightValue = rectHeightValue;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 	
 	@Override
@@ -56,31 +60,14 @@ public class ControlRectangleRadioBtn implements Observer, ActionListener{
 		rectWidthValue.setVisible(true);
 		rectHeight.setVisible(true);
 		rectHeightValue.setVisible(true);
+		
+		//enable radio buttons for fill color
+		this.yesToFill.setEnabled(true);
+		this.noToFill.setEnabled(true);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		this.gui.hideComponents();
-		rectX.setVisible(true);
-		rectValueX.setVisible(true);
-		rectY.setVisible(true);
-		rectValueY.setVisible(true);
-		rectWidth.setVisible(true);
-		rectWidthValue.setVisible(true);
-		rectHeight.setVisible(true);
-		rectHeightValue.setVisible(true);
-//		if(rectValueX.getText()!=null){
-//			this.modele.setX(Integer.parseInt(rectValueX.getText().trim()));
-//		}
-//		if(rectValueY.getText()!=null){
-//			this.modele.setY(Integer.parseInt(rectValueY.getText().trim()));
-//		}
-//		if(rectWidthValue.getText()!=null){
-//			this.modele.setWidth(Integer.parseInt(rectWidthValue.getText().trim()));
-//		}
-//		if(rectHeightValue.getText()!=null){
-//			this.modele.setHeight(Integer.parseInt(rectHeightValue.getText().trim()));
-//		}
 	}
 
 }

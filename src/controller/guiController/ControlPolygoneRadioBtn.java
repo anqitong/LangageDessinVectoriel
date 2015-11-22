@@ -9,6 +9,7 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import model.specific_path.Polygone;
@@ -28,11 +29,14 @@ public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 	private JTextField yInputPolygoneValue;
 	private JButton addPointPolygone;
 	private GUI gui;
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 	
 	
 	public ControlPolygoneRadioBtn(Polygone modele, JLabel xListPolygone, JLabel xListPolygoneValues,
 			JLabel yListPolygone, JLabel yListPolygoneValues, JLabel xInputPolygone, JTextField xInputPolygoneValue,
-			JLabel yInputPolygone, JTextField yInputPolygoneValue, JButton addPointPolygone,GUI gui) {
+			JLabel yInputPolygone, JTextField yInputPolygoneValue, JButton addPointPolygone,GUI gui, 
+			JRadioButton yesToFill, JRadioButton noToFill) {
 		this.modele = modele;
 		this.xListPolygone = xListPolygone;
 		this.xListPolygoneValues = xListPolygoneValues;
@@ -44,6 +48,8 @@ public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 		this.yInputPolygoneValue = yInputPolygoneValue;
 		this.addPointPolygone = addPointPolygone;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 
 	@Override
@@ -61,6 +67,10 @@ public class ControlPolygoneRadioBtn implements Observer, ActionListener{
 		this.yInputPolygone.setVisible(true);
 		this.yInputPolygoneValue.setVisible(true);
 		this.addPointPolygone.setVisible(true);
+
+		//enable radio buttons for fill color
+		this.yesToFill.setEnabled(true);
+		this.noToFill.setEnabled(true);
 	}
 
 	@Override

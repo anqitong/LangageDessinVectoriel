@@ -6,13 +6,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.*;
-import model.specific_path.Ellipse;
 import view.GUI;
 
 //controller for the ellipse radio button
 public class ControlEllipseRadioBtn implements Observer, ActionListener{
 
-	private Ellipse modele;
 	private JLabel ellipseCenterX;
 	private JTextField ellipseCenterValueX;
 	private JLabel ellipseCenterY;
@@ -23,13 +21,15 @@ public class ControlEllipseRadioBtn implements Observer, ActionListener{
 	private JTextField ellipseRadiusValueY;
 	
 	private GUI gui;
+	
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
 
 
-	public ControlEllipseRadioBtn(Ellipse modele, JLabel ellipseCenterX, JTextField ellipseCenterValueX,
+	public ControlEllipseRadioBtn(JLabel ellipseCenterX, JTextField ellipseCenterValueX,
 			JLabel ellipseCenterY, JTextField ellipseCenterValueY, JLabel ellipseRadiusX,
 			JTextField ellipseRadiusValueX, JLabel ellipseRadiusY, JTextField ellipseRadiusValueY,
-			GUI gui) {
-		this.modele = modele;
+			GUI gui, JRadioButton yesToFill, JRadioButton noToFill) {
 		this.ellipseCenterX = ellipseCenterX;
 		this.ellipseCenterValueX = ellipseCenterValueX;
 		this.ellipseCenterY = ellipseCenterY;
@@ -39,6 +39,8 @@ public class ControlEllipseRadioBtn implements Observer, ActionListener{
 		this.ellipseRadiusY = ellipseRadiusY;
 		this.ellipseRadiusValueY = ellipseRadiusValueY;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 
 	@Override
@@ -55,6 +57,10 @@ public class ControlEllipseRadioBtn implements Observer, ActionListener{
 		this.ellipseRadiusValueX.setVisible(true);
 		this.ellipseRadiusY.setVisible(true);
 		this.ellipseRadiusValueY.setVisible(true);
+		
+		//enable radio buttons for fill color
+		this.yesToFill.setEnabled(true);
+		this.noToFill.setEnabled(true);
 	}
 
 	@Override

@@ -2,41 +2,33 @@ package controller.guiController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
-import model.specific_path.Circle;
 import view.GUI;
 
 //controller for the radio button "circle3
 public class ControlCircleRadioBtn implements Observer, ActionListener {
 
-	private Circle modele;
 	private JLabel circleX;
 	private	JTextField centerX;
 	private	JLabel circleY;
 	private	JTextField centerY;
 	private	JLabel circleRadius;
 	private	JTextField radiusValue;
-	
-	
 	private GUI gui;
+	private JRadioButton yesToFill;
+	private JRadioButton noToFill;
+	
+	
 	
 	//represents all the JLabel and JTextField of the GUI
 
-	public ControlCircleRadioBtn(Circle modele, JLabel circleX, JTextField centerX, 
+	public ControlCircleRadioBtn(JLabel circleX, JTextField centerX, 
 			JLabel circleY, JTextField centerY, JLabel circleRadius, JTextField radiusValue,
-			GUI gui){
-		this.modele = modele;
+			GUI gui, JRadioButton yesToFill, JRadioButton noToFill){
 		this.circleX = circleX;
 		this.centerX = centerX;
 		this.circleY = circleY;
@@ -44,6 +36,8 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 		this.circleRadius = circleRadius;
 		this.radiusValue = radiusValue;
 		this.gui = gui;
+		this.yesToFill = yesToFill;
+		this.noToFill = noToFill;
 	}
 	
 	@Override
@@ -59,6 +53,10 @@ public class ControlCircleRadioBtn implements Observer, ActionListener {
 		this.centerY.setVisible(true);
 		this.circleRadius.setVisible(true);
 		this.radiusValue.setVisible(true);
+		
+		//enable radio buttons for fill color
+		this.yesToFill.setEnabled(true);
+		this.noToFill.setEnabled(true);
 	}
 
 	@Override
