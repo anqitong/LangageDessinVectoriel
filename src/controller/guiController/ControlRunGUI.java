@@ -12,7 +12,7 @@ import model.presentation.awt.AWTFrame;
 public class ControlRunGUI implements ActionListener{
 
 	private AWTFrame awt;
-
+	private Object lock = new Object(); 
 	private ArrayList<Shape> shapeList;
 
 	public ControlRunGUI(ArrayList<Shape> shapeList) {

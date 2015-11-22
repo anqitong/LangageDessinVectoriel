@@ -26,7 +26,7 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
     private Graphics2D g2d = null;
 
     public AWTFrame(String name, Canvas canvas) {
-        this.setCanvas(canvas);
+    	this.setCanvas(canvas);
         this.setName(name);
     }
 
@@ -52,10 +52,11 @@ public class AWTFrame extends Frame implements Presentation, StateDelegate {
         this.setTitle(name);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent){
-                System.exit(0);
+//                System.exit(0);
+                windowEvent.getWindow().dispose();
             }
         });
-
+        
         this.setVisible(true);
         return this;
     }
