@@ -52,7 +52,7 @@ You can run the AWT preview before you save the image. Once you added your shape
 
 ###Save the drawing : 
 
-Add the bottom of the right panel you will see a text field to enter the name you want for the svg file. Once you completed it, you can click on the save button and the svg file will be saved in *files*, and also opened.
+At the bottom of the right panel you will see a text field to enter the name you want for the svg file. Once you completed it, you can click on the save button and the svg file will be saved in *files*, and also opened.
 
 
 ## Using the Drawing Language:
@@ -152,6 +152,12 @@ If you want to open that file in your default browser, call the view() method:
 		svg.view();
 		
 The file must have been created for it to be displayed without error.
+
+If you want to use the second interpretation and see the image in a window, without the creation of a file, you can do:
+
+	    	AWTFrame awt = new AWTFrame("name", new Canvas(...)); // See Canvas for that
+            	awt.addShapes(painter.getShapes());
+            	awt.createDrawing();
 
 
 ## More information
