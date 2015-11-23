@@ -9,11 +9,11 @@ The subject of the subject is described [here](http://www.grall.name/teaching/so
 Once the project is retrieved, you can use it to create graphics. With this project, you have three ways to draw an image. Firstly, using the GUI to draw, which is easy to use; or you can use a drawing language based on Java, which is less intuitive but you will gain more control from it. Then you have the basic java language to draw.
 The last two ways have example of code to help you use it.
 
-In the package src/view, you will find 3 classes needed:
+In the package `src/view`, you will find 3 classes needed:
 
-view.GUI: This is the entrance for our GUI.
-view.Painting: Here is the "drawing language" that we defined. It is a script that you could modify to tell the software what it should draw.
-view.Draw: Where you can write what you want to draw directly, allowing you to have more control on things. But in another hand it will be less intuitive as the two other methods.
+- `view.GUI`: This is the entrance for our GUI.
+- `view.Painting`: Here is the "drawing language" that we defined. It is a script that you could modify to tell the software what it should draw.
+- `view.Draw`: Where you can write what you want to draw directly, allowing you to have more control on things. But in another hand it will be less intuitive as the two other methods.
 
 Lets start by explaining how to use the three differents input to create vectoriel drawing.
 
