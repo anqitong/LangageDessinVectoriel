@@ -166,8 +166,8 @@ For more information you can check our [wiki](https://github.com/anqitong/Langag
 
 ## Team Members:
 
-Anqi Tong
+[Anqi Tong](https://github.com/anqitong)
 
-Thomas Garesse
+[Thomas Garesse](https://github.com/Thomas-dot-G)
 
-Xiaxing Shi
+[Xiaxing Shi](https://github.com/starsasumi)
