@@ -171,5 +171,7 @@ public class TestSVG {
 		Assert.assertEquals(xml, svg.getXmlcontent());
 
 	}
+	
+	//See if travis works !
 
 }
